@@ -1,0 +1,6 @@
+<h1>All Reviews</h1>
+<% @reviews.each do | review | %> 
+  <p><%= review.product %></p>
+  <p><%= review.text %></p>
+  <p><%= review.rating %> / 5 </p>
+<% end %>

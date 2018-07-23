@@ -11,8 +11,14 @@ class ReviewsController < ApplicationController
   def show
     @review = Review.find(params[:id]) 
   end 
+  def index
+    @reviews = Review.all 
+  end 
+  def update
+    @review = Review.find(params[:id]) 
+  end 
   private 
   def review_params
-      params.require(:review).permit(:product, :text)
+      params.require(:review).permit(:product, :text, :rating)
   end 
 end

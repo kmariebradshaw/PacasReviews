@@ -13,8 +13,9 @@
 ActiveRecord::Schema.define(version: 2018_07_02_183526) do
 
   create_table "reviews", force: :cascade do |t|
-    t.string "product"
-    t.text "text"
+    t.string "product", null: false
+    t.text "text", null: false
+    t.integer "rating", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
