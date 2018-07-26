@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product. save
-      redirect_to @product
+      redirect_to '/products'
     else
       render 'new'
     end 
@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
   end 
   def index
     @products = Product.all 
+    @product = Product.new
   end 
   def update
     @product = Product.find(params[:id]) 

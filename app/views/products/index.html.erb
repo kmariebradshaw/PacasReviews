@@ -3,3 +3,36 @@
   <h2><%= product.title %></h2>
   <p><%= product.size %> | <%= product.color %></p>
 <% end %>
+
+<h1>New Product</h1>
+
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@product.errors.count, "error") %>
+      </h2>
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for @product do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :size %><br>
+    <%= f.text_field :size %>
+  </p>
+  <p>
+    <%= f.label :color %><br>
+    <%= f.text_field :color %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
