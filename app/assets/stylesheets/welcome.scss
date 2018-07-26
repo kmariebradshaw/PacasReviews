@@ -17,8 +17,7 @@ section {
 section:last-of-type {
   margin-bottom: 0 !important;
 }
-
-section:first-of-type {
+.page_wrapper {
   margin-top: 90px;
 }
 #hero { 
@@ -141,4 +140,6 @@ nav {
     display: table;
 }
 
-
+.active {
+  border-bottom: 2px solid $primary-color;
+}

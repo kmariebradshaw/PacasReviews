@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2018_07_26_154121) do
     t.string "product", null: false
     t.text "text", null: false
     t.integer "rating", null: false
+    t.boolean "status", default: false
+    t.boolean "hightlight", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

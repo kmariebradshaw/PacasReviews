@@ -5,6 +5,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.text :text, null: false
       t.integer :rating, null: false
       t.boolean :status, default: false 
+      t.boolean :hightlight, default: false
 
       t.timestamps
     end
