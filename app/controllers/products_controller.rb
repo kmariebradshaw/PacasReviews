@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     if @product. save
       redirect_to '/products'
     else
-      render 'new'
+      render 'index'
     end 
   end 
   def show
