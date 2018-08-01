@@ -1,6 +1,9 @@
+<h1><%= @positive %></h1>
+<p>4+ star reviews and counting</p>
+
 <h1>All Reviews</h1>
 <% @reviews.each do | review | %> 
-  <p><%= review.product %></p>
+  <p><%= review.product.title %></p>
   <p><%= review.text %></p>
   <p><%= review.rating %> / 5 </p>
 <% end %>

@@ -16,6 +16,8 @@ class ReviewsController < ApplicationController
   end 
   def index
     @reviews = Review.all 
+        @positive = @reviews.where("rating >= ?", 4).count
+
   end 
   def update
     @review = Review.find(params[:id]) 

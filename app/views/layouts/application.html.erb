@@ -4,8 +4,8 @@
     <title>Gekks | Reviews</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,900" rel="stylesheet">
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,10 +14,8 @@
 
   <body>
     <nav class="clearfix">
-      <a href="/"><%= image_tag("blogo.png", :class => "blogo") %></a>
       <ul>
         <li><a href="/reviews">Reviews</a></li>
-        <li><a href="/products">Products</a></li>
         <li>Logout</li>
       </ul>
     </nav>
