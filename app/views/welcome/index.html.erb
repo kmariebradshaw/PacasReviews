@@ -1,0 +1,25 @@
+<section id="review-count">
+<h1><%=  number_with_delimiter(@positive, :delimiter => ',') %></h1>
+<p>4+ star reviews and counting</p>
+</section>
+<section>
+<% if @pending_reviews.count > 0 %>
+<h1>New Reviews</h1>
+  <% @pending_reviews.each do | review | %> 
+    <p><%= review.product.title %></p>
+    <p><%= review.text %></p>
+    <p><%= review.rating %> / 5 </p>
+  <% end %> 
+<% else %>
+<h1>No New Reviews</h1>
+  <p class="active">like inbox zero but for reviews</p>
+<% end %>
+</section>
+<section>
+  <h1>Latest Reviews</h1>
+  <ul>
+    <% @reviews.limit(10).each do | review | %>
+      <li><b><%= review.product.title %> | <%= review.rating %> : </b> <%= review.text %></li>
+    <% end %>
+  </ul>
+</section> 
