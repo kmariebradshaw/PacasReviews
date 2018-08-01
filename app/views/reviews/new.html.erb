@@ -14,8 +14,7 @@
   <% end %>
 <%= form_for @review do |f| %>
   <p>
-    <%= f.label :product %><br>
-    <%= f.text_field :product %>
+    <%= f.collection_select :product_id, Product.all, :id, :title, {prompt: "Select Product"} %><br>
   </p>
   <p>
     <%= f.label :text %><br>
@@ -33,5 +32,3 @@
     <%= f.submit %>
   </p>
 <% end %>
-
-<%= link_to 'All Reviews', reviews_path %>

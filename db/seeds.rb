@@ -3,5 +3,11 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create([{ title: 'Star Wars' }, { title: 'Lord of the Rings' }])
+#   Character.create(title: 'Luke', movie: movies.first)
+
+Product.create([{title: "Women's Closet Pack", category: "W"},{title:
+"Ballet Flats", category: "W"}, {title: "Loafers and Slip-Ons",
+category: "W"}, {title: "Sneakers and Lace-Ups", category: "W"}, {title:
+"Loafers and Slip-Ons", category: "M"}, {title: "Sneakers and Lace-
+Ups", category: "M"}, {title: "Men's Closet Pack", category: "M"}])
