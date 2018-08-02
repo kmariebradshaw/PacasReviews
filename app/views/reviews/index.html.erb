@@ -1,7 +1,12 @@
 
-<h1>All Reviews</h1>
+<h1 class="page-title">Reviews</h1>
+<p class="sort"><b>Sort By:</b> <span class="active"> Date </span>|<span> Rating </span>|<span> Product </span>
+<p class="view"><b>view:</b> <span> 100 </span>|<span class="active"> 250 </span>|<span> 500 </span>|<span> All</span> 
+  <p style="font-size: 20pt; width: fit-content; margin: 0 auto;"><%= link_to("↧", reviews_path(format: :csv), class: "btn btn-success",) %></p>
+<ul class="review-list">
 <% @reviews.each do | review | %> 
-  <p><%= review.product.title %></p>
-  <p><%= review.text %></p>
-  <p><%= review.rating %> / 5 </p>
+  <li><b><%= review.product.title %> | <%= review.rating %></b> : <%= review.text %></li>
 <% end %>
+</ul>
+
+<%= will_paginate @reviews %>
