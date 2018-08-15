@@ -4,12 +4,7 @@
 <p class="view"><b>view:</b> <span> 100 </span>|<span class="active"> 250 </span>|<span> 500 </span>|<span> All</span> 
   <p style="font-size: 20pt; width: fit-content; margin: 0 auto;"><%= link_to("↧", reviews_path(format: :csv), class: "btn btn-success",) %></p>
 <ul class="review-list">
-  <% if URI.include?('order_desc') %>
-    <% elsif URI.include?('rating_desc') %>
-    <% elsif URI.include?('product_desc') %>
-    <% else %>
     <% @reviews.each do | review | %> 
-  <% end %> 
   <li><b><%= review.product.title %> | <%= review.rating %></b> : <%= review.text %></li>
 <% end %>
 </ul>

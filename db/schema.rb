@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2018_08_01_183320) do
     t.text "text", null: false
     t.integer "rating", null: false
     t.string "status", default: "pending"
+    t.integer "votes", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "product_id"
