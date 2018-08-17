@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_215024) do
+ActiveRecord::Schema.define(version: 2018_08_17_215320) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string "text"
+    t.integer "vote", default: 0
+    t.text "response"
+    t.integer "question_id", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "title", null: false
@@ -21,8 +28,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_215024) do
 
   create_table "questions", force: :cascade do |t|
     t.string "text"
-    t.integer "vote"
-    t.text "response"
+    t.string "response_type"
   end
 
   create_table "reviews", force: :cascade do |t|
