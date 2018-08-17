@@ -1,0 +1,20 @@
+<h1>Survey Results</h1>
+<a href="/questions/new"><p>Add a Question</p></a>
+  <p style="font-size: 20pt; width: fit-content; margin: 0 auto;">↧</p>
+
+<% @questions.each do | question | %>
+  <h3><%=question.text%></h2>
+  <% if question.answers.count > 0 %>
+    <ul>
+      <% question.answers.each do | answer | %>
+        <li><%= answer %> <%= answer.vote %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No answers yet</p>
+  <% end %> 
+<% end %>   
+
+<style>
+  h1, p, h3 { text-align: center; }
+</style>
