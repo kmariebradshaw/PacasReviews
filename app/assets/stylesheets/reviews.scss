@@ -1,3 +1,113 @@
-// Place all the styles related to the Reviews controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$primary-color: #33ffcc;
+
+body { 
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif; }
+
+nav ul { 
+  list-style: none;
+  float: right;
+  li { 
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+  }
+}
+
+.blogo { 
+max-width: 110px;
+padding: 10px;
+ }
+
+.clearfix {
+    overflow: auto;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.active, .green {
+  color: $primary-color; 
+}
+
+#review-count {
+  text-align: center;
+  h1 { 
+    font-size: 104pt;
+    font-weight: 700;
+    margin: 0px;
+  }
+  p { font-size: 12pt;}
+}
+
+section {
+  padding: 2%;
+  width: fit-content;
+  max-width: 1000px;
+  margin: 0 auto;
+  h1 { 
+    font-size: 28pt; 
+    font-weight: 700; 
+    text-align: center;
+    margin-bottom: 0;
+  }
+  p {text-align: center;}
+  ul {
+    text-align: left; 
+    li { margin: 15px 0; }   
+  }
+}
+
+table {
+td { padding: 10px; border-bottom: 2px solid whitesmoke;}
+}
+.approval, .denial { 
+  font-size: 20pt;
+  cursor: pointer;
+}
+
+form { display: inline-block; }
+
+  .page-title { 
+    text-align: center;
+    font-size: 42pt;
+  }
+.sort, .view {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 10pt;
+    line-height: 1;
+    margin: 10px;
+    span { cursor: pointer; } 
+}
+
+.red { color: red; }
+
+.review-list { 
+  max-width: 1000px;
+  margin: 50px auto;
+  list-style: none;
+  font-size: 10pt;
+  li { margin: 20px; }
+}
+
+.pagination {
+  font-family: 'Montserrat' sans-serif;
+  display: block;
+  text-align: center;
+  a { text-decoration: none; color: black;}
+  .current { color: $primary-color; font-style: normal; }
+}
+
+a {text-decoration: none; color: black;}

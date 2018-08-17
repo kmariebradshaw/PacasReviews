@@ -1,5 +1,65 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<section id="review-count">
+<h1><%=  number_with_delimiter(@positive, :delimiter => ',') %></h1>
+<p>4+ star reviews and counting</p>
+</section>
 
-<%= link_to 'New Review', new_review_path %>
-<%= link_to 'All Reviews', controller: 'reviews' %>
+<section>
+<% if @pending_reviews.count > 0 %>
+  <h1>New Reviews</h1>
+  <h3 class="decision-feedback" style="display: none;text-align: center;font-weight: normal;"></h3>
+<table style="width: 100%;margin: 20px;">
+
+<% @pending_reviews.each do | review | %>
+  <tr>
+    <td style="width: 15%;">
+      <%= form_for(review, remote: true) do |fa| %>
+      <%= fa.hidden_field :status, :value => "approved" %>
+      <%= fa.submit "✔", class: "green decision approval" %>
+      <% end %>
+      <%= form_for(review, remote: true) do |fa| %>
+      <%= fa.hidden_field :status, :value => "hidden" %>
+      <%= fa.submit "✘", class: "decision denial" %>
+    <% end %></td>
+    <td style="width: 20%;text-transform: uppercase;"><b><%= review.product.title %> | <%= review.rating %></b></td>
+    <td style="width: 65%;font-size: 10pt;"><%= review.text %></td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+<h1>No New Reviews</h1>
+  <p class="green">like inbox zero but for reviews</p>
+<% end %>
+</section>
+
+ <section>
+  <h1>Latest Reviews</h1>
+  <ul>
+    <% @not_pending_reviews.limit(10).each do | review | %>
+      <% if review.status == "denied" %>
+      <div class="hidden">
+      <% else %>
+      <div>
+      <% end %>
+      <li><b><%= review.product.title %> | <%= review.rating %> : </b> <%= review.text %></li>
+    </div>
+    <% end %>
+  </ul>
+</section> 
+<style>
+form {
+  display: inline-block;
+} 
+</style>
+<script>
+  $('.decision').click(function () {
+    $(this).parent().parent().parent().hide();
+    $('.decision-feedback').hide(); 
+    if ($(this).hasClass('approval')) {
+      $('.decision-feedback').removeClass('red').addClass('green').text('approved').show();
+    }
+    else if ($(this).hasClass('denial')) {
+      $('.decision-feedback').removeClass('green').addClass('red').text('removed').show();
+
+    }
+  })
+</script>
