@@ -7,7 +7,7 @@
   <% if question.answers.count > 0 %>
     <ul>
       <% question.answers.each do | answer | %>
-        <li><%= answer %> <%= answer.vote %></li>
+        <li><%= answer.text %> | <%= answer.vote %></li>
       <% end %>
     </ul>
   <% else %>
@@ -17,4 +17,5 @@
 
 <style>
   h1, p, h3 { text-align: center; }
+  ul { width: fit-content; margin: 0 auto; }
 </style>
