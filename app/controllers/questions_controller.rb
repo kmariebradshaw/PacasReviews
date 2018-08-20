@@ -22,6 +22,9 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id]) 
     @question.update(question_params)
   end 
+  def edit 
+    @question = Question.find(params[:id])
+  end 
   private 
   def question_params
       params.require(:question).permit(:text, :response_type)

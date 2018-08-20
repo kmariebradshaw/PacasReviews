@@ -1,17 +1,6 @@
-  <h3><%= @question.text %></h3>
- <% if @question.answers.count > 0 %>
-    <ul>
-      <% @question.answers.each do | answer | %>
-        <li><%= answer.text %> | <%= answer.vote %> | <%= link_to 'Edit', edit_answer_path(answer) %></li>
 
-      <% end %>
-    </ul>
-  <% else %>
-    <p>No answers yet</p>
-  <% end %> 
-
-
-  <h1>Add an Answer </h1>
+<h1>Edit answer</h1>
+ 
   <% if @answer.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -25,7 +14,7 @@
     </div>
   <% end %>
 <%= form_for @answer do |f| %>
-<%= f.hidden_field :question_id, :value => @question.id %>
+<%= f.hidden_field :question_id, :value => @answer.question.id %>
 
   <p>
     <%= f.label :text %><br>
@@ -35,3 +24,4 @@
     <%= f.submit %>
   </p>
 <% end %>
+
