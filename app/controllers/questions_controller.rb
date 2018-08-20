@@ -18,13 +18,25 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id]) 
     @answer = Answer.new 
   end 
-  def update
-    @question = Question.find(params[:id]) 
-    @question.update(question_params)
-  end 
-  def edit 
+  def edit
     @question = Question.find(params[:id])
   end 
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to @question
+    else 
+      render 'edit'
+    end 
+  end 
+
+def destroy
+  @question = Question.find(params[:id])
+  @question.destroy
+ 
+  redirect_to '/questions'
+end
   private 
   def question_params
       params.require(:question).permit(:text, :response_type)
