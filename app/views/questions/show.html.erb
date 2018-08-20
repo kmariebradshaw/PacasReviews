@@ -2,7 +2,8 @@
  <% if @question.answers.count > 0 %>
     <ul>
       <% @question.answers.each do | answer | %>
-        <li><%= answer.text %> | <%= answer.vote %> | <%= link_to 'Edit', edit_answer_path(answer) %></li>
+        <li><%= answer.text %> | <%= answer.vote %> | <%= link_to 'Edit', edit_answer_path(answer) %> | <%= link_to 'Delete', answer_path(answer),
+              method: :delete %></li>
 
       <% end %>
     </ul>

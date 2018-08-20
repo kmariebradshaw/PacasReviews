@@ -20,6 +20,13 @@ class AnswersController < ApplicationController
       render 'edit'
     end 
   end 
+
+def destroy
+  @answer = Answer.find(params[:id])
+  @answer.destroy
+ 
+  redirect_to @answer.question
+end
   private 
   def answer_params
       params.require(:answer).permit(:text, :vote, :question_id, :response)
