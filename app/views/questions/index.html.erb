@@ -1,13 +1,30 @@
 <h1>Survey Results</h1>
 <a href="/questions/new"><p>Add a Question</p></a>
   <p style="font-size: 20pt; width: fit-content; margin: 0 auto;">↧</p>
-
+ <% if @response.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@response.errors.count, "error") %>
+      </h2>
+      <ul>
+        <% @response.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% @questions.each do | question | %>
   <h3><%= link_to question.text, question %></h3>
   <% if question.answers.count > 0 %>
     <ul>
       <% question.answers.each do | answer | %>
-        <li><%= answer.text %> | <%= answer.vote %></li>
+        <li><%= answer.text %> | <%= answer.responses.count %> | <%= (answer.responses.count.to_f / question.responses.count.to_f).round(2)*100 %>% 
+          <%= form_for @response do |f| %>
+            <%= f.hidden_field :answer_id, :value => answer.id %>
+            <%= f.hidden_field :vote, :value => 1 %>
+            <%= f.submit "+" %>
+          <% end %>
+            </li>
       <% end %>
     </ul>
   <% else %>
