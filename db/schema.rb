@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 2018_10_19_202553) do
 
   create_table "answers", force: :cascade do |t|
     t.string "text"
-    t.integer "vote", default: 0
     t.text "response"
     t.integer "question_id", null: false
   end
@@ -31,6 +30,12 @@ ActiveRecord::Schema.define(version: 2018_10_19_202553) do
     t.string "response_type"
   end
 
+  create_table "responses", force: :cascade do |t|
+    t.integer "vote", default: 0
+    t.integer "answer_id", null: false
+    t.text "description"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "text", null: false
     t.integer "rating", null: false
@@ -39,11 +44,6 @@ ActiveRecord::Schema.define(version: 2018_10_19_202553) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "product_id"
-  end
-
-  create_table "table_reponses", force: :cascade do |t|
-    t.integer "votes", default: 0
-    t.text "response"
   end
 
 end
