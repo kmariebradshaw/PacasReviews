@@ -18,7 +18,7 @@
   <% if question.answers.count > 0 %>
     <ul>
       <% question.answers.each do | answer | %>
-        <li><%= answer.text %> | <%= answer.responses.count %> | 
+        <li><%= answer.text %> | <%= answer.responses.count %> | <%= (answer.responses.count.to_f / question.responses.count.to_f).round(2)*100 %>% 
           <%= form_for @response do |f| %>
             <%= f.hidden_field :answer_id, :value => answer.id %>
             <%= f.hidden_field :vote, :value => 1 %>
