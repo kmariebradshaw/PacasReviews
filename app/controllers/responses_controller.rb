@@ -4,11 +4,11 @@ class ResponsesController < ApplicationController
   end 
   def create
     @response = Response.new(response_params)
-    @response.upvote  
     if @response.save
       redirect_to @response
     else
-      render 'new'
+      @questions = Question.all
+      render :template => "questions/index"
     end 
   end 
   def update
@@ -17,6 +17,6 @@ class ResponsesController < ApplicationController
   end 
   private 
   def response_params
-      params.require(:response).permit(:vote, :description)
+      params.require(:response).permit(:vote, :description, :answer_id)
   end 
 end

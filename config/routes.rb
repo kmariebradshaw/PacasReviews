@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :questions
   resources :reviews
   resources :answers
+  resources :responses
     root 'welcome#index'
 
 end
