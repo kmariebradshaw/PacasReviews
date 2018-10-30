@@ -35,6 +35,10 @@
     <%= f.label :text %><br>
     <%= f.text_area :text %>
   </p>
+  <p><%= f.label "Add a Text Response" %>
+         <%= f.check_box :other_description, :value => true %>
+
+  </p>
   <p>
     <%= f.submit %>
   </p>

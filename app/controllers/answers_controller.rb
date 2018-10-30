@@ -29,6 +29,6 @@ def destroy
 end
   private 
   def answer_params
-      params.require(:answer).permit(:text, :vote, :question_id, :response)
+      params.require(:answer).permit(:text, :vote, :question_id, :response, :other_description)
   end 
 end 
