@@ -18,13 +18,30 @@
   <% if question.answers.count > 0 %>
     <ul>
       <% question.answers.each do | answer | %>
-        <li><%= answer.text %> | <%= answer.responses.count %> | <%= (answer.responses.count.to_f / question.responses.count.to_f).round(2)*100 %>% 
+        <li><%= answer.text %> | <%= answer.responses.count %> | 
+          <%= (answer.responses.count.to_f / question.responses.count.to_f).round(2)*100 %>% 
+          <%if answer.other_description %>
+            <%= form_for @response do |f| %>
+              <%= f.hidden_field :answer_id, :value => answer.id %>
+              <%= f.hidden_field :vote, :value => 1 %>
+              <%= f.label "please describe" %><br>
+              <%= f.text_area :description 
+              %>
+              <%= f.submit %>
+            <% end %>
+            <ul>
+              <% answer.responses.each do | response | %>
+              <li><%= response.description %></li>
+              <% end %>
+            </ul>
+          <% else %>
           <%= form_for @response do |f| %>
             <%= f.hidden_field :answer_id, :value => answer.id %>
             <%= f.hidden_field :vote, :value => 1 %>
             <%= f.submit "+" %>
           <% end %>
-            </li>
+          <% end %>
+      
       <% end %>
     </ul>
   <% else %>
