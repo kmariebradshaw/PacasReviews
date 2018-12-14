@@ -12,7 +12,12 @@
          <% if review.author_last %>
             <span class="ttu"><%= review.author_last.first(1) %>.</span> 
           <% end %>
-       <span class="text-green">STARS</span></h3>
+        <span class="text-green star-wrapper">
+          <% review.rating.times do%>
+            ★
+          <% end %>
+        </span>
+        </h3>
         <p><%= review.text %></p>
       </div>
       <div class="half tar">
@@ -31,7 +36,11 @@
           <% if review.author_last %>
             <span class="ttu"><%= review.author_last.first(1) %>.</span> 
           <% end %>
-        <span class="text-green">STARS</span></h3>
+          <span class="text-green star-wrapper">
+          <% review.rating.times do%>
+            ★
+          <% end %>
+          </span></h3>
         <p><%= review.text %></p>
       </div>
       <div class="half tar">
