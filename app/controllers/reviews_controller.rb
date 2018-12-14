@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id]) 
   end 
   def index
-    @reviews = Review.all.paginate(:page => params[:page], :per_page => 250) 
+    @reviews = Review.all.order("created_at DESC")
    respond_to do |format|
     format.html
     format.csv { send_data @reviews.to_csv, filename: "Reviews-#{Date.today}.csv" }
