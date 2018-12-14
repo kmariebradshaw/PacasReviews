@@ -5,7 +5,7 @@
   <p style="font-size: 20pt; width: fit-content; margin: 0 auto;"><%= link_to("↧", reviews_path(format: :csv), class: "btn btn-success",) %></p>
 <ul class="review-list">
     <% @reviews.each do | review | %> 
-  <li><b><%= review.product.title %> | <%= review.rating %></b> : <%= review.text %></li>
+  <li><%= review.author_first %> <%= review.author_last.first(1) %>. <b><%= review.product.title %> | <%= review.rating %></b> : <%= review.text %></li>
 <% end %>
 </ul>
 

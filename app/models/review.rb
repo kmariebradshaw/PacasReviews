@@ -7,9 +7,9 @@ class Review < ApplicationRecord
 
   def self.to_csv
     CSV.generate do |csv|
-      csv << %w{ rating product review } 
+      csv << %w{ first_name last_name id date rating text email } 
       all.each do |review|
-        csv << [review.rating, review.product.title, review.text  ]
+        csv << [review.author_first, review.author_last, review.product.title, review.rating, review.text, review.author_email  ]
       end
     end
   end

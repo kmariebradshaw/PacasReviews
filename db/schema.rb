@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2018_10_19_202553) do
 
   create_table "answers", force: :cascade do |t|
     t.string "text"
+    t.text "response"
     t.boolean "other_description", default: false
     t.integer "question_id", null: false
   end
@@ -39,6 +40,9 @@ ActiveRecord::Schema.define(version: 2018_10_19_202553) do
   create_table "reviews", force: :cascade do |t|
     t.text "text", null: false
     t.integer "rating", null: false
+    t.string "author_first"
+    t.string "author_last"
+    t.string "author_email"
     t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
