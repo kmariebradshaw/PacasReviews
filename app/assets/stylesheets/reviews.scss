@@ -17,7 +17,7 @@ body {
   margin: 0;
   color: $darkgray;
 }
-.page { padding: 50px; }
+.main { padding: 50px; }
 h1,h2,h3,h4,h5,a, span, input, th, select { font-family: 'Gilroy', sans-serif; font-weight: 900; }
 p, textarea, td, ul, li, .error_message, .success_message { font-family: 'Gilroy', sans-serif; font-weight: 300; } 
 a {color: $darkgray;}
@@ -26,6 +26,10 @@ a {color: $darkgray;}
 .ib { display: inline-block; }
 .jcc {justify-content: center;}
 .text-green { color: $green; }
+.background-green { background-color: $green; }
+.background-beige { background-color: $beige; }
+.text-white { color: #fff; }
+.ttl { text-transform: lowercase; }
 .flex-container-no, .flex-container{
   display: flex;
   align-items: center;
@@ -37,6 +41,7 @@ a {color: $darkgray;}
   display: block;
   margin: 0 auto;
 }
+.subscript { font-size: 10pt; }
 a {text-decoration: none;}
 .quarter { width: 25%; }
 .half { width: 50%; }
@@ -45,6 +50,8 @@ a {text-decoration: none;}
   max-width: 1000px;
   margin: 20px auto;
 }
+.page-header h1 { font-size: 67pt; }
+.accent-padding { padding: 20px; }
 /*new review*/
 .new_review {
     width: 80%;

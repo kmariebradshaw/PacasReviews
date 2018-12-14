@@ -2,6 +2,7 @@
 <h1><%=  number_with_delimiter(@positive, :delimiter => ',') %></h1>
 <p>4+ star reviews and counting</p>
 </section>
+  <p style="font-size: 20pt; width: fit-content; margin: 0 auto;"><%= link_to("↧", reviews_path(format: :csv), class: "btn btn-success",) %></p>
 
 <section>
 <% if @pending_reviews.count > 0 %>
