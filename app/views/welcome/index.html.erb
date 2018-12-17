@@ -6,28 +6,42 @@
 <section class="main">
   <% if @pending_reviews.count > 0 %>
     <h2 class="tac text-green">Pending Reviews</h2>
-    <table class="accent-padding">
-      <% @pending_reviews.each do | review | %>
-        <tr>
-          <td>
-            <%= form_for(review, remote: true) do |fa| %>
-              <%= fa.hidden_field :status, :value => "approved" %>
-              <%= fa.submit "✔", class: "text-green decision approval ib" %>
-            <% end %>
-            <%= form_for(review, remote: true) do |fa| %>
-              <%= fa.hidden_field :status, :value => "hidden" %>
-              <%= fa.submit "✘", class: "decision denial ib" %>
-            <% end %>
-            <%= form_for(review, remote: true) do |fa| %>
-              <%= fa.hidden_field :staff_favorite, :value => true %>
-              <%= fa.submit "favorite?", class: "ib" %>
-            <% end %>
-          </td>
-          <td><span><%= review.product.title %> | <%= review.rating %></span></td>
-          <td><%= review.text %></td>
-        </tr>
-      <% end %>
-    </table>
+     <% @pending_reviews.each do | review | %>
+
+    <div class="flex-container-no">
+      <div>
+        <%= form_for(review, remote: true) do |fa| %>
+            <%= fa.hidden_field :status, :value => "approved" %>
+            <%= fa.submit "✔", class: "text-green decision approval ib" %>
+          <% end %>
+          <%= form_for(review, remote: true) do |fa| %>
+            <%= fa.hidden_field :status, :value => "hidden" %>
+            <%= fa.submit "✘", class: "decision denial ib" %>
+          <% end %>
+          <%= form_for(review, remote: true) do |fa| %>
+            <%= fa.hidden_field :staff_favorite, :value => true %>
+            <%= fa.hidden_field :status, :value => "approved"
+            <%= fa.submit "favorite?", class: "ib" %>
+          <% end %>
+      </div>
+      <div class="half">
+        <h3 class="nmb"><%= review.author_first %> 
+          <% if review.author_last %>
+            <span class="ttu"><%= review.author_last.first(1) %>.</span> 
+          <% end %>
+          <span class="text-green star-wrapper">
+          <% review.rating.times do%>
+            ★
+          <% end %>
+          </span></h3>
+        <p><%= review.text %></p>
+      </div>
+      <div class="half tar">
+        <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
+        <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+      </div>
+    </div>
+    <% end %>
   <% else %>
     <h2 class="tac text-green">No New Reviews</h1>
   <% end %>
@@ -115,4 +129,5 @@
 </script>
 <!-- approve / deny feedback -->
 <!-- seed file with approve / deny -->
+<!-- style approve / deny / favorite feed back  -->
 
