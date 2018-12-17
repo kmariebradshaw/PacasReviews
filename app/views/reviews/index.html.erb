@@ -36,6 +36,7 @@
   <section class="background-beige main">
   <h2 class="tac">Live Stream</h2>
   <% @reviews.limit(50).each do | review | %> 
+  <% if review.status == "approved" && review.staff_favorite != true %>
     <div class="flex-container-no">
       <div class="half">
         <h3 class="nmb"><%= review.author_first %> 
@@ -58,6 +59,7 @@
       <% end %>
       </div>
     </div>
+    <% end %> 
     <% end %>
   </section>
 <script>
@@ -68,4 +70,3 @@
   })
 </script>
 <!-- lazy load on scroll reviews -->
-<!-- only if approved -->
