@@ -35,9 +35,9 @@
   </section>
   <section class="background-beige main">
   <h2 class="tac">Live Stream</h2>
-  <% @reviews.limit(50).each do | review | %> 
+  <% @reviews.each do | review | %> 
   <% if review.status == "approved" && review.staff_favorite != true %>
-    <div class="flex-container-no">
+    <div class="flex-container-no lazy">
       <div class="half">
         <h3 class="nmb"><%= review.author_first %> 
           <% if review.author_last %>

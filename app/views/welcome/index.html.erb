@@ -1,40 +1,36 @@
-<section id="review-count">
-<h1><%=  number_with_delimiter(@positive, :delimiter => ',') %></h1>
-<p>4+ star reviews and counting</p>
+<section class="accent-padding background-green page-header">
+  <h1 class="tac text-white">Review Dashboard</h1>
 </section>
-  <p style="font-size: 20pt; width: fit-content; margin: 0 auto;"><%= link_to("↧", reviews_path(format: :csv), class: "btn btn-success",) %></p>
+<p class="tac"><%= link_to("↧", reviews_path(format: :csv), class: "btn btn-success",) %></p>
 
-<section>
-<% if @pending_reviews.count > 0 %>
-  <h1>New Reviews</h1>
-  <h3 class="decision-feedback" style="display: none;text-align: center;font-weight: normal;"></h3>
-<table style="width: 100%;margin: 20px;">
-
-<% @pending_reviews.each do | review | %>
-  <tr>
-    <td style="width: 15%;">
-      <%= form_for(review, remote: true) do |fa| %>
-      <%= fa.hidden_field :status, :value => "approved" %>
-      <%= fa.submit "✔", class: "green decision approval" %>
+<section class="main">
+  <% if @pending_reviews.count > 0 %>
+    <h2 class="tac text-green">Pending Reviews</h2>
+    <table class="accent-padding fw">
+      <% @pending_reviews.each do | review | %>
+        <tr>
+          <td>
+            <%= form_for(review, remote: true) do |fa| %>
+              <%= fa.hidden_field :status, :value => "approved" %>
+              <%= fa.submit "✔", class: "green decision approval" %>
+            <% end %>
+            <%= form_for(review, remote: true) do |fa| %>
+              <%= fa.hidden_field :status, :value => "hidden" %>
+              <%= fa.submit "✘", class: "decision denial" %>
+            <% end %>
+            <%= form_for(review, remote: true) do |fa| %>
+              <%= fa.hidden_field :staff_favorite, :value => true %>
+              <%= fa.submit "favorite?", class: "" %>
+            <% end %>
+          </td>
+          <td><span><%= review.product.title %> | <%= review.rating %></span></td>
+          <td><%= review.text %></td>
+        </tr>
       <% end %>
-      <%= form_for(review, remote: true) do |fa| %>
-      <%= fa.hidden_field :status, :value => "hidden" %>
-      <%= fa.submit "✘", class: "decision denial" %>
-    <% end %>
-      <%= form_for(review, remote: true) do |fa| %>
-      <%= fa.hidden_field :staff_favorite, :value => true %>
-      <%= fa.submit "favorite?", class: "" %>
-      <% end %>
-    </td>
-    <td style="width: 20%;text-transform: uppercase;"><b><%= review.product.title %> | <%= review.rating %></b></td>
-    <td style="width: 65%;font-size: 10pt;"><%= review.text %></td>
-  </tr>
+    </table>
+  <% else %>
+    <h2 class="tac text-green">No New Reviews</h1>
   <% end %>
-</table>
-<% else %>
-<h1>No New Reviews</h1>
-  <p class="text-green">like inbox zero but for reviews</p>
-<% end %>
 </section>
 
  <section>
@@ -69,3 +65,9 @@ form {
     }
   })
 </script>
+
+<!-- favorite box -->
+<!-- sort by chronological -->
+<!-- approve / deny feedback -->
+
+
