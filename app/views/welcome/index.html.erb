@@ -12,15 +12,15 @@
           <td>
             <%= form_for(review, remote: true) do |fa| %>
               <%= fa.hidden_field :status, :value => "approved" %>
-              <%= fa.submit "✔", class: "green decision approval" %>
+              <%= fa.submit "✔", class: "text-green decision approval ib" %>
             <% end %>
             <%= form_for(review, remote: true) do |fa| %>
               <%= fa.hidden_field :status, :value => "hidden" %>
-              <%= fa.submit "✘", class: "decision denial" %>
+              <%= fa.submit "✘", class: "decision denial ib" %>
             <% end %>
             <%= form_for(review, remote: true) do |fa| %>
               <%= fa.hidden_field :staff_favorite, :value => true %>
-              <%= fa.submit "favorite?", class: "" %>
+              <%= fa.submit "favorite?", class: "ib" %>
             <% end %>
           </td>
           <td><span><%= review.product.title %> | <%= review.rating %></span></td>
@@ -33,13 +33,44 @@
   <% end %>
 </section>
 
- <section>
+<section class="main background-beige">
+  <h2 class="tac">Staff Favorites</h2>
+  <% @reviews.each do | review | %> 
+  <% if review.staff_favorite == true %>
+    <div class="flex-container-no">
+      <div class="half">
+        <h3 class="nmb"><%= review.author_first %>
+         <% if review.author_last %>
+            <span class="ttu"><%= review.author_last.first(1) %>.</span> 
+          <% end %>
+        <span class="text-green star-wrapper">
+          <% review.rating.times do%>
+            ★
+          <% end %>
+        </span>
+        </h3>
+        <p><%= review.text %></p>
+      </div>
+      <div class="half tar">
+            <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
+        <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        <%= form_for(review, remote: true) do |fa| %>
+          <%= fa.hidden_field :staff_favorite, :value => false %>
+      <%= fa.submit "unfavorite? ♥", class: "useful" %>
+      <% end %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </section>
+
+<section class="main">
   <h1>Latest Reviews</h1>
   <ul>
     <% @not_pending_reviews.limit(10).each do | review | %>
       <% if review.status == "denied" %>
       <div class="hidden">
-      <% else %>
+      <% else %>s
       <div>
       <% end %>
       <li><b><%= review.product.title %> | <%= review.rating %> : </b> <%= review.text %></li>
@@ -47,11 +78,7 @@
     <% end %>
   </ul>
 </section> 
-<style>
-form {
-  display: inline-block;
-} 
-</style>
+
 <script>
   $('.decision').click(function () {
     $(this).parent().parent().parent().hide();
@@ -65,9 +92,6 @@ form {
     }
   })
 </script>
-
-<!-- favorite box -->
-<!-- sort by chronological -->
 <!-- approve / deny feedback -->
-
+<!-- seed file with approve / deny -->
 
