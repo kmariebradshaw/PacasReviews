@@ -6,7 +6,7 @@
 <section class="main">
   <% if @pending_reviews.count > 0 %>
     <h2 class="tac text-green">Pending Reviews</h2>
-    <table class="accent-padding fw">
+    <table class="accent-padding">
       <% @pending_reviews.each do | review | %>
         <tr>
           <td>
@@ -65,19 +65,35 @@
   </section>
 
 <section class="main">
-  <h1>Latest Reviews</h1>
-  <ul>
-    <% @not_pending_reviews.limit(10).each do | review | %>
-      <% if review.status == "denied" %>
-      <div class="hidden">
-      <% else %>s
-      <div>
+  <h2 class="tac">Latest Reviews</h2>
+  <% @reviews.each do | review | %> 
+    <% if review.status != "pending" %>
+    <div class="flex-container-no lazy">
+      <div class="half">
+        <h3 class="nmb"><%= review.author_first %> 
+          <% if review.author_last %>
+            <span class="ttu"><%= review.author_last.first(1) %>.</span> 
+          <% end %>
+          <span class="text-green star-wrapper">
+          <% review.rating.times do%>
+            ★
+          <% end %>
+          </span></h3>
+        <p><%= review.text %></p>
+      </div>
+      <div class="half tar" id="all-reviews">
+        <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
+        <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        <%= form_for(review, remote: true) do |fa| %>
+        <%= fa.hidden_field :vote, :value => review.vote + 1 %>
+        <%= fa.submit "useful? ♡", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
+        <p class="subscript nmt"><span><%= review.status %></span></p>
       <% end %>
-      <li><b><%= review.product.title %> | <%= review.rating %> : </b> <%= review.text %></li>
+      </div>
     </div>
     <% end %>
-  </ul>
-</section> 
+   <% end %>
+  </section>
 
 <script>
   $('.decision').click(function () {
@@ -88,8 +104,13 @@
     }
     else if ($(this).hasClass('denial')) {
       $('.decision-feedback').removeClass('green').addClass('red').text('removed').show();
-
     }
+  })
+
+  $('#all-reviews .useful').click(function() {
+    $(this).attr("value", "♥"); 
+    votes = parseInt($(this).next('.upvote').text()) + 1  
+    $(this).next('.upvote').text(votes)
   })
 </script>
 <!-- approve / deny feedback -->
