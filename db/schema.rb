@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2018_10_19_202553) do
     t.integer "rating", null: false
     t.string "author_first"
     t.string "author_last"
+    t.boolean "staff_favorite", default: false
+    t.integer "vote", default: 0
     t.string "author_email"
     t.string "status", default: "pending"
     t.datetime "created_at", null: false

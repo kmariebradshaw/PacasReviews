@@ -5,7 +5,8 @@
 </section>
 <section class="main">
   <h2 class="tac text-green">Staff Favorites</h2>
-  <% @reviews.limit(4).each do | review | %> 
+  <% @reviews.each do | review | %> 
+  <% if review.staff_favorite == true %>
     <div class="flex-container-no">
       <div class="half">
         <h3 class="nmb"><%= review.author_first %>
@@ -21,10 +22,15 @@
         <p><%= review.text %></p>
       </div>
       <div class="half tar">
-        <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
+            <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
         <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        <%= form_for(review, remote: true) do |fa| %>
+          <%= fa.hidden_field :vote, :value => review.vote + 1 %>
+      <%= fa.submit "useful? ♡", class: "useful" %><p class="ib subscript upvote"><%= review.vote%></p>
+      <% end %>
       </div>
     </div>
+    <% end %>
     <% end %>
   </section>
   <section class="background-beige main">
@@ -46,12 +52,20 @@
       <div class="half tar">
         <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
         <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        <%= form_for(review, remote: true) do |fa| %>
+        <%= fa.hidden_field :vote, :value => review.vote + 1 %>
+        <%= fa.submit "useful? ♡", class: "useful" %><p class="ib subscript upvote"><%= review.vote %></p>
+      <% end %>
       </div>
     </div>
     <% end %>
   </section>
-
-<!-- useful? -->
+<script>
+  $('.useful').click(function() {
+    $(this).attr("value", "♥"); 
+    votes = parseInt($(this).next('.upvote').text()) + 1  
+    $(this).next('.upvote').text(votes)
+  })
+</script>
 <!-- lazy load on scroll reviews -->
-<!-- staff favorites -->
 <!-- only if approved -->

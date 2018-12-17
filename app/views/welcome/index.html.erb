@@ -20,7 +20,12 @@
       <%= form_for(review, remote: true) do |fa| %>
       <%= fa.hidden_field :status, :value => "hidden" %>
       <%= fa.submit "✘", class: "decision denial" %>
-    <% end %></td>
+    <% end %>
+      <%= form_for(review, remote: true) do |fa| %>
+      <%= fa.hidden_field :staff_favorite, :value => true %>
+      <%= fa.submit "favorite?", class: "" %>
+      <% end %>
+    </td>
     <td style="width: 20%;text-transform: uppercase;"><b><%= review.product.title %> | <%= review.rating %></b></td>
     <td style="width: 65%;font-size: 10pt;"><%= review.text %></td>
   </tr>
@@ -28,7 +33,7 @@
 </table>
 <% else %>
 <h1>No New Reviews</h1>
-  <p class="green">like inbox zero but for reviews</p>
+  <p class="text-green">like inbox zero but for reviews</p>
 <% end %>
 </section>
 
