@@ -170,14 +170,14 @@ $checked-color: $green;
 .star-wrapper { margin-left: 5px; }
 
 /*review dashboard*/
-table {
-  width: 100%;
-  box-sizing: border-box;
+.denial { font-size: 35px; }
+.approval { font-size: 20px; }
+.favorited { font-size: 12pt; }
+.decision { background: transparent; border: none; }
+#decision-wrapper { margin-right: 20px; }
+#pending-reviews {
+  border-bottom: 2px solid $lightgray;
 }
-
-
-
-
 
 
 

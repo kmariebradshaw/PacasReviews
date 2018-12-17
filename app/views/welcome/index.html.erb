@@ -1,27 +1,28 @@
 <section class="accent-padding background-green page-header">
   <h1 class="tac text-white">Review Dashboard</h1>
 </section>
-<p class="tac"><%= link_to("↧", reviews_path(format: :csv), class: "btn btn-success",) %></p>
+<p class="tac"><%= link_to("Download CSV", reviews_path(format: :csv), class: "btn btn-success",) %></p>
 
 <section class="main">
   <% if @pending_reviews.count > 0 %>
     <h2 class="tac text-green">Pending Reviews</h2>
+    <p class="subscript decision-feedback tac"></p>
      <% @pending_reviews.each do | review | %>
 
-    <div class="flex-container-no">
-      <div>
-        <%= form_for(review, remote: true) do |fa| %>
+    <div class="flex-container-no accent-padding" id="pending-reviews">
+      <div id="decision-wrapper">
+        <%= form_for(review, remote: true, :html => {:class => "ib"}) do |fa| %>
             <%= fa.hidden_field :status, :value => "approved" %>
-            <%= fa.submit "✔", class: "text-green decision approval ib" %>
+            <%= fa.submit "✓", class: "text-green decision approval ib" %>
           <% end %>
-          <%= form_for(review, remote: true) do |fa| %>
+          <%= form_for(review, remote: true, :html => {:class => "ib"}) do |fa| %>
             <%= fa.hidden_field :status, :value => "hidden" %>
-            <%= fa.submit "✘", class: "decision denial ib" %>
+            <%= fa.submit "𐄂", class: "decision denial ib" %>
           <% end %>
           <%= form_for(review, remote: true) do |fa| %>
             <%= fa.hidden_field :staff_favorite, :value => true %>
-            <%= fa.hidden_field :status, :value => "approved"
-            <%= fa.submit "favorite?", class: "ib" %>
+            <%= fa.hidden_field :status, :value => "approved" %>
+            <%= fa.submit "favorite?", class: "ib decision favorited" %>
           <% end %>
       </div>
       <div class="half">
@@ -114,10 +115,13 @@
     $(this).parent().parent().parent().hide();
     $('.decision-feedback').hide(); 
     if ($(this).hasClass('approval')) {
-      $('.decision-feedback').removeClass('red').addClass('green').text('approved').show();
+      $('.decision-feedback').removeClass('text-red').addClass('text-green').text('approved').show();
     }
     else if ($(this).hasClass('denial')) {
-      $('.decision-feedback').removeClass('green').addClass('red').text('removed').show();
+      $('.decision-feedback').removeClass('text-green').addClass('text-red').text('hidden').show();
+    }
+    else if ($(this).hasClass('favorited')) {
+      $('.decision-feedback').removeClass('text-red').addClass('text-green').text('approved & favorited').show();
     }
   })
 
@@ -127,7 +131,5 @@
     $(this).next('.upvote').text(votes)
   })
 </script>
-<!-- approve / deny feedback -->
 <!-- seed file with approve / deny -->
-<!-- style approve / deny / favorite feed back  -->
-
+<!-- lazy load  -->

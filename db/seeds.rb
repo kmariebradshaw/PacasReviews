@@ -25,10 +25,10 @@ csv.each do |row|
   t.created_at = row['date']
   t.author_email = row['email']
   t.author_first = row['first']
-  t.save 
-  if t.save 
-    puts "cool" 
+  if t.rating >= 4 
+    t.status = "approved"
   else 
-    puts "the reason why please"
+    t.status = "hidden"
   end 
+  t.save 
 end
