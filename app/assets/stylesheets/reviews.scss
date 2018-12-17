@@ -23,6 +23,7 @@ p, textarea, td, ul, li, .error_message, .success_message { font-family: 'Gilroy
 a {color: $darkgray;}
 .ttu { text-transform: uppercase; }
 .tac { text-align: center; }
+.vam { vertical-align: middle; }
 .ib { display: inline-block; }
 .jcc {justify-content: center;}
 .text-green { color: $green; }
@@ -178,7 +179,17 @@ $checked-color: $green;
 #pending-reviews {
   border-bottom: 2px solid $lightgray;
 }
-
+.display-fav {
+    font-weight: lighter;
+    font-size: 10pt;
+    text-decoration: underline;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.rex {
+  margin-left: -100px;
+  width: 100px;
+}
 
 
 

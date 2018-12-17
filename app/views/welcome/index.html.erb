@@ -65,13 +65,17 @@
         </span>
         </h3>
         <p><%= review.text %></p>
+          <%= form_for(review, remote: true) do |fa| %>
+          <%= fa.hidden_field :staff_favorite, :value => false %>
+          <%= fa.submit "unfavorite?", class: "subscript ib decision favorited display-fav" %>
+          <% end %>
       </div>
       <div class="half tar">
             <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
         <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
         <%= form_for(review, remote: true) do |fa| %>
-          <%= fa.hidden_field :staff_favorite, :value => false %>
-      <%= fa.submit "unfavorite? ♥", class: "useful" %>
+        <%= fa.hidden_field :vote, :value => review.vote + 1 %>
+        <%= fa.submit "useful? ♡", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
       <% end %>
       </div>
     </div>
@@ -82,7 +86,7 @@
 <section class="main">
   <h2 class="tac">Latest Reviews</h2>
   <% @reviews.each do | review | %> 
-    <% if review.status != "pending" %>
+    <% if review.status != "pending" && review.staff_favorite != true %>
     <div class="flex-container-no lazy">
       <div class="half">
         <h3 class="nmb"><%= review.author_first %> 
@@ -95,6 +99,10 @@
           <% end %>
           </span></h3>
         <p><%= review.text %></p>
+         <%= form_for(review, remote: true) do |fa| %>
+          <%= fa.hidden_field :staff_favorite, :value => true %>
+          <%= fa.submit "favorite?", class: "subscript ib decision favorited display-fav" %>
+          <% end %>
       </div>
       <div class="half tar" id="all-reviews">
         <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
@@ -125,11 +133,10 @@
     }
   })
 
-  $('#all-reviews .useful').click(function() {
+  $('.useful').click(function() {
     $(this).attr("value", "♥"); 
     votes = parseInt($(this).next('.upvote').text()) + 1  
     $(this).next('.upvote').text(votes)
   })
 </script>
-<!-- seed file with approve / deny -->
 <!-- lazy load  -->
