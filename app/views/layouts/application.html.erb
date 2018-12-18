@@ -19,6 +19,7 @@
     <% if user_signed_in? %>
       <nav>
         <ul>
+      <%= image_tag("jlogo.png", class: "jlogo") %>
           <li><a href="/reviews">Published Reviews</a></li>
           <li><a href="/reviews/new">New Review</a></li>
           <li><%= link_to("Download CSV", reviews_path(format: :csv), class: "",) %></li>
