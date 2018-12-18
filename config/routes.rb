@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :answers
     resources :responses
   end
+  resources :users
   resources :reviews, only: [:new, :show, :index, :create]
   root to: redirect('/users/sign_in')
 end
