@@ -7,21 +7,26 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,700" rel="stylesheet">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
+    <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <body>
-    <nav class="clearfix">
-      <a href="/"><%= image_tag("blogo.png", :class => "blogo") %></a>
-      <ul>
-        <li><a href="/questions">Survey Results</a>
-        <li><a href="/reviews">All Reviews</a></li>
-        <li>Logout</li>
-      </ul>
-    </nav>
-    <div class="page_wrapper">
+    <% if user_signed_in? %>
+      <nav>
+        <ul>
+          <a href="/"><%= image_tag("jlogo.png", class: "jlogo") %></a>
+          <li><a href="/reviews">Published Reviews</a></li>
+          <li><a href="/reviews/new">New Review</a></li>
+          <li><%= link_to("Download CSV", reviews_path(format: :csv), class: "",) %></li>
+          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+        </ul>
+      </nav>
+    <% end %>
+    <div class="page">
     <%= yield %>
   </div>
   </body>

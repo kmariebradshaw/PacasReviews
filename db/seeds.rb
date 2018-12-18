@@ -14,16 +14,21 @@ Ups", category: "M"}, {title: "Men's Closet Pack", category: "M"}])
 
 require 'csv'
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'reviews.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'review.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
   t = Review.new
   t.text = row['text']
   t.rating = row['rating']
   t.product_id = row['id']
-  if t.save
-    puts "saved"
+  t.author_last = row['last']
+  t.created_at = row['date']
+  t.author_email = row['email']
+  t.author_first = row['first']
+  if t.rating >= 4 
+    t.status = "approved"
   else 
-    puts row['id']
+    t.status = "hidden"
   end 
+  t.save 
 end

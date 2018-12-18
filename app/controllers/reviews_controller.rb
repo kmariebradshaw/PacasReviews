@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 	def new 
-    @review = Review.new
+    @review = Review.new()
 	end 
   def create
     @review = Review.new(review_params)
@@ -15,7 +15,8 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id]) 
   end 
   def index
-    @reviews = Review.all.paginate(:page => params[:page], :per_page => 250) 
+    @reviews = Review.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 250)
+    @favorited_reviews = Review.all.where(:staff_favorite => true)
    respond_to do |format|
     format.html
     format.csv { send_data @reviews.to_csv, filename: "Reviews-#{Date.today}.csv" }
@@ -27,6 +28,6 @@ class ReviewsController < ApplicationController
   end 
   private 
   def review_params
-      params.require(:review).permit(:text, :rating, :status, :product_id, :votes)
+      params.require(:review).permit(:text, :rating, :status, :product_id, :author_first, :author_last, :author_email, :staff_favorite, :vote)
   end 
 end

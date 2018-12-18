@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_19_202553) do
+ActiveRecord::Schema.define(version: 2018_12_17_203820) do
 
   create_table "answers", force: :cascade do |t|
     t.string "text"
+    t.text "response"
     t.boolean "other_description", default: false
     t.integer "question_id", null: false
   end
@@ -39,10 +40,27 @@ ActiveRecord::Schema.define(version: 2018_10_19_202553) do
   create_table "reviews", force: :cascade do |t|
     t.text "text", null: false
     t.integer "rating", null: false
+    t.string "author_first"
+    t.string "author_last"
+    t.boolean "staff_favorite", default: false
+    t.integer "vote", default: 0
+    t.string "author_email", null: false
     t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "product_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

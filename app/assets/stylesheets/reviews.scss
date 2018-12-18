@@ -1,113 +1,258 @@
-
-
-$primary-color: #33ffcc;
-
+/*general*/
+@font-face {
+  font-family: 'Gilroy';
+  src: url('Gilroy-ExtraBold.otf'); 
+  font-weight: 900; 
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('Gilroy-Light.otf'); 
+  font-weight: 300; 
+}
+$green: #6DCDB8;
+$beige: #F9F2ED;
+$lightgray: #F9F7F7;
+$darkgray: #545359;
 body { 
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
-  max-width: 1366px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 0;
+  color: $darkgray;
 }
-
-h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif; }
-
-nav ul { 
-  list-style: none;
-  float: right;
-  li { 
-    display: inline-block;
-    font-family: 'Montserrat', sans-serif;
-    padding: 10px;
-  }
+.main { padding: 50px; }
+h1,h2,h3,h4,h5,a, span, input, th, select { font-family: 'Gilroy', sans-serif; font-weight: 900; }
+p, textarea, td, ul, li, .error_message, .success_message { font-family: 'Gilroy', sans-serif; font-weight: 300; } 
+a {color: $darkgray;}
+.ttu { text-transform: uppercase; }
+.tac { text-align: center; }
+.vam { vertical-align: middle; }
+.ib { display: inline-block; }
+.jcc {justify-content: center;}
+.text-green { color: $green; }
+.background-green { background-color: $green; }
+.background-beige { background-color: $beige; }
+.text-white { color: #fff; }
+.ttl { text-transform: lowercase; }
+.flex-container-no, .flex-container{
+  display: flex;
+  align-items: center;
 }
-
-.blogo { 
-max-width: 110px;
-padding: 10px;
- }
-
-.clearfix {
-    overflow: auto;
-}
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-.active, .green {
-  color: $primary-color; 
-}
-
-#review-count {
-  text-align: center;
-  h1 { 
-    font-size: 104pt;
-    font-weight: 700;
-    margin: 0px;
-  }
-  p { font-size: 12pt;}
-}
-
-section {
-  padding: 2%;
-  width: fit-content;
-  max-width: 1000px;
-  margin: 0 auto;
-  h1 { 
-    font-size: 28pt; 
-    font-weight: 700; 
-    text-align: center;
-    margin-bottom: 0;
-  }
-  p {text-align: center;}
-  ul {
-    text-align: left; 
-    li { margin: 15px 0; }   
-  }
-}
-
-table {
-td { padding: 10px; border-bottom: 2px solid whitesmoke;}
-}
-.approval, .denial { 
-  font-size: 20pt;
-  cursor: pointer;
-}
-
-form { display: inline-block; }
-
-  .page-title { 
-    text-align: center;
-    font-size: 42pt;
-  }
-.sort, .view {
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 10pt;
-    line-height: 1;
-    margin: 10px;
-    span { cursor: pointer; } 
-}
-
-.red { color: red; }
-
-.review-list { 
-  max-width: 1000px;
-  margin: 50px auto;
-  list-style: none;
-  font-size: 10pt;
-  li { margin: 20px; }
-}
-
-.pagination {
-  font-family: 'Montserrat' sans-serif;
+.pagination { text-align: center; }
+.nm { margin: 0; }
+.nmt { margin-top: 0; }
+.nmb { margin-bottom: 0; }
+.ma {
   display: block;
-  text-align: center;
-  a { text-decoration: none; color: black;}
-  .current { color: $primary-color; font-style: normal; }
+  margin: 0 auto;
+}
+.subscript { font-size: 10pt; }
+a {text-decoration: none;}
+.quarter { width: 25%; }
+.half { width: 50%; }
+.tar { text-align: right; }
+.accent-section {
+  max-width: 1000px;
+  margin: 20px auto;
+}
+.accent-padding { padding: 20px; }
+@media only screen and (min-width: 1100px) {
+  h1 { font-size: 67pt; } 
+  h2 { font-size: 34pt; } 
+  h3{ font-size: 16pt; } 
+  p, table { font-size: 14pt; } 
+}
+@media only screen and (min-width: 800px) and (max-width: 1099px) {
+  h1 { font-size: 57pt; } 
+  h2 { font-size: 32pt; } 
+  h3{ font-size: 14pt; } 
+  p, table { font-size: 12pt; } 
+}
+@media only screen and (min-width: 589px) and (max-width: 799px) {
+  h1 { font-size: 43pt; } 
+  h2 { font-size: 30pt; } 
+  p, table { font-size: 12pt; }
+}
+@media only screen and (max-width: 588px) {
+  h1 { font-size: 22pt; } 
+  h2 { font-size: 16pt; } 
+}
+/*new review*/
+.new_review {
+    width: 80%;
+    margin: 0 auto;
+    min-width: 300px;
+    textarea {
+    width: 100%;
+    height: 150px;
+    border: 3px solid $lightgray;
+    font-size: 10pt;
+    padding: 20px;
+    box-sizing: border-box;
+    background: white;
+  }
+  select {
+    height: 45px;
+    color: $darkgray;
+    font-size: 10pt;
+    padding: 10px !important;
+    border: 3px solid $lightgray;
+    background: white;
+    width: 100%;
+    border-radius: 0 !important;
+    font-weight: 300;
+}
+  .button {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    background: $green;
+    padding: 10px;
+    input {
+    font-size: 14pt;
+    color: white;
+    background: transparent;
+    border: none;
+  }
+  }
+}
+$unchecked-star: '\2606';
+$unchecked-color: $darkgray;
+$checked-star: '\2605';
+$checked-color: $green;
+.star-cb-group {
+  /* remove inline-block whitespace */
+  font-size: 0;
+  * {
+    font-size: 1rem;
+  }
+  /* flip the order so we can use the + and ~ combinators */
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  & > input {
+    display: none;
+    & + label {
+      /* only enough room for the star */
+      display: inline-block;
+      overflow: hidden;
+      text-indent: 9999px;
+      width: 1em;
+      white-space: nowrap;
+      cursor: pointer;
+      font-size: 24pt;
+      margin: 0 5px;
+      &:before {
+        display: inline-block;
+        text-indent: -9999px;
+        content: $unchecked-star;
+        color: $unchecked-color;
+      }
+    }
+    &:checked ~ label:before,
+      & + label:hover ~ label:before,
+      & + label:hover:before {
+      content: $checked-star;
+      color: $green;
+      text-shadow: 0 0 1px #333;
+    }
+  }
+  
+  /* the hidden clearer */
+  & > .star-cb-clear + label {
+    text-indent: -9999px;
+    width: .5em;
+    margin-left: -.5em;
+  }
+  & > .star-cb-clear + label:before {
+    width: .5em;
+  }
+
+  &:hover > input + label:before {
+    content: $unchecked-star;
+    color: $unchecked-color;
+    text-shadow: none;
+  }
+  &:hover > input + label:hover ~ label:before,
+  &:hover > input + label:hover:before {
+    content: $checked-star;
+    color: $checked-color;
+    text-shadow: 0 0 1px #333;
+  }
 }
 
-a {text-decoration: none; color: black;}
+#new-review {
+  background-image: url(Pairs-03.svg);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+}
+/*all reviews*/
+.useful {
+    font-size: 10pt;
+    font-weight: lighter;
+    background: transparent;
+    border: none;
+}
+.star-wrapper { margin-left: 5px; }
+
+/*review dashboard*/
+.denial { font-size: 35px; }
+.approval { font-size: 20px; }
+.favorited { font-size: 12pt; }
+.decision { background: transparent; border: none; }
+#decision-wrapper { margin-right: 20px; }
+#pending-reviews {
+  border-bottom: 2px solid $lightgray;
+}
+.display-fav {
+    font-weight: lighter;
+    font-size: 10pt;
+    text-decoration: underline;
+    padding: 10px 0;
+    cursor: pointer;
+}
+.rex {
+  margin-left: -100px;
+  width: 100px;
+}
+/*user login / registration*/
+.gekks-employee form input[type="email"], .gekks-employee form input[type="password"] {
+    width: 60%;
+    font-size: 12pt;
+    line-height: 2;
+    font-weight: 300;
+    padding: 5px;
+    float: right;
+    margin-top: 10px;
+    border: 0;
+    box-sizing: border-box;
+    background: $lightgray;
+}
+.gekks-employee form {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    min-width: 275px;
+    max-width: 700px;
+    padding: 50px;
+}
+.gekks-employee input[type=submit] {
+    font-size: 16pt;
+    line-height: 2;
+    background: #6DCDB8;
+    color: white;
+    text-transform: lowercase;
+    width: 80%;
+    display: block;
+    margin: 20px auto;
+}
+
+/* nav */
+ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: right;
+  li {
+    display: inline-block;
+    margin: 10px;
+    font-size: 10pt;
+    vertical-align: middle;
+  }
+}
+.jlogo { width: 100px; vertical-align: middle; margin: -10px 20px 0px 20px; float: left;}
