@@ -10,6 +10,10 @@
        </p>
     <% end %>
   <%= form_for @review do |f| %>
+    <%= f.hidden_field :author_email, :value => params[:email] %>
+    <%= f.hidden_field :author_first, :value=> params[:first] %>
+    <%= f.hidden_field :author_last, :value => params[:sur] %>
+
     <h3 class="text-green">Product:</h3>
       <%= f.collection_select :product_id, Product.all, :id, :title, {prompt: "Select Product"} %><br>
      <h3 class="text-green">Rating:</h3>
