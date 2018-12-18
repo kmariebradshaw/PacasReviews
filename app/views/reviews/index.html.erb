@@ -5,8 +5,7 @@
 </section>
 <section class="main">
   <h2 class="tac text-green">Staff Favorites</h2>
-  <% @reviews.each do | review | %> 
-  <% if review.staff_favorite == true %>
+  <% @favorited_reviews.each do | review | %> 
     <div class="flex-container-no">
       <div class="half">
         <h3 class="nmb"><%= review.author_first %>
@@ -30,7 +29,6 @@
       <% end %>
       </div>
     </div>
-    <% end %>
     <% end %>
   </section>
   <section class="background-beige main">
@@ -61,6 +59,8 @@
     </div>
     <% end %> 
     <% end %>
+    <%= will_paginate @reviews %>
+
   </section>
 <script>
   $('.useful').click(function() {

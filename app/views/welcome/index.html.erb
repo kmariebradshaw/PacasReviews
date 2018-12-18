@@ -48,10 +48,10 @@
   <% end %>
 </section>
 
+<% if @favorited_reviews.count > 0 %>
 <section class="main background-beige">
   <h2 class="tac">Staff Favorites</h2>
-  <% @reviews.each do | review | %> 
-  <% if review.staff_favorite == true %>
+  <% @favorited_reviews.each do | review | %> 
     <div class="flex-container-no">
       <div class="half">
         <h3 class="nmb"><%= review.author_first %>
@@ -80,8 +80,8 @@
       </div>
     </div>
     <% end %>
-    <% end %>
   </section>
+<% end %> 
 
 <section class="main">
   <h2 class="tac">Latest Reviews</h2>
@@ -116,6 +116,8 @@
     </div>
     <% end %>
    <% end %>
+       <%= will_paginate @reviews %>
+
   </section>
 
 <script>
