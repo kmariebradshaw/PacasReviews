@@ -1,8 +1,6 @@
 <section class="accent-padding background-green page-header">
   <h1 class="tac text-white">Review Dashboard</h1>
 </section>
-<p class="tac"><%= link_to("Download CSV", reviews_path(format: :csv), class: "btn btn-success",) %></p>
-
 <section class="main">
   <% if @pending_reviews.count > 0 %>
     <h2 class="tac text-green">Pending Reviews</h2>
@@ -46,7 +44,7 @@
   <% else %>
   <div class="tac">
       <%= image_tag("rex.png", class: "rex vam") %>
-    <h1 class="ib text-green vam">No New Reviews</h1>
+    <h2 class="ib text-green vam">No New Reviews</h2>
     </div>
   <% end %>
 </section>
