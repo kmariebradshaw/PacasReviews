@@ -130,6 +130,8 @@ a {text-decoration: none;}
     width: 100%;
     border-radius: 0 !important;
     font-weight: 300;
+    -webkit-appearance:none;
+
 }
   .button {
     text-align: center;
@@ -142,6 +144,8 @@ a {text-decoration: none;}
     color: white;
     background: transparent;
     border: none;
+    -webkit-appearance:none;
+
   }
   }
 }
@@ -273,6 +277,8 @@ $checked-color: $green;
     box-shadow: none;
     border: none;
     border-radius: 0;
+    -webkit-appearance:none;
+
 }
 
 /* nav */
