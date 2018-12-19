@@ -82,7 +82,9 @@ a {text-decoration: none;}
   .mo { display: none; }
     .accent-padding { padding: 20px; }
 .star-wrapper { margin-left: 5px; }
-
+.gekks-employee form {
+    padding: 50px;
+}
 
 }
 @media only screen and (max-width: 588px) {
@@ -252,7 +254,6 @@ $checked-color: $green;
     margin: 0 auto;
     min-width: 275px;
     max-width: 700px;
-    padding: 50px;
 }
 .gekks-employee input[type=submit] {
     font-size: 16pt;

@@ -1,7 +1,7 @@
 <section class="main gekks-employee">
   <div class="accent-padding">
-    <h2 class="tac nmb text-green">Create an Employee Account</h2>
-    <h3 class="tac nmt">Already have an account? <a href="/users/sign_in" class="text-green">login here</a></h3>
+    <h2 class="tac nmb text-green">Create an Account</h2>
+    <h3 class="tac nmt">Already have an account? <a href="/users/sign_in" class="text-green">login here.</a></h3>
   </div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -18,7 +18,7 @@
   </div>
 
   <div class="field">
-    <h3 class="text-green ib"><%= f.label :password_confirmation %></h3>
+    <h3 class="text-green ib"><%= f.label 'Confirm' %></h3>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
