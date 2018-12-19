@@ -19,7 +19,6 @@ body {
   margin: 0;
   color: $darkgray;
 }
-.main { padding: 50px; }
 h1,h2,h3,h4,h5,a, span, input, th, select { font-family: 'Gilroy', sans-serif; font-weight: 900; }
 p, textarea, td, ul, li, .error_message, .success_message { font-family: 'Gilroy', sans-serif; font-weight: 300; } 
 a {color: $darkgray;}
@@ -60,21 +59,29 @@ a {text-decoration: none;}
   h2 { font-size: 34pt; } 
   h3{ font-size: 16pt; } 
   p, table { font-size: 14pt; } 
+  .main { padding: 50px; }
+
 }
 @media only screen and (min-width: 800px) and (max-width: 1099px) {
   h1 { font-size: 57pt; } 
   h2 { font-size: 32pt; } 
   h3{ font-size: 14pt; } 
   p, table { font-size: 12pt; } 
+  .main { padding: 50px; }
+
 }
 @media only screen and (min-width: 589px) and (max-width: 799px) {
   h1 { font-size: 43pt; } 
   h2 { font-size: 30pt; } 
   p, table { font-size: 12pt; }
+  .main { padding: 25px; }
+
 }
 @media only screen and (max-width: 588px) {
   h1 { font-size: 22pt; } 
   h2 { font-size: 16pt; } 
+  .main { padding: 15px; }
+
 }
 /*new review*/
 .new_review {
