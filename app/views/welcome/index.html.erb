@@ -28,14 +28,14 @@
           <% if review.author_last %>
             <span class="ttu"><%= review.author_last.first(1) %>.</span> 
           <% end %>
-          <span class="text-green star-wrapper">
+          <br class="mo"><span class="text-green star-wrapper">
           <% review.rating.times do%>
             ★
           <% end %>
           </span></h3>
         <p><%= review.text %></p>
       </div>
-      <div class="half tar">
+      <div class="half tar do">
         <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
         <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
       </div>

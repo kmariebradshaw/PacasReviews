@@ -53,7 +53,6 @@ a {text-decoration: none;}
   max-width: 1000px;
   margin: 20px auto;
 }
-.accent-padding { padding: 20px; }
 @media only screen and (min-width: 1100px) {
   h1 { font-size: 67pt; } 
   h2 { font-size: 34pt; } 
@@ -81,6 +80,10 @@ a {text-decoration: none;}
 @media only screen and (min-width: 589px) {
   .do { display: initial; }
   .mo { display: none; }
+    .accent-padding { padding: 20px; }
+.star-wrapper { margin-left: 5px; }
+
+
 }
 @media only screen and (max-width: 588px) {
   h1 { font-size: 22pt; } 
@@ -91,6 +94,8 @@ a {text-decoration: none;}
   .flex-container .half { width: 100%; }
   .do { display: none; }
   .mo { display: initial; }
+  .accent-padding { padding: 10px; }
+  .half { width: 100%; }
   #staff-favorite-details form, #live-stream-details form, #all-reviews form { text-align: left; }
 }
 /*new review*/
@@ -207,7 +212,6 @@ $checked-color: $green;
     background: transparent;
     border: none;
 }
-.star-wrapper { margin-left: 5px; }
 
 /*review dashboard*/
 .denial { font-size: 35px; }
