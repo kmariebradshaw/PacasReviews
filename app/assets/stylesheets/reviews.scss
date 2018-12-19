@@ -1,13 +1,15 @@
 /*general*/
 @font-face {
   font-family: 'Gilroy';
-  src: url('Gilroy-ExtraBold.otf'); 
+  src: image-url('Gilroy-ExtraBold.otf'); 
   font-weight: 900; 
+  font-style: normal;
 }
 @font-face {
   font-family: 'Gilroy';
-  src: url('Gilroy-Light.otf'); 
+  src: image-url('Gilroy-Light.otf'); 
   font-weight: 300; 
+  font-style: normal;
 }
 $green: #6DCDB8;
 $beige: #F9F2ED;
@@ -17,7 +19,6 @@ body {
   margin: 0;
   color: $darkgray;
 }
-.main { padding: 50px; }
 h1,h2,h3,h4,h5,a, span, input, th, select { font-family: 'Gilroy', sans-serif; font-weight: 900; }
 p, textarea, td, ul, li, .error_message, .success_message { font-family: 'Gilroy', sans-serif; font-weight: 300; } 
 a {color: $darkgray;}
@@ -52,33 +53,64 @@ a {text-decoration: none;}
   max-width: 1000px;
   margin: 20px auto;
 }
-.accent-padding { padding: 20px; }
 @media only screen and (min-width: 1100px) {
   h1 { font-size: 67pt; } 
   h2 { font-size: 34pt; } 
   h3{ font-size: 16pt; } 
   p, table { font-size: 14pt; } 
+  .main { padding: 50px; }
+
 }
 @media only screen and (min-width: 800px) and (max-width: 1099px) {
   h1 { font-size: 57pt; } 
   h2 { font-size: 32pt; } 
   h3{ font-size: 14pt; } 
   p, table { font-size: 12pt; } 
+  .main { padding: 50px; }
+
+
 }
 @media only screen and (min-width: 589px) and (max-width: 799px) {
   h1 { font-size: 43pt; } 
   h2 { font-size: 30pt; } 
   p, table { font-size: 12pt; }
+  .main { padding: 25px; }
+
+}
+@media only screen and (min-width: 589px) {
+  .mo { display: none; }
+    .accent-padding { padding: 20px; }
+.star-wrapper { margin-left: 5px; }
+.gekks-employee form {
+    padding: 50px;
+}
+.jlogo { width: 100px; vertical-align: middle; margin: -10px 20px 0px 20px; float: left;}
+
+
 }
 @media only screen and (max-width: 588px) {
   h1 { font-size: 22pt; } 
   h2 { font-size: 16pt; } 
+  .main { padding: 15px 15px 30px 15px; }
+  .flex-container { display: inline-block; }
+  .useful { padding: 0; }
+  .flex-container .half { width: 100%; }
+  .do { display: none; }
+  .accent-padding { padding: 10px; }
+  .half { width: 100%; }
+  .jlogo {
+    width: 80px;
+    vertical-align: middle;
+    margin: -5px 10px 0px 10px;
+    float: left;
+}
+  #staff-favorite-details form, #live-stream-details form, #all-reviews form { text-align: left; }
 }
 /*new review*/
 .new_review {
     width: 80%;
     margin: 0 auto;
-    min-width: 300px;
+    min-width: 290px;
     textarea {
     width: 100%;
     height: 150px;
@@ -98,6 +130,8 @@ a {text-decoration: none;}
     width: 100%;
     border-radius: 0 !important;
     font-weight: 300;
+    -webkit-appearance:none;
+
 }
   .button {
     text-align: center;
@@ -110,6 +144,8 @@ a {text-decoration: none;}
     color: white;
     background: transparent;
     border: none;
+    -webkit-appearance:none;
+
   }
   }
 }
@@ -178,9 +214,8 @@ $checked-color: $green;
 }
 
 #new-review {
-  background-image: url(Pairs-03.svg);
+  background-image: image-url('Pairs-03.svg');
   background-repeat: no-repeat;
-  background-position: bottom left;
 }
 /*all reviews*/
 .useful {
@@ -189,7 +224,6 @@ $checked-color: $green;
     background: transparent;
     border: none;
 }
-.star-wrapper { margin-left: 5px; }
 
 /*review dashboard*/
 .denial { font-size: 35px; }
@@ -230,7 +264,6 @@ $checked-color: $green;
     margin: 0 auto;
     min-width: 275px;
     max-width: 700px;
-    padding: 50px;
 }
 .gekks-employee input[type=submit] {
     font-size: 16pt;
@@ -241,6 +274,11 @@ $checked-color: $green;
     width: 80%;
     display: block;
     margin: 20px auto;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance:none;
+
 }
 
 /* nav */
@@ -255,4 +293,3 @@ ul {
     vertical-align: middle;
   }
 }
-.jlogo { width: 100px; vertical-align: middle; margin: -10px 20px 0px 20px; float: left;}
