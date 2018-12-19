@@ -97,7 +97,7 @@ a {text-decoration: none;}
 .new_review {
     width: 80%;
     margin: 0 auto;
-    min-width: 300px;
+    min-width: 290px;
     textarea {
     width: 100%;
     height: 150px;
@@ -199,7 +199,6 @@ $checked-color: $green;
 #new-review {
   background-image: image-url('Pairs-03.svg');
   background-repeat: no-repeat;
-  background-position: bottom left;
 }
 /*all reviews*/
 .useful {
