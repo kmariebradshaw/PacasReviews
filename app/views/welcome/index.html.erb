@@ -52,7 +52,7 @@
 <section class="main background-beige">
   <h2 class="tac">Staff Favorites</h2>
   <% @favorited_reviews.each do | review | %> 
-    <div class="flex-container-no">
+    <div class="flex-container">
       <div class="half">
         <h3 class="nmb"><%= review.author_first %>
          <% if review.author_last %>
@@ -64,15 +64,19 @@
           <% end %>
         </span>
         </h3>
-        <p><%= review.text %></p>
+         <div class="mo">
+          <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
+          <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        </div>
+        <p class="nmb"><%= review.text %></p>
           <%= form_for(review, remote: true) do |fa| %>
           <%= fa.hidden_field :staff_favorite, :value => false %>
-          <%= fa.submit "unfavorite?", class: "subscript ib decision favorited display-fav" %>
+          <%= fa.submit "unfavorite?", class: "subscript ib decision favorited display-fav nmb" %>
           <% end %>
       </div>
-      <div class="half tar">
-            <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
-        <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+      <div class="half tar" id="staff-favorite-details">
+            <h3 class="text-green ttl nmb do"><%= review.product.title %></h3>
+        <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
         <%= form_for(review, remote: true) do |fa| %>
         <%= fa.hidden_field :vote, :value => review.vote + 1 %>
         <%= fa.submit "useful? ♡", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
@@ -87,7 +91,7 @@
   <h2 class="tac">Latest Reviews</h2>
   <% @reviews.each do | review | %> 
     <% if review.status != "pending" && review.staff_favorite != true %>
-    <div class="flex-container-no lazy">
+    <div class="flex-container lazy">
       <div class="half">
         <h3 class="nmb"><%= review.author_first %> 
           <% if review.author_last %>
@@ -98,19 +102,25 @@
             ★
           <% end %>
           </span></h3>
-        <p><%= review.text %></p>
+           <div class="mo">
+          <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
+          <p class="subscript nm"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+          <p class="subscript nmt"><span><%= review.status %></span></p>
+
+        </div>
+        <p class="nmb"><%= review.text %></p>
          <%= form_for(review, remote: true) do |fa| %>
           <%= fa.hidden_field :staff_favorite, :value => true %>
           <%= fa.submit "favorite?", class: "subscript ib decision favorited display-fav" %>
           <% end %>
       </div>
       <div class="half tar" id="all-reviews">
-        <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
-        <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        <h3 class="text-green ttl nmb do"><%= review.product.title %></h3>
+        <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
         <%= form_for(review, remote: true) do |fa| %>
         <%= fa.hidden_field :vote, :value => review.vote + 1 %>
         <%= fa.submit "useful? ♡", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
-        <p class="subscript nmt"><span><%= review.status %></span></p>
+        <p class="subscript nmt do"><span><%= review.status %></span></p>
       <% end %>
       </div>
     </div>
