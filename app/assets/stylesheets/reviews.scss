@@ -78,13 +78,14 @@ a {text-decoration: none;}
 
 }
 @media only screen and (min-width: 589px) {
-  .do { display: initial; }
   .mo { display: none; }
     .accent-padding { padding: 20px; }
 .star-wrapper { margin-left: 5px; }
 .gekks-employee form {
     padding: 50px;
 }
+.jlogo { width: 100px; vertical-align: middle; margin: -10px 20px 0px 20px; float: left;}
+
 
 }
 @media only screen and (max-width: 588px) {
@@ -95,9 +96,14 @@ a {text-decoration: none;}
   .useful { padding: 0; }
   .flex-container .half { width: 100%; }
   .do { display: none; }
-  .mo { display: initial; }
   .accent-padding { padding: 10px; }
   .half { width: 100%; }
+  .jlogo {
+    width: 80px;
+    vertical-align: middle;
+    margin: -5px 10px 0px 10px;
+    float: left;
+}
   #staff-favorite-details form, #live-stream-details form, #all-reviews form { text-align: left; }
 }
 /*new review*/
@@ -281,4 +287,3 @@ ul {
     vertical-align: middle;
   }
 }
-.jlogo { width: 100px; vertical-align: middle; margin: -10px 20px 0px 20px; float: left;}
