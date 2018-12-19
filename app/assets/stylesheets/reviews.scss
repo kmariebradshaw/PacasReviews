@@ -1,13 +1,15 @@
 /*general*/
 @font-face {
   font-family: 'Gilroy';
-  src: url('Gilroy-ExtraBold.otf'); 
+  src: image-url('Gilroy-ExtraBold.otf'); 
   font-weight: 900; 
+  font-style: normal;
 }
 @font-face {
   font-family: 'Gilroy';
-  src: url('Gilroy-Light.otf'); 
+  src: image-url('Gilroy-Light.otf'); 
   font-weight: 300; 
+  font-style: normal;
 }
 $green: #6DCDB8;
 $beige: #F9F2ED;
@@ -178,7 +180,7 @@ $checked-color: $green;
 }
 
 #new-review {
-  background-image: url(Pairs-03.svg);
+  background-image: image-url('Pairs-03.svg');
   background-repeat: no-repeat;
   background-position: bottom left;
 }
