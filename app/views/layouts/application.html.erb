@@ -16,6 +16,8 @@
 
   <body>
     <% if user_signed_in? %>
+    <% unless current_page?('/reviews') %>
+
       <nav>
         <ul>
           <a href="/"><%= image_tag("jlogo.png", class: "jlogo") %></a>
@@ -25,6 +27,7 @@
           <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
         </ul>
       </nav>
+      <% end %>
     <% end %>
     <div class="page">
     <%= yield %>
