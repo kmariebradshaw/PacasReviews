@@ -69,6 +69,7 @@ a {text-decoration: none;}
   p, table { font-size: 12pt; } 
   .main { padding: 50px; }
 
+
 }
 @media only screen and (min-width: 589px) and (max-width: 799px) {
   h1 { font-size: 43pt; } 
@@ -77,11 +78,20 @@ a {text-decoration: none;}
   .main { padding: 25px; }
 
 }
+@media only screen and (min-width: 589px) {
+  .do { display: initial; }
+  .mo { display: none; }
+}
 @media only screen and (max-width: 588px) {
   h1 { font-size: 22pt; } 
   h2 { font-size: 16pt; } 
   .main { padding: 15px; }
-
+  .flex-container { display: inline-block; }
+  .useful { padding: 0; }
+  .flex-container .half { width: 100%; }
+  .do { display: none; }
+  .mo { display: initial; }
+  #staff-favorite-details form, #live-stream-details form { text-align: left; }
 }
 /*new review*/
 .new_review {
