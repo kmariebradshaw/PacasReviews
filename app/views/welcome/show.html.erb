@@ -1,0 +1,41 @@
+  <section class="background-beige main">
+  <h2 class="tac">Live Stream</h2>
+  <% @reviews.each do | review | %> 
+  <% if review.status == "approved" && review.staff_favorite != true %>
+    <div class="flex-container">
+      <div class="half">
+        <h3 class="nmb"><%= review.author_first %> 
+          <% if review.author_last %>
+            <span class="ttu"><%= review.author_last.first(1) %>.</span> 
+          <% end %>
+          <span class="text-green star-wrapper">
+          <% review.rating.times do%>
+            ★
+          <% end %>
+          </span></h3>
+        <div class="mo">
+          <h3 class="text-green ttl nmb"><%= review.product.title %></h3>
+          <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        </div>
+        <p class="nmb"><%= review.text %></p>
+      </div>
+      <div class="half tar" id="live-stream-details">
+        <h3 class="text-green ttl nmb do"><%= review.product.title %></h3>
+        <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        <%= form_for(review, remote: true) do |fa| %>
+        <%= fa.hidden_field :vote, :value => review.vote + 1 %>
+        <%= fa.submit "useful? ♡", class: "useful" %><p class="ib subscript upvote"><%= review.vote %></p>
+      <% end %>
+      </div>
+    </div>
+    <% end %> 
+    <% end %>
+
+  </section>
+<script>
+  $('.useful').click(function() {
+    $(this).attr("value", "♥"); 
+    votes = parseInt($(this).next('.upvote').text()) + 1  
+    $(this).next('.upvote').text(votes)
+  })
+</script>
