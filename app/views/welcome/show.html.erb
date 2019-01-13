@@ -39,14 +39,4 @@
     $(this).next('.upvote').text(votes)
   })
 
-function resizeIframe(iframeID) 
-{       
-    var iframe = window.parent.document.getElementById(iframeID);
-    var container = document.getElementById('main');
-    iframe.style.height = container.offsetHeight + 'px';            
-} 
-$(document).ready(function() {
-resizeIframe('iFrame1')
-console.log('hit')
-}); 
 </script>
