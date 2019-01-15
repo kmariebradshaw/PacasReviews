@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
-	def new 
+	
+skip_before_action :verify_authenticity_token
+  def new 
     @review = Review.new()
 	end 
   def create
