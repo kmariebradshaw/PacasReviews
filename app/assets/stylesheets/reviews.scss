@@ -121,7 +121,7 @@ a {text-decoration: none;}
     box-sizing: border-box;
     background: white;
   }
-  select {
+  select, input[type='text'] {
     height: 45px;
     color: $darkgray;
     font-size: 10pt;
@@ -131,6 +131,7 @@ a {text-decoration: none;}
     width: 100%;
     border-radius: 0 !important;
     font-weight: 300;
+    box-sizing: border-box;
     -webkit-appearance:none;
 
 }

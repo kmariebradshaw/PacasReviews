@@ -3,17 +3,31 @@
   <h2 class="tac nmt">We'd love to hear from you!</h2>
     <% if @review.errors.any? %>
       <p class="tac">We're sorry, but an error occurred. If this continues, please contact us a gosockless@mygekks.com</p>
-       <p class="error subscript tac">
+       <p class="error subscript tac" style="display: none;">
           <% @review.errors.full_messages.each do |msg| %>
             <%= msg %>
           <% end %>
        </p>
     <% end %>
   <%= form_for @review do |f| %>
-    <%= f.hidden_field :author_email, :value => params[:email] %>
-    <%= f.hidden_field :author_first, :value=> params[:first] %>
-    <%= f.hidden_field :author_last, :value => params[:sur] %>
-
+    <% if params[:email] %> 
+      <%= f.hidden_field :author_email, :value => params[:email] %>
+    <% else %>
+      <h3 class="text-green">Email:</h3>
+      <%= f.text_field :author_email %>
+    <% end %>
+    <% if params[:first] %> 
+      <%= f.hidden_field :author_first, :value=> params[:first] %>
+    <% else %>
+      <h3 class="text-green">First Name:</h3>
+      <%= f.text_field :author_first %>
+    <% end %>
+    <% if params[:sur] %> 
+      <%= f.hidden_field :author_last, :value => params[:sur] %>
+    <% else %>
+      <h3 class="text-green">Last Name:</h3>
+      <%= f.text_field :author_last %>
+    <% end %>
     <h3 class="text-green">Product:</h3>
       <%= f.collection_select :product_id, Product.all, :id, :title, {prompt: "Select Product"} %><br>
      <h3 class="text-green">Rating:</h3>
