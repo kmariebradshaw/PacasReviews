@@ -6,21 +6,18 @@
 <% end %>
 
 
-<section class="main gekks-employee">
+<section class="main pacas-employee">
   <div class="accent-padding">
-    <h2 class="tac text-green nmb">Log In to Your Account</h2>
-    <h3 class="tac nmt">Don't have an account? <a href="/users/sign_up" class="text-green">sign up here</a></h3>
+    <h2 class="tac nmb">Log In to Your Account</h2>
   </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <h3 class="text-green ib"><%= f.label :email %></h3>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, placeholder: "Email",  autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <h3 class="text-green ib"><%= f.label :password %></h3>
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, placeholder: "Password", autocomplete: "current-password" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -33,5 +30,8 @@
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
+  <p class="tac nmt">Don't have an account? <a href="/users/sign_up" class="border-bottom-gray">Sign up here.</a></p>
+
 <% end %>
 </section>
+<%= image_tag("account-paca.png", class: "background-paca") %>
