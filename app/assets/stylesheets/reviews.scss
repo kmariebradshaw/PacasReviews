@@ -1,35 +1,50 @@
 /*general*/
 @font-face {
-  font-family: 'Gilroy';
-  src: image-url('Gilroy-ExtraBold.otf'); 
-  font-weight: 900; 
+  font-family: 'Quicksand';
+  src: url('Quicksand-Bold.ttf'); 
+  font-weight: 700; 
   font-style: normal;
 }
 @font-face {
-  font-family: 'Gilroy';
-  src: image-url('Gilroy-Light.otf'); 
+  font-family: 'Quicksand';
+  src: url('Quicksand-Bold.ttf'); 
   font-weight: 300; 
   font-style: normal;
 }
-$green: #6DCDB8;
-$beige: #F9F2ED;
-$lightgray: #F9F7F7;
-$darkgray: #545359;
+@font-face {
+  font-family: 'Quicksand';
+  src: url('Quicksand-Regular.ttf'); 
+  font-weight: 400; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Quicksand';
+  src: url('Quicksand-Medium.ttf'); 
+  font-weight: 500; 
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Handsdown';
+  src: url('HandsDown.otf'); 
+  font-weight: 400; 
+  font-style: normal;
+}
+$purple: #fcf9fd;
+$white: #Fff;
+$lightgray: lightgray;
+$darkgray: #7b8284;
 body { 
   margin: 0;
   color: $darkgray;
 }
-h1,h2,h3,h4,h5,a, span, input, th, select { font-family: 'Gilroy', sans-serif; font-weight: 900; }
-p, textarea, td, ul, li, .error_message, .success_message { font-family: 'Gilroy', sans-serif; font-weight: 300; } 
+h1,h2,h3,h4,h5,a, span, input, th, select,p { font-family: 'Quicksand', sans-serif; }
+.accent { font-family: 'Handsdown', sans-serif; font-weight: 300;}
 a {color: $darkgray;}
 .ttu { text-transform: uppercase; }
 .tac { text-align: center; }
 .vam { vertical-align: middle; }
 .ib { display: inline-block; }
 .jcc {justify-content: center;}
-.text-green { color: $green; }
-.background-green { background-color: $green; }
-.background-beige { background-color: $beige; }
 .text-white { color: #fff; }
 .ttl { text-transform: lowercase; }
 .flex-container-no, .flex-container{
@@ -102,7 +117,7 @@ a {text-decoration: none;}
   .jlogo {
     width: 80px;
     vertical-align: middle;
-    margin: -5px 10px 0px 10px;
+    margin: 0px 10px 0px 10px;
     float: left;
 }
   #staff-favorite-details form, #live-stream-details form, #all-reviews form { text-align: left; }
@@ -139,7 +154,7 @@ a {text-decoration: none;}
     text-align: center;
     width: 100%;
     box-sizing: border-box;
-    background: $green;
+    background: $darkgray;
     padding: 10px;
     input {
     font-size: 14pt;
@@ -154,7 +169,7 @@ a {text-decoration: none;}
 $unchecked-star: '\2606';
 $unchecked-color: $darkgray;
 $checked-star: '\2605';
-$checked-color: $green;
+$checked-color: $darkgray;
 .star-cb-group {
   /* remove inline-block whitespace */
   font-size: 0;
@@ -188,7 +203,7 @@ $checked-color: $green;
       & + label:hover ~ label:before,
       & + label:hover:before {
       content: $checked-star;
-      color: $green;
+      color: $darkgray;
       text-shadow: 0 0 1px #333;
     }
   }
@@ -249,41 +264,46 @@ $checked-color: $green;
   width: 100px;
 }
 /*user login / registration*/
-.gekks-employee form input[type="email"], .gekks-employee form input[type="password"] {
-    width: 60%;
-    font-size: 12pt;
+.pacas-employee form input[type="email"], .pacas-employee form input[type="password"] {
+    width: 90%;
+    font-size: 10pt;
     line-height: 2;
-    font-weight: 300;
-    padding: 5px;
-    float: right;
-    margin-top: 10px;
-    border: 0;
+    padding: 10px;
+    border: 1px solid #d1cdcd;
     box-sizing: border-box;
-    background: $lightgray;
+    background: white;
+    border-radius: 80px;
+    margin: 6px;
+    display: block;
+    margin: 10px auto;
 }
-.gekks-employee form {
+.background-paca { display: block; margin: 0 auto; }
+.pacas-employee form {
     width: 100%;
     box-sizing: border-box;
     margin: 0 auto;
     min-width: 275px;
-    max-width: 700px;
+    max-width: 500px;
 }
-.gekks-employee input[type=submit] {
-    font-size: 16pt;
+.border-bottom-gray { border-bottom: 1px solid $darkgray; padding: 2.5px; }
+.pacas-employee input[type=submit] {
+    font-size: 12pt;
     line-height: 2;
-    background: #6DCDB8;
+    width: 90%;
+    padding: 10px;
     color: white;
-    text-transform: lowercase;
-    width: 80%;
     display: block;
     margin: 20px auto;
     box-shadow: none;
     border: none;
-    border-radius: 0;
-    -webkit-appearance:none;
-
+    border-radius: 80px;
+    -webkit-appearance: none;
+    background: $darkgray;
 }
-
+.pacas-employee .field .subscript {
+    display: inline-block;
+    margin-left: 5%;
+}
 /* nav */
 ul {
   list-style: none;
