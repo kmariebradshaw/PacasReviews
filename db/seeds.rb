@@ -6,9 +6,8 @@
 #   movies = Movie.create([{ title: 'Star Wars' }, { title: 'Lord of the Rings' }])
 #   Character.create(title: 'Luke', movie: movies.first)
 
-Product.create([{title: "Women's Closet Pack", category: "W"},{title:
-"Ballet Flats", category: "W"}, {title: "Loafers and Slip-Ons",
-category: "W"}, {title: "Sneakers and Lace-Ups", category: "W"}, {title: "Heels & Wedges",
-category: "W"},{title:"Men's Loafers & Slip-Ons", category: "M"}, {title: "Men's Sneakers & Lace-
-Ups", category: "M"}, {title: "Men's Closet Pack", category: "M"}])
+Product.create([{title: "Women's No-Show Paca Socks", category: "W"},{title:
+"Women's Athletic Paca Socks", category: "W"}, {title: "Women's Ankle Casual Paca Socks",
+category: "W"}, {title: "Men's No-Show Paca Socks", category: "M"}, {title: "Men's Crew Cut Dress Paca Socks",
+category: "M"},{title:"Men's Ankle Casual Paca Socks", category: "M"}, {title: "Men's Ankle Athletic Paca Socks", category: "M"}, {title: "Kids' Ankle Casual Paca Socks", category: "K"}, {title: "Kids' Ankle Athletic Paca Socks", category: "K"}, {title: "Kids' No-Show Paca Socks", category: "K"}])
 
