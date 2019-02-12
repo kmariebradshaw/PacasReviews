@@ -6,7 +6,7 @@
 </section>
 <section class="main">
   <% if @pending_reviews.count > 0 %>
-    <h3 class="tac text-green">Pending Reviews</h2>
+    <h3 class="tac">Pending Reviews</h2>
     <p class="subscript decision-feedback tac"></p>
      <% @pending_reviews.each do | review | %>
 
@@ -14,16 +14,19 @@
       <div id="decision-wrapper">
         <%= form_for(review, remote: true, :html => {:class => "ib"}) do |fa| %>
             <%= fa.hidden_field :status, :value => "approved" %>
-            <%= fa.submit "✓", class: "text-green decision approval ib" %>
+            <%= fa.submit "✓", class: "decision approval ib" %>
           <% end %>
           <%= form_for(review, remote: true, :html => {:class => "ib"}) do |fa| %>
             <%= fa.hidden_field :status, :value => "hidden" %>
             <%= fa.submit "𐄂", class: "decision denial ib" %>
           <% end %>
+          <!-- comments out favorites until we get move reviews -->
+          <% if false %>
           <%= form_for(review, remote: true) do |fa| %>
             <%= fa.hidden_field :staff_favorite, :value => true %>
             <%= fa.hidden_field :status, :value => "approved" %>
-            <%= fa.submit "favorite?", class: "ib decision favorited" %>
+            <%= fa.submit "favorite?", class: "subscript ib decision display-fav" %>
+          <% end %>
           <% end %>
       </div>
       <div class="half">
@@ -31,7 +34,7 @@
           <% if review.author_last %>
             <span class="ttu"><%= review.author_last.first(1) %>.</span> 
           <% end %>
-          <br class="mo"><span class="text-green star-wrapper">
+          <br class="mo"><span class="star-wrapper">
           <% review.rating.times do%>
             ★
           <% end %>
@@ -39,95 +42,101 @@
         <p><%= review.text %></p>
       </div>
       <div class="half tar do">
-        <h4 class="text-green ttl nmb"><%= review.product.title %></h4>
+        <h4 class="ttl nmb"><%= review.product.title %></h4>
         <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
       </div>
     </div>
     <% end %>
   <% else %>
   <div class="tac">
-    <h3 class="ib text-green vam">No Pending Reviews</h3>
+    <h3 class="ib vam">No Pending Reviews</h3>
     </div>
   <% end %>
 </section>
 
-<% if @favorited_reviews.count > 0 %>
-<section class="main background-beige">
-  <h3 class="tac">Staff Favorites</h3>
-  <% @favorited_reviews.each do | review | %> 
-    <div class="flex-container">
-      <div class="half">
-        <h4 class="nmb"><%= review.author_first %>
-         <% if review.author_last %>
-            <span class="ttu"><%= review.author_last.first(1) %>.</span> 
-          <% end %>
-        <span class="text-green star-wrapper">
-          <% review.rating.times do%>
-            ★
-          <% end %>
-        </span>
-        </h4>
-         <div class="mo">
-          <h4 class="text-green ttl nmb"><%= review.product.title %></h4>
-          <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+<% if false %>
+  <% if @favorited_reviews.count > 0 %>
+  <section class="main background-purple">
+    <h3 class="tac">Staff Favorites</h3>
+    <% @favorited_reviews.each do | review | %> 
+      <div class="flex-container">
+        <div class="half">
+          <h4 class="nmb"><%= review.author_first %>
+           <% if review.author_last %>
+              <span class="ttu"><%= review.author_last.first(1) %>.</span> 
+            <% end %>
+          <span class="star-wrapper">
+            <% review.rating.times do%>
+              ★
+            <% end %>
+          </span>
+          </h4>
+           <div class="mo">
+            <h4 class="ttl nmb"><%= review.product.title %></h4>
+            <p class="subscript nmt"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+          </div>
+          <p class="nmb"><%= review.text %></p>
+            <%= form_for(review, remote: true) do |fa| %>
+            <%= fa.hidden_field :staff_favorite, :value => false %>
+            <%= fa.submit "unfavorite?", class: "subscript ib decision favorited display-fav nmb" %>
+            <% end %>
         </div>
-        <p class="nmb"><%= review.text %></p>
+        <div class="half tar" id="staff-favorite-details">
+              <h4 class=" ttl nmb do"><%= review.product.title %></h4>
+          <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
           <%= form_for(review, remote: true) do |fa| %>
-          <%= fa.hidden_field :staff_favorite, :value => false %>
-          <%= fa.submit "unfavorite?", class: "subscript ib decision favorited display-fav nmb" %>
-          <% end %>
+          <%= fa.hidden_field :vote, :value => review.vote + 1 %>
+          <%= fa.submit "helpful?", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
+        <% end %>
+        </div>
       </div>
-      <div class="half tar" id="staff-favorite-details">
-            <h4 class="text-green ttl nmb do"><%= review.product.title %></h4>
-        <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
-        <%= form_for(review, remote: true) do |fa| %>
-        <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-        <%= fa.submit "useful? ♡", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
       <% end %>
-      </div>
-    </div>
-    <% end %>
-  </section>
+    </section>
+  <% end %> 
 <% end %> 
 
-<section class="main">
+<section class="main-to">
   <h3 class="tac">Latest Reviews</h3>
-  <% @reviews.each do | review | %> 
-    <% if review.status != "pending" && review.staff_favorite != true %>
-    <div class="flex-container lazy">
+  <% @latest_reviews.each_with_index do | review, index | %> 
+      <% if index % 2 == 0 %> 
+        <div class="flex-container lazy main">
+      <% else %>
+        <div class="flex-container lazy background-purple main">
+      <% end %>
       <div class="half">
         <h4 class="nmb"><%= review.author_first %> 
           <% if review.author_last %>
             <span class="ttu"><%= review.author_last.first(1) %>.</span> 
           <% end %>
-          <span class="text-green star-wrapper">
+          <span class="star-wrapper">
           <% review.rating.times do%>
             ★
           <% end %>
           </span></h4>
            <div class="mo">
-          <h4 class="text-green ttl nmb"><%= review.product.title %></h4>
+          <h4 class=" ttl nmb"><%= review.product.title %></h4>
           <p class="subscript nm"><%= review.created_at.strftime('%m/%d/%Y') %></p>
           <p class="subscript nmt"><span><%= review.status %></span></p>
 
         </div>
         <p class="nmb"><%= review.text %></p>
+        <% if false %>
          <%= form_for(review, remote: true) do |fa| %>
           <%= fa.hidden_field :staff_favorite, :value => true %>
           <%= fa.submit "favorite?", class: "subscript ib decision favorited display-fav" %>
           <% end %>
+          <% end %> 
       </div>
       <div class="half tar" id="all-reviews">
-        <h4 class="text-green ttl nmb do"><%= review.product.title %></h4>
+        <h4 class="ttl nmb do"><%= review.product.title %></h4>
         <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
         <%= form_for(review, remote: true) do |fa| %>
         <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-        <%= fa.submit "useful? ♡", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
+        <%= fa.submit "helpful?", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
         <p class="subscript nmt do"><span><%= review.status %></span></p>
       <% end %>
       </div>
     </div>
-    <% end %>
    <% end %>
        <%= will_paginate @reviews %>
 
@@ -138,20 +147,20 @@
     $(this).parent().parent().parent().hide();
     $('.decision-feedback').hide(); 
     if ($(this).hasClass('approval')) {
-      $('.decision-feedback').removeClass('text-red').addClass('text-green').text('approved').show();
+      $('.decision-feedback').text('approved').show();
     }
     else if ($(this).hasClass('denial')) {
-      $('.decision-feedback').removeClass('text-green').addClass('text-red').text('hidden').show();
+      $('.decision-feedback').text('hidden').show();
     }
     else if ($(this).hasClass('favorited')) {
-      $('.decision-feedback').removeClass('text-red').addClass('text-green').text('approved & favorited').show();
+      $('.decision-feedback').text('approved & favorited').show();
     }
   })
 
   $('.useful').click(function() {
-    $(this).attr("value", "♥"); 
+    $(this).attr("value", " "); 
+    $(this).addClass('filled-paca')
     votes = parseInt($(this).next('.upvote').text()) + 1  
     $(this).next('.upvote').text(votes)
   })
 </script>
-<!-- lazy load  -->

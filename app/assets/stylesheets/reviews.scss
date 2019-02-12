@@ -37,6 +37,8 @@ body {
   margin: 0;
   color: $darkgray;
 }
+
+form, input, .decision { color: $darkgray; }
 h1,h2,h3,h4,h5,a, span, input, th, select,p, .new_review textarea { font-family: 'Quicksand', sans-serif; }
 .accent { font-family: 'Handsdown', sans-serif; font-weight: 300;}
 a {color: $darkgray;}
@@ -72,14 +74,16 @@ a {text-decoration: none;}
 }
 .accent-padding.page-header { 
   padding: 50px; 
-  min-height: 200px;
+  min-height: 300px;
 }
 @media only screen and (min-width: 1100px) {
   h1 { font-size: 67pt; } 
   h2 { font-size: 34pt; } 
   h3{ font-size: 16pt; } 
-  p, table { font-size: 14pt; } 
+  p, table { font-size: 12pt; } 
   .main { padding: 50px; }
+  .main-to { padding: 50px 0;}
+  .main-so { padding: 0 50px ;}
 
 }
 @media only screen and (min-width: 800px) and (max-width: 1099px) {
@@ -88,23 +92,26 @@ a {text-decoration: none;}
   h3{ font-size: 14pt; } 
   p, table { font-size: 12pt; } 
   .main { padding: 50px; }
+  .main-to { padding: 50px 0; }
+  .main-so { padding: 0 50px; }
 
 
+}
+@media only screen and (min-width: 800px) {
+  .paca-background { background-position: 100px;}
 }
 @media only screen and (min-width: 589px) and (max-width: 799px) {
   h1 { font-size: 43pt; } 
   h2 { font-size: 30pt; } 
   p, table { font-size: 12pt; }
   .main { padding: 25px; }
-
+  .main-to { padding: 25px 0; }
+  .main-so { padding: 0 25px; }
 }
 @media only screen and (min-width: 589px) {
   .mo { display: none; }
     .accent-padding { padding: 20px; }
 .star-wrapper { margin-left: 5px; }
-.gekks-employee form {
-    padding: 50px;
-}
 .jlogo { 
   width: 100px; 
   vertical-align: middle;
@@ -118,6 +125,8 @@ a {text-decoration: none;}
   h1 { font-size: 22pt; } 
   h2 { font-size: 16pt; } 
   .main { padding: 15px 15px 30px 15px; }
+  .main-to { padding: 15px 0 30px 0; }
+  .main-so { padding: 0 15px; }
   .flex-container { display: block; }
   .useful { padding: 0; }
   .flex-container .half { width: 100%; }
@@ -255,21 +264,34 @@ $checked-color: $darkgray;
 /*all reviews*/
 .useful {
     font-size: 10pt;
-    font-weight: lighter;
     background: transparent;
     border: none;
+    background-image: image-url('stroke.png');
+    background-position: 97px 8px;
+    background-size: 18%;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    width: 130px;
+    height: 42px;
+    vertical-align: baseline;
+
 }
 .paca-background {
-  background-image: image-url('purple-paca.png');
   background-repeat: no-repeat;
   background-size: contain;
+    background-image: image-url('purple-paca.png');
+
+}
+.filled-paca { background-image: image-url('filled.png');
 }
 /*review dashboard*/
 .denial { font-size: 35px; }
 .approval { font-size: 20px; }
-.favorited { font-size: 12pt; }
 .decision { background: transparent; border: none; }
-#decision-wrapper { margin-right: 20px; }
+#decision-wrapper { 
+  margin-right: 20px;
+  min-width: fit-content;
+}
 #pending-reviews {
   border-bottom: 2px solid $lightgray;
 }
@@ -326,6 +348,7 @@ $checked-color: $darkgray;
     margin-left: 5%;
 }
 /* nav */
+nav { padding: 10px; }
 ul {
   list-style: none;
   padding-left: 0;
