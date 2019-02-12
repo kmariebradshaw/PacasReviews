@@ -1,8 +1,12 @@
+<style>
+nav { display: none; }
+</style>
+
 <div id="new-review" class="main">
-  <h1 class="tac text-green nmb">Leave a Review</h1>
-  <h2 class="tac nmt">We'd love to hear from you!</h2>
+  <h3 class="tac text-green nmb">Leave a Review</h3>
+  <h4 class="tac nmt">We'd love to hear from you!</h4>
     <% if @review.errors.any? %>
-      <p class="tac">We're sorry, but an error occurred. If this continues, please contact us a gosockless@mygekks.com</p>
+      <p class="tac subscript">We're sorry, but an error occurred. If this continues, please contact us a support@pacas.us</p>
        <p class="error subscript tac" style="display: none;">
           <% @review.errors.full_messages.each do |msg| %>
             <%= msg %>
@@ -13,31 +17,29 @@
     <% if params[:email] %> 
       <%= f.hidden_field :author_email, :value => params[:email] %>
     <% else %>
-      <h3 class="text-green">Email:</h3>
-      <%= f.text_field :author_email %>
+      <%= f.text_field :author_email, placeholder: "Email" %>
     <% end %>
     <% if params[:first] %> 
       <%= f.hidden_field :author_first, :value=> params[:first] %>
     <% else %>
-      <h3 class="text-green">First Name:</h3>
-      <%= f.text_field :author_first %>
+      <%= f.text_field :author_first, placeholder: "First Name" %>
     <% end %>
     <% if params[:sur] %> 
       <%= f.hidden_field :author_last, :value => params[:sur] %>
     <% else %>
-      <h3 class="text-green">Last Name:</h3>
-      <%= f.text_field :author_last %>
+      <%= f.text_field :author_last,placeholder: "Last Name" %>
     <% end %>
-    <h3 class="text-green">Product:</h3>
       <%= f.collection_select :product_id, Product.all, :id, :title, {prompt: "Select Product"} %><br>
-     <h3 class="text-green">Rating:</h3>
-     <span class="star-cb-group">
-      <%= f.radio_button :rating, 5, id: "rating-5"%><label for="rating-5">5</label>
-      <%= f.radio_button :rating, 4, id: "rating-4" %><label for="rating-4">4</label>
-      <%= f.radio_button :rating, 3, id: "rating-3" %><label for="rating-3">3</label> 
-      <%= f.radio_button :rating, 2, id: "rating-2" %><label for="rating-2">2</label>
-      <%= f.radio_button :rating, 1, id: "rating-1" %><label for="rating-1">1</label>
-    </span>
+    <div id="rating-wrapper">
+      <p class="subscript nmt">Rating:</p>
+      <span class="star-cb-group">
+        <%= f.radio_button :rating, 5, id: "rating-5"%><label for="rating-5">5</label>
+        <%= f.radio_button :rating, 4, id: "rating-4" %><label for="rating-4">4</label>
+        <%= f.radio_button :rating, 3, id: "rating-3" %><label for="rating-3">3</label> 
+        <%= f.radio_button :rating, 2, id: "rating-2" %><label for="rating-2">2</label>
+        <%= f.radio_button :rating, 1, id: "rating-1" %><label for="rating-1">1</label>
+      </span>
+    </div>
     <p>
       <%= f.text_area :text, placeholder: "Please type your review here" %>
     </p>
@@ -46,3 +48,4 @@
     </div> 
   <% end %>
 </div>
+<%= image_tag("account-paca.png", class: "background-paca") %>
