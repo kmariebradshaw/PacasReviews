@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
   end 
   def index
     @users = User.all 
-    @reviews = Review.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 250)
+    @reviews = Review.where(:status => 'approved').order("created_at DESC").paginate(:page => params[:page], :per_page => 250)
     @favorited_reviews = Review.all.where(:staff_favorite => true)
     @positive_review_count = Review.where("rating > ?", 3).count()
    respond_to do |format|
