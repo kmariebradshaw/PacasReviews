@@ -73,7 +73,6 @@ a {text-decoration: none;}
   margin: 20px auto;
 }
 .accent-padding.page-header { 
-  padding: 50px; 
   min-height: 300px;
 }
 @media only screen and (min-width: 1100px) {
@@ -110,20 +109,21 @@ a {text-decoration: none;}
 }
 @media only screen and (min-width: 589px) {
   .mo { display: none; }
-    .accent-padding { padding: 20px; }
-.star-wrapper { margin-left: 5px; }
-.jlogo { 
-  width: 100px; 
-  vertical-align: middle;
-  margin: 0px 20px 0px 20px; 
-  float: left;
-}
-
-
+  .accent-padding { padding: 20px; }
+  .star-wrapper { margin-left: 5px; }
+  .jlogo { 
+    width: 100px; 
+    vertical-align: middle;
+    margin: 0px 20px 0px 20px; 
+    float: left;
+  }
+  .accent-padding.page-header { padding: 50px; }
 }
 @media only screen and (max-width: 588px) {
   h1 { font-size: 22pt; } 
   h2 { font-size: 16pt; } 
+  h3 { font-size: 12pt; }
+  p { font-size: 10pt; }
   .main { padding: 15px 15px 30px 15px; }
   .main-to { padding: 15px 0 30px 0; }
   .main-so { padding: 0 15px; }
@@ -138,8 +138,17 @@ a {text-decoration: none;}
     vertical-align: middle;
     margin: 0px 10px 0px 10px;
     float: left;
-}
+  }
+  .accent-padding.page-header { padding: 20px; }
+  .paca-background { background-position: -80px bottom; } 
   #staff-favorite-details form, #live-stream-details form, #all-reviews form { text-align: left; }
+}
+@media only screen and (max-width: 450px) {
+  .page-header .half-no:first-of-type { width: 40%; }
+  .page-header .half-no:nth-of-type(2n) { width: 60%; }
+}
+@media only screen and (max-width: 340px) {
+  .accent-padding.page-header { padding: 0px; }
 }
 /*new review*/
 .new_review {
@@ -267,14 +276,13 @@ $checked-color: $darkgray;
     background: transparent;
     border: none;
     background-image: image-url('stroke.png');
-    background-position: 97px 8px;
-    background-size: 18%;
+    background-position: 58px 7px;
+    background-size: 30%;
     background-repeat: no-repeat;
     margin-top: 20px;
-    width: 130px;
+    width: 90px;
     height: 42px;
-    vertical-align: baseline;
-
+    text-align: left;
 }
 .paca-background {
   background-repeat: no-repeat;
