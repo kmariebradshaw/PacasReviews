@@ -37,6 +37,8 @@ body {
   margin: 0;
   color: $darkgray;
 }
+
+form, input, .decision { color: $darkgray; }
 h1,h2,h3,h4,h5,a, span, input, th, select,p, .new_review textarea { font-family: 'Quicksand', sans-serif; }
 .accent { font-family: 'Handsdown', sans-serif; font-weight: 300;}
 a {color: $darkgray;}
@@ -264,9 +266,11 @@ $checked-color: $darkgray;
 /*review dashboard*/
 .denial { font-size: 35px; }
 .approval { font-size: 20px; }
-.favorited { font-size: 12pt; }
 .decision { background: transparent; border: none; }
-#decision-wrapper { margin-right: 20px; }
+#decision-wrapper { 
+  margin-right: 20px;
+  min-width: fit-content;
+}
 #pending-reviews {
   border-bottom: 2px solid $lightgray;
 }
