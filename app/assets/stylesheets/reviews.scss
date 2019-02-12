@@ -78,7 +78,7 @@ a {text-decoration: none;}
   h1 { font-size: 67pt; } 
   h2 { font-size: 34pt; } 
   h3{ font-size: 16pt; } 
-  p, table { font-size: 14pt; } 
+  p, table { font-size: 12pt; } 
   .main { padding: 50px; }
 
 }
@@ -102,9 +102,6 @@ a {text-decoration: none;}
   .mo { display: none; }
     .accent-padding { padding: 20px; }
 .star-wrapper { margin-left: 5px; }
-.gekks-employee form {
-    padding: 50px;
-}
 .jlogo { 
   width: 100px; 
   vertical-align: middle;
@@ -326,6 +323,7 @@ $checked-color: $darkgray;
     margin-left: 5%;
 }
 /* nav */
+nav { padding: 10px; }
 ul {
   list-style: none;
   padding-left: 0;
