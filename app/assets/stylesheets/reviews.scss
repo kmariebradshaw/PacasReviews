@@ -97,6 +97,9 @@ a {text-decoration: none;}
 
 
 }
+@media only screen and (min-width: 800px) {
+  .paca-background { background-position: 100px;}
+}
 @media only screen and (min-width: 589px) and (max-width: 799px) {
   h1 { font-size: 43pt; } 
   h2 { font-size: 30pt; } 
@@ -261,15 +264,25 @@ $checked-color: $darkgray;
 /*all reviews*/
 .useful {
     font-size: 10pt;
-    font-weight: lighter;
     background: transparent;
     border: none;
+    background-image: image-url('stroke.png');
+    background-position: 97px 8px;
+    background-size: 18%;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+    width: 130px;
+    height: 42px;
+    vertical-align: baseline;
+
 }
 .paca-background {
-  background-image: image-url('purple-paca.png');
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: 100px;
+    background-image: image-url('purple-paca.png');
+
+}
+.filled-paca { background-image: image-url('filled.png');
 }
 /*review dashboard*/
 .denial { font-size: 35px; }

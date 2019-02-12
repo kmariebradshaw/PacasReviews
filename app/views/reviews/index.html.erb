@@ -3,7 +3,7 @@
   <div class="half-no">
     <h3 class="tac">Reviews</h3>
     <p class="tac">Want to leave us a review?<br>
-      <span class="border-bottom-gray">Click here</span> to rate our socks</p>
+      <a href="/reviews/new" _target="blank"><span class="border-bottom-gray">Click here</span></a> to rate our socks.</p>
   </div>
 </section>
 <% if false %>
@@ -33,7 +33,7 @@
         <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
         <%= form_for(review, remote: true) do |fa| %>
           <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-      <%= fa.submit "useful? ♡", class: "useful" %><p class="ib subscript upvote"><%= review.vote%></p>
+      <%= fa.submit "helpful?", class: "useful" %><p class="ib subscript upvote"><%= review.vote%></p>
       <% end %>
       </div>
     </div>
@@ -70,7 +70,7 @@
         <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
         <%= form_for(review, remote: true) do |fa| %>
         <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-        <%= fa.submit "useful? ♡", class: "useful" %><p class="ib subscript upvote"><%= review.vote %></p>
+      <%= fa.submit "helpful?", class: "useful" %><p class="ib subscript upvote"><%= review.vote%></p>
       <% end %>
       </div>
     </div>
@@ -80,7 +80,8 @@
   </section>
 <script>
   $('.useful').click(function() {
-    $(this).attr("value", "♥"); 
+    $(this).attr("value", " ");
+    $(this).addClass('filled-paca')
     votes = parseInt($(this).next('.upvote').text()) + 1  
     $(this).next('.upvote').text(votes)
   })

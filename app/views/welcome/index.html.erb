@@ -86,7 +86,7 @@
           <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
           <%= form_for(review, remote: true) do |fa| %>
           <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-          <%= fa.submit "useful? ♡", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
+          <%= fa.submit "helpful?", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
         <% end %>
         </div>
       </div>
@@ -132,7 +132,7 @@
         <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
         <%= form_for(review, remote: true) do |fa| %>
         <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-        <%= fa.submit "useful? ♡", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
+        <%= fa.submit "helpful?", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
         <p class="subscript nmt do"><span><%= review.status %></span></p>
       <% end %>
       </div>
@@ -158,7 +158,8 @@
   })
 
   $('.useful').click(function() {
-    $(this).attr("value", "♥"); 
+    $(this).attr("value", " "); 
+    $(this).addClass('filled-paca')
     votes = parseInt($(this).next('.upvote').text()) + 1  
     $(this).next('.upvote').text(votes)
   })
