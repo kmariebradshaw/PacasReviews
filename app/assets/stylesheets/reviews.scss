@@ -98,6 +98,8 @@ a {text-decoration: none;}
 }
 @media only screen and (min-width: 800px) {
   .paca-background { background-position: 100px;}
+  .review-padding { padding: 50px 100px; align-items: flex-start; }
+
 }
 @media only screen and (min-width: 589px) and (max-width: 799px) {
   h1 { font-size: 43pt; } 
