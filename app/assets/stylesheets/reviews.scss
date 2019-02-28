@@ -330,7 +330,7 @@ $checked-color: $darkgray;
     display: block;
     margin: 10px auto;
 }
-.background-paca { display: block; margin: 0 auto; }
+.background-paca { display: block; margin: 0 auto; max-width: 100%; }
 .pacas-employee form {
     width: 100%;
     box-sizing: border-box;
