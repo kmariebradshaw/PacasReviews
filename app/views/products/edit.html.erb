@@ -1,0 +1,10 @@
+<div id="edit-product" class="main">
+
+  <%= form_for @product do |f| %>
+    
+      <h3 class="">Name:</h3>
+      <%= f.text_field :title %>
+   
+      <span><%= f.submit %></span>
+  <% end %>
+</div>
