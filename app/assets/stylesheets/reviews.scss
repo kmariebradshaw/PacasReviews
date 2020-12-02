@@ -39,7 +39,7 @@ body {
 }
 
 form, input, .decision { color: $darkgray; }
-h1,h2,h3,h4,h5,a, span, input, th, select,p, .new_review textarea { font-family: 'Quicksand', sans-serif; }
+h1,h2,h3,h4,h5,a, span, input, th, select,p, .new_review textarea, ul li{ font-family: 'Quicksand', sans-serif; }
 .accent { font-family: 'Handsdown', sans-serif; font-weight: 300;}
 a {color: $darkgray;}
 .ttu { text-transfoxrm: uppercase; }
@@ -317,6 +317,15 @@ $checked-color: $darkgray;
   width: 100px;
 }
 /*user login / registration*/
+#error_explanation { 
+  text-align: center;
+  h2 { font-size: 12pt; }
+  ul { text-align: center; 
+    li {
+      display: block;
+      }
+  }
+ }
 .pacas-employee form input[type="email"], .pacas-employee form input[type="password"] {
     width: 90%;
     font-size: 10pt;
