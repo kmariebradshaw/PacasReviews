@@ -1,26 +1,15 @@
 /*general*/
+
 @font-face {
-  font-family: 'Quicksand';
-  src: font-url('Quicksand-Bold.ttf'); 
+  font-family: 'GlacialIndifference';
+  src: font-url('GlacialIndifference-Bold.ptf'); 
   font-weight: 700; 
   font-style: normal;
 }
 @font-face {
-  font-family: 'Quicksand';
-  src: font-url('Quicksand-Bold.ttf'); 
-  font-weight: 300; 
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Quicksand';
-  src: font-url('Quicksand-Regular.ttf'); 
+  font-family: 'GlacialIndifference';
+  src: font-url('GlacialIndifference-Regular.otf'); 
   font-weight: 400; 
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Quicksand';
-  src: font-url('Quicksand-Medium.ttf'); 
-  font-weight: 500; 
   font-style: normal;
 }
 @font-face {
@@ -39,8 +28,8 @@ body {
 }
 
 form, input, .decision { color: $darkgray; }
-h1,h2,h3,h4,h5,a, span, input, th, select,p, .new_review textarea, ul li{ font-family: 'Quicksand', sans-serif; }
-.accent { font-family: 'Handsdown', sans-serif; font-weight: 300;}
+h1,h2,h3,h4,h5,a, span, input, th, select,p, .new_review textarea, ul li{ font-family: 'GlacialIndifference', sans-serif; }
+.accent { font-family: 'GlacialIndifference', sans-serif; font-weight: 700;}
 a {color: $darkgray;}
 .ttu { text-transfoxrm: uppercase; }
 .tac { text-align: center; }
