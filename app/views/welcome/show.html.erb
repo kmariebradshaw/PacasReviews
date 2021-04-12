@@ -1,4 +1,4 @@
-  <section class="background-beige main">
+  <section class="background-purple main">
   <h2 class="tac">Live Stream</h2>
   <% @reviews.each do | review | %> 
   <% if review.status == "approved" && review.staff_favorite != true %>
@@ -24,7 +24,7 @@
         <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
         <%= form_for(review, remote: true) do |fa| %>
         <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-        <%= fa.submit "useful? ♡", class: "useful" %><p class="ib subscript upvote"><%= review.vote %></p>
+        <%= fa.submit "useful?", class: "useful" %><p class="ib subscript upvote"><%= review.vote %></p>
       <% end %>
       </div>
     </div>
@@ -34,9 +34,8 @@
   </section>
 <script>
   $('.useful').click(function() {
-    $(this).attr("value", "♥"); 
+    $(this).attr("value", "thanks!");
+    $(this).addClass('filled-paca')
     votes = parseInt($(this).next('.upvote').text()) + 1  
     $(this).next('.upvote').text(votes)
   })
-
-</script>
