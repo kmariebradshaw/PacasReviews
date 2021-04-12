@@ -22,9 +22,9 @@
       <div class="half tar" id="live-stream-details">
         <h3 class="text-green ttl nmb do"><%= review.product.title %></h3>
         <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
-        <%= form_for(review, remote: true) do |fa| %>
+  <%= form_for(review, remote: true) do |fa| %>
         <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-        <%= fa.submit "useful?", class: "useful" %><p class="ib subscript upvote"><%= review.vote %></p>
+      <%= fa.submit "helpful?", class: "useful" %><p class="ib subscript upvote"><%= review.vote%></p>
       <% end %>
       </div>
     </div>
