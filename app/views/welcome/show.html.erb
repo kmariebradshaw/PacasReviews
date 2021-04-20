@@ -1,8 +1,8 @@
   <section class="background-purple main">
-  <h2 class="tac">Live Stream</h2>
+  <h2 class="tac">Live Reviews</h2>
   <% @reviews.each do | review | %> 
   <% if review.status == "approved" && review.staff_favorite != true %>
-    <div class="flex-container">
+    <div class="flex-container review-wrapper">
       <div class="half">
         <h3 class="nmb"><%= review.author_first %> 
           <% if review.author_last %>
@@ -30,9 +30,26 @@
     </div>
     <% end %> 
     <% end %>
+    <div class="read-more-reviews tac "><p style="text-decoration: underline">See More Reviews</p></div>
 
+    <a href="https://www.pacas.us/pages/reviews" target="_blank" class="read-more-reviews-link" style="display: none;"><p class="tac" style="text-decoration: underline">All Reviews</p></a>
   </section>
+<style>
+  .review-wrapper { align-items: flex-start; }
+  .review-wrapper:nth-of-type(2) ~ .review-wrapper { display: none; }
+  @media only screen and (min-width: 589px) {
+  .flex-override { display: flex !important; }
+  }
+  @media only screen and (max-width: 588px) {
+    .flex-override { display: block !important; }
+  }
+</style>
 <script>
+  $('.read-more-reviews').click(function() {
+    $(this).hide(); 
+    $('.read-more-reviews-link').show();
+    $('.review-wrapper').toggleClass("flex-override")
+  })
   $('.useful').click(function() {
     $(this).attr("value", "thanks!");
     $(this).addClass('filled-paca')
