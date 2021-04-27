@@ -30,9 +30,9 @@
     </div>
     <% end %> 
     <% end %>
-    <div class="read-more-reviews tac "><p style="text-decoration: underline">See More Reviews</p></div>
+    <div class="read-more-reviews tac clickable"><p style="text-decoration: underline" class="clickable">See More Reviews</p></div>
 
-    <a href="https://www.pacas.us/pages/reviews" target="_blank" class="read-more-reviews-link" style="display: none;"><p class="tac" style="text-decoration: underline">All Reviews</p></a>
+    <a href="https://www.pacas.us/pages/reviews" class="read-more-reviews-link" style="display: none;"><p class="tac" style="text-decoration: underline">All Reviews</p></a>
   </section>
 <style>
   .review-wrapper { align-items: flex-start; }
@@ -43,10 +43,12 @@
   @media only screen and (max-width: 588px) {
     .flex-override { display: block !important; }
   }
+  .clickable { cursor: pointer; }
 </style>
 <script>
-  $('.read-more-reviews').click(function() {
-    $(this).hide(); 
+  $('.read-more-reviews p').click(function() {
+    $(this).text() === 'See More Reviews'? $(this).text('See Less Reviews') : $(this).text('See More Reviews'); 
+
     $('.read-more-reviews-link').show();
     $('.review-wrapper').toggleClass("flex-override")
   })
