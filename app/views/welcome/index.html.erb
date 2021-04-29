@@ -133,7 +133,18 @@
         <%= form_for(review, remote: true) do |fa| %>
         <%= fa.hidden_field :vote, :value => review.vote + 1 %>
         <%= fa.submit "helpful?", class: "useful nmb" %><p class="ib subscript upvote nmb"><%= review.vote %></p>
-        <p class="subscript nmt do"><span><%= review.status %></span></p>
+        <p class="subscript nmt do"><span class="status"><%= review.status %></span></p>
+             <% if review.status == "hidden" %>
+            <%= form_for(review, remote: true, :html => {:class => "ib change prev-den do"}) do |fa| %>
+              <%= fa.hidden_field :status, :value => "approved" %>
+              <%= fa.submit "✓", class: "text-green decision-change ib" %>
+            <% end %>
+          <% else %>
+            <%= form_for(review, remote: true, :html => {:class => "ib change do"}) do |fa| %>
+              <%= fa.hidden_field :status, :value => "hidden" %>
+              <%= fa.submit "x", class: "decision-change ib" %>
+            <% end %>
+          <% end %>
       <% end %>
       </div>
     </div>
@@ -143,6 +154,19 @@
   </section>
 
 <script>
+    $('.change').submit(function() {
+      console.log('original-hit')
+    if ($(this).hasClass("prev-den")) {
+    var c =  confirm("This will make the review public, are you sure you want to continue?"); 
+    }
+    else {
+      var c = confirm("This will hide the review, are you sure you want to continue?"); 
+    }
+    var status = $(this).prev('.status').children()
+    $(status).text($(status).text() == "hidden" ? "approved" : "hidden"); 
+    $(this).hide(); 
+    return c; 
+  }); 
   $('.decision').click(function () {
     $(this).parent().parent().parent().hide();
     $('.decision-feedback').hide(); 
