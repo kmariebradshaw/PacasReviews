@@ -30,12 +30,13 @@
     </div>
     <% end %> 
     <% end %>
-    <div class="read-more-reviews tac clickable"><p style="text-decoration: underline" class="clickable">See More Reviews</p></div>
+    <button class="read-more-reviews tac clickable">See More Reviews</button>
 
     <a href="https://www.pacas.us/pages/reviews" class="read-more-reviews-link" style="display: none;"><p class="tac" style="text-decoration: underline">All Reviews</p></a>
   </section>
 <style>
   .review-wrapper { align-items: flex-start; }
+  .read-more-reviews { border: 1px solid gray; padding: 10px; display: block; margin: 0 auto; width: 200px; border-radius: 5px;}
   .review-wrapper:nth-of-type(2) ~ .review-wrapper { display: none; }
   @media only screen and (min-width: 589px) {
   .flex-override { display: flex !important; }
@@ -46,7 +47,7 @@
   .clickable { cursor: pointer; }
 </style>
 <script>
-  $('.read-more-reviews p').click(function() {
+  $('.read-more-reviews').click(function() {
     $(this).text() === 'See More Reviews'? $(this).text('See Less Reviews') : $(this).text('See More Reviews'); 
 
     $('.read-more-reviews-link').show();
