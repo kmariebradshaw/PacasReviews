@@ -143,8 +143,16 @@
             <%= form_for(review, remote: true, :html => {:class => "ib change do"}) do |fa| %>
               <%= fa.hidden_field :status, :value => "hidden" %>
               <%= fa.submit "x", class: "decision-change ib" %>
+                  <%= form_for(review, remote: true, :html => {:class => "ib change do"}) do |fa| %>
+                <% end %>
+                          <% end %>
+
+                   <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+              <%= fa.hidden_field :created_at, :value => DateTime.current %>
+              <%= fa.submit "update-time", class: " ib" %>
             <% end %>
           <% end %>
+
       <% end %>
       </div>
     </div>
