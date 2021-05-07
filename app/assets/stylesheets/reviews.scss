@@ -277,10 +277,14 @@ $checked-color: $darkgray;
 .paca-background {
   background-repeat: no-repeat;
   background-size: contain;
-    background-image: image-url('purple-paca.png');
-    background-position: left;
+    background-image: image-url('llama.png');
+    background-position: bottom left;
 
 }
+@media only screen and (max-width: 588px) {
+  .paca-background { background-size: 40% !important; }
+}
+
 .filled-paca { background-image: image-url('filled.png');
 }
 /*review dashboard*/
