@@ -30,13 +30,26 @@
     </div>
     <% end %> 
     <% end %>
-    <button class="read-more-reviews tac clickable">See More Reviews</button>
+    <button class="read-more-reviews tac clickable"><h4 class="nm">See More Reviews</h4></button>
 
     <a href="https://www.pacas.us/pages/reviews" class="read-more-reviews-link" style="display: none;"><p class="tac" style="text-decoration: underline">All Reviews</p></a>
   </section>
 <style>
   .review-wrapper { align-items: flex-start; }
-  .read-more-reviews { border: 1px solid gray; padding: 10px; display: block; margin: 0 auto; width: 200px; border-radius: 5px;}
+  .read-more-reviews { 
+    border: 1px solid #7b8284; 
+    padding: 10px; 
+    display: block; 
+    margin: 0 auto; 
+    width: 190px; 
+    border-radius: 5px;
+    background-color: white;
+    opacity: 0.8;
+  }
+  .read-more-reviews h4 { 
+    font-size: 12pt; 
+    color: #666562;
+  }
   .review-wrapper:nth-of-type(2) ~ .review-wrapper { display: none; }
   @media only screen and (min-width: 589px) {
   .flex-override { display: flex !important; }
