@@ -61,7 +61,7 @@
 </style>
 <script>
   $('.read-more-reviews').click(function() {
-    $(this).text() === 'See More Reviews'? $(this).text('See Less Reviews') : $(this).text('See More Reviews'); 
+    $('.read-more-reviews h4').text() === 'See More Reviews'? $('.read-more-reviews h4').text('See Less Reviews') : $('.read-more-reviews h4').text('See More Reviews'); 
 
     $('.read-more-reviews-link').show();
     $('.review-wrapper').toggleClass("flex-override")
