@@ -66,6 +66,11 @@
     $('.read-more-reviews-link').show();
     $('.review-wrapper').toggleClass("flex-override")
   })
+  $('.read-more-reviews-link').click(function() {
+    event.preventDefault(); 
+    window.location.href = 'https://www.pacas.us/pages/reviews'
+
+  })
   $('.useful').click(function() {
     $(this).attr("value", "thanks!");
     $(this).addClass('filled-paca')
