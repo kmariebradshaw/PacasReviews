@@ -32,21 +32,21 @@
     <% end %>
     <button class="read-more-reviews tac clickable"><h4 class="nm">See More Reviews</h4></button>
 
-    <a href="https://www.pacas.us/pages/reviews" class="read-more-reviews-link" style="display: none;"><p class="tac" style="text-decoration: underline">All Reviews</p></a>
+    <button class="tac clickable read-all-reviews read-more-reviews-link" style="display: none;"><a href="https://www.pacas.us/pages/reviews"><h4 class="nm">All Reviews</h4></a></button>
   </section>
 <style>
   .review-wrapper { align-items: flex-start; }
-  .read-more-reviews { 
+  .read-more-reviews, .read-all-reviews { 
     border: 1px solid #7b8284; 
     padding: 10px; 
     display: block; 
-    margin: 0 auto; 
+    margin: 10px auto; 
     width: 190px; 
     border-radius: 5px;
     background-color: white;
     opacity: 0.8;
   }
-  .read-more-reviews h4 { 
+  .read-more-reviews h4, .read-all-reviews h4 { 
     font-size: 12pt; 
     color: #666562;
   }
