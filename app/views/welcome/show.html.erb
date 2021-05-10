@@ -32,7 +32,7 @@
     <% end %>
     <button class="read-more-reviews tac clickable"><h4 class="nm">See More Reviews</h4></button>
 
-   <a href="https://www.pacas.us/pages/reviews"> <button class="tac clickable read-all-reviews read-more-reviews-link" style="display: none;"><h4 class="nm">All Reviews</h4></button></a>
+   <a href="https://www.pacas.us/pages/reviews" target="_parent"> <button class="tac clickable read-all-reviews read-more-reviews-link" style="display: none;"><h4 class="nm">All Reviews</h4></button></a>
   </section>
 <style>
   .review-wrapper { align-items: flex-start; }
@@ -66,11 +66,11 @@
     $('.read-more-reviews-link').show();
     $('.review-wrapper').toggleClass("flex-override")
   })
-  $('.read-more-reviews-link').click(function() {
-    event.preventDefault(); 
-    window.location.href = 'https://www.pacas.us/pages/reviews'
+  // $('.read-more-reviews-link').click(function() {
+  //   event.preventDefault(); 
+  //   window.location.href = 'https://www.pacas.us/pages/reviews'
 
-  })
+  // })
   $('.useful').click(function() {
     $(this).attr("value", "thanks!");
     $(this).addClass('filled-paca')
