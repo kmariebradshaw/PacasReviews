@@ -78,11 +78,6 @@
     <div class="half tar" id="all-reviews">
       <h4 class="ttl nmb do"><%= review.product.title %></h4>
       <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
-      <%= form_for(review, remote: true) do |fa| %>
-        <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-        <%= fa.submit "helpful?", class: "useful nmb" %>
-          <p class="ib subscript upvote nmb"><%= review.vote %></p>
-      <% end %>
       <p class="subscript nmt do"><span class="status"><%= review.status %></span></p>
       <% if review.status == "hidden" %>
         <%= form_for(review, remote: true, :html => {:class => "ib change prev-den do"}) do |fa| %>
@@ -94,14 +89,17 @@
           <%= fa.hidden_field :status, :value => "hidden" %>
           <%= fa.submit "x", class: "decision-change ib" %>
         <% end %>
-          <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
-            <%= fa.hidden_field :created_at, :value => DateTime.current %>
-            <%= fa.submit "update-time", class: " ib" %>
-          <% end %>
       <% end %>
-      </div>
-        </div>
-
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+        <%= fa.hidden_field :created_at, :value => DateTime.current %>
+        <%= fa.submit "update time", class: " ib" %>
+      <% end %>
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+        <%= fa.hidden_field :sticky, :value => true %>
+        <%= fa.submit "stick to top", class: " ib" %>
+      <% end %>
+    </div>
+    </div>
     <% end %>
     </section>
 
@@ -110,7 +108,6 @@
 
 <script>
     $('.change').submit(function() {
-      console.log('original-hit')
     if ($(this).hasClass("prev-den")) {
     var c =  confirm("This will make the review public, are you sure you want to continue?"); 
     }
