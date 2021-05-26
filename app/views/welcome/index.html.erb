@@ -49,6 +49,59 @@
 
 <section class="main-to">
   <h3 class="tac">Latest Reviews</h3>
+    <% @stickies.each_with_index do | review, index | %> 
+  <div>
+    <% if index % 2 == 0 %> 
+        <div class="flex-container lazy main">
+    <% else %>
+        <div class="flex-container lazy background-purple main">
+    <% end %>
+    <div class="half">
+      <h4 class="nmb"><%= review.author_first %> 
+        <% if review.author_last %>
+          <span class="ttu"><%= review.author_last.first(1) %>.</span> 
+        <% end %>
+        <span class="star-wrapper">
+          <% review.rating.times do%>
+            ★
+          <% end %>
+          </span>
+      </h4>
+      <div class="mo">
+        <h4 class=" ttl nmb"><%= review.product.title %></h4>
+        <p class="subscript nm"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        <p class="subscript nmt"><span><%= review.status %></span></p>
+      </div>
+      <p class="nmb"><%= review.text %></p>
+    </div>
+
+    <div class="half tar" id="all-reviews">
+      <h4 class="ttl nmb do"><%= review.product.title %></h4>
+      <p class="subscript nmt do"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+      <p class="subscript nmt do"><span class="status"><%= review.status %></span></p>
+      <% if review.status == "hidden" %>
+        <%= form_for(review, remote: true, :html => {:class => "ib change prev-den do"}) do |fa| %>
+          <%= fa.hidden_field :status, :value => "approved" %>
+          <%= fa.submit "✓", class: "text-green decision-change ib" %>
+        <% end %>
+      <% else %>
+        <%= form_for(review, remote: true, :html => {:class => "ib change do"}) do |fa| %>
+          <%= fa.hidden_field :status, :value => "hidden" %>
+          <%= fa.submit "x", class: "decision-change ib" %>
+        <% end %>
+      <% end %>
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+        <%= fa.hidden_field :created_at, :value => DateTime.current %>
+        <%= fa.submit "update time", class: " ib" %>
+      <% end %>
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+        <%= fa.hidden_field :sticky, :value => true %>
+        <%= fa.submit "stick to top", class: " ib" %>
+      <% end %>
+    </div>
+    </div>
+   <% end %>
+
   <% @latest_reviews.each_with_index do | review, index | %> 
   <div>
     <% if index % 2 == 0 %> 
@@ -100,8 +153,8 @@
       <% end %>
     </div>
     </div>
-    <% end %>
-    </section>
+   <% end %>
+  </section>
 
        <%= will_paginate @reviews %>
 
