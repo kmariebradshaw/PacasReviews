@@ -1,6 +1,6 @@
   <section class="background-purple main">
   <h2 class="tac">Live Reviews</h2>
-  <% @reviews.each do | review | %> 
+   <% @reviews.each do | review | %> 
   <% if review.status == "approved" %>
     <% if review.sticky == true %>
     <div class="flex-container review-wrapper">
@@ -29,8 +29,13 @@
       <% end %>
       </div>
     </div>
-    <% else %>
-        <div class="flex-container review-wrapper">
+  <% end %>
+    <% end %> 
+    <% end %>
+  <% @reviews.each do | review | %> 
+  <% if review.status == "approved" %>
+    <% if review.sticky == false %>
+    <div class="flex-container review-wrapper">
       <div class="half">
         <h3 class="nmb"><%= review.author_first %> 
           <% if review.author_last %>
@@ -56,7 +61,7 @@
       <% end %>
       </div>
     </div>
-    <% end %>
+  <% end %>
     <% end %> 
     <% end %>
     <button class="read-more-reviews tac clickable"><h4 class="nm">See More Reviews</h4></button>
