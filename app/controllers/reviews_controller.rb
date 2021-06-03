@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
      @reviewsall = Review.all.order("created_at ASC")
      @reviewsdownload = Review.all.order("created_at DESC")
     @reviews = Review.where(:status => 'approved').order("created_at DESC").paginate(:page => params[:page], :per_page => 250)
-    @favorited_reviews = Review.all.where(:staff_favorite => true)
+    @favorited_reviews = Review.all.where(:favorite => true)
     @positive_review_count = Review.where("rating > ?", 3).count()
    respond_to do |format|
     format.html
@@ -33,6 +33,6 @@ class ReviewsController < ApplicationController
   end 
   private 
   def review_params
-      params.require(:review).permit(:text, :rating, :status, :product_id, :author_first, :author_last, :author_email, :staff_favorite, :vote, :created_at, :sticky)
+      params.require(:review).permit(:favorite, :text, :rating, :status, :product_id, :author_first, :author_last, :author_email, :staff_favorite, :vote, :created_at, :sticky)
   end 
 end

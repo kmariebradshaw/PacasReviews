@@ -46,16 +46,11 @@
   <% end %>
 </section>
 
-
 <section class="main-to">
   <h3 class="tac">Latest Reviews</h3>
     <% @stickies.each_with_index do | review, index | %> 
   <div>
-    <% if index % 2 == 0 %> 
-        <div class="flex-container lazy main">
-    <% else %>
-        <div class="flex-container lazy background-purple main">
-    <% end %>
+    <div class="flex-container lazy main review-wrapper">
     <div class="half">
       <h4 class="nmb"><%= review.author_first %> 
         <% if review.author_last %>
@@ -95,20 +90,30 @@
         <%= fa.submit "update time", class: " ib" %>
       <% end %>
       <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
-        <%= fa.hidden_field :sticky, :value => true %>
-        <%= fa.submit "stick to top", class: " ib" %>
+        <%= fa.hidden_field :sticky, :value => false %>
+        <%= fa.submit "remove from top", class: " ib" %>
+      <% end %>
+      <% if review.favorite == false %>
+        <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+          <%= fa.hidden_field :favorite, :value => true %>
+          <%= fa.submit "favorite?", class: " ib" %>
+        <% end %>
+      <% else %>
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+          <%= fa.hidden_field :favorite, :value => false %>
+          <%= fa.submit "un-favorite?", class: " ib" %>
+        <% end %>
       <% end %>
     </div>
     </div>
+  </div>
    <% end %>
 
   <% @latest_reviews.each_with_index do | review, index | %> 
+  <% if !review.sticky %>
   <div>
-    <% if index % 2 == 0 %> 
-        <div class="flex-container lazy main">
-    <% else %>
-        <div class="flex-container lazy background-purple main">
-    <% end %>
+        <div class="flex-container lazy main review-wrapper">
+
     <div class="half">
       <h4 class="nmb"><%= review.author_first %> 
         <% if review.author_last %>
@@ -151,8 +156,21 @@
         <%= fa.hidden_field :sticky, :value => true %>
         <%= fa.submit "stick to top", class: " ib" %>
       <% end %>
+        <% if review.favorite == false %>
+        <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+          <%= fa.hidden_field :favorite, :value => true %>
+          <%= fa.submit "favorite?", class: " ib" %>
+        <% end %>
+      <% else %>
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+          <%= fa.hidden_field :favorite, :value => false %>
+          <%= fa.submit "un-favorite?", class: " ib" %>
+        <% end %>
+      <% end %>
     </div>
     </div>
+  </div>
+    <% end %>
    <% end %>
   </section>
 
