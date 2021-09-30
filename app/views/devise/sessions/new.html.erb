@@ -8,7 +8,8 @@
 
 <section class="main pacas-employee">
   <div class="accent-padding">
-    <h2 class="tac nmb">Log In to Your Account</h2>
+    <h2 class="tac nmb ttu">LogIn</h2>
+      <p class="tac nmt">Don't have an account? <a href="/users/sign_up" class="border-bottom-gray">Sign up here.</a></p>
   </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -28,9 +29,9 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Login" %>
   </div>
-  <p class="tac nmt">Don't have an account? <a href="/users/sign_up" class="border-bottom-gray">Sign up here.</a></p>
+
 
 <% end %>
 </section>

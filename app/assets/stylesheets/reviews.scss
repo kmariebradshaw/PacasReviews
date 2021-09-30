@@ -1,23 +1,157 @@
 /*general*/
 
 @font-face {
-  font-family: 'GlacialIndifference';
-  src: font-url('GlacialIndifference-Bold.otf'); 
+  font-family: 'Avenir-Next-Condensed';
+  src: font-url('AvenirNextCondensed-Heavy.ttf'); 
   font-weight: 700;
   font-style: normal;
 }
+
 @font-face {
-  font-family: 'GlacialIndifference';
-  src: font-url('GlacialIndifference-Regular.otf'); 
+  font-family: 'Lexend';
+  src: font-url('Lexend-Regular.ttf'); 
   font-weight: 400; 
   font-style: normal;
 }
 @font-face {
-  font-family: 'Handsdown';
-  src: font-url('HandsDown.otf'); 
-  font-weight: 400; 
-  font-style: normal;
+  font-family: 'Lexend';
+  src: font-url('Lexend-SemiBold.ttf'); 
+  font-weight: 700; 
+  font-style: bold;
 }
+
+
+.background-natural { background-color: #f7f5f2; }
+.background-charcoal { background-color: #2d2b26; }
+.background-light-red { background-color: #f8b6bd; }
+.background-red { background-color: #f04e4c; }
+.background-dark-red { background-color: #be1f24; }
+.background-light-teal { background-color: #a0dbe3; }
+.background-teal { background-color: #66cad8; }
+.background-flow-teal { background-color: #6CD7DE; }
+
+.background-dark-teal { background-color: #007d84; }
+.background-light-purple { background-color: #afbde1; }
+.background-purple { background-color: #9093c8; }
+.background-dark-purple { background-color: #21409A; }
+.background-white { background-color: white; }
+.text-white { color: white; }
+.text-natural { color: #f7f5f2 ; }
+.text-charcoal { color: #2d2b26; }
+.text-light-red { color: #f8b6bd; }
+.text-red { color: #f04e4c; }
+.text-dark-red { color: #be1f24; }
+.text-light-teal { color: #a0dbe3; }
+.text-teal { color: #66cad8; }
+.text-dark-teal { color: #007d84; }
+.text-light-purple { color: #afbde1; }
+.text-purple { color: #9093c8; }
+.text-dark-purple { color: #21409A; }
+.border-natural { border: 1px solid #f7f5f2; border-radius: 40px; }
+.border-light-teal { border: 2px solid #a0dbe3; border-radius: 40px; }
+.border-dark-teal { border: 2px solid #007d84; border-radius: 40px; }
+
+.index-controls  {
+    position: absolute;
+    right: 11%;
+    margin-top: 2%;
+}
+
+
+h1.detail-accent::before {
+    content: '';
+    background-image: image-url('rebrand-detail.png');
+    position: absolute;
+    margin-left: -4.5%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 0.5%;
+    width: 5vw;
+    height: 5vw;
+}
+h1.detail-accent::after {
+    content: '';
+    background-image: image-url('rebrand-detail.png');
+    position:absolute;
+    width: 5vw;
+    height: 5vw;
+    transform:  rotate(180deg);
+    margin-top:  0.5%;
+    background-size:  contain;
+    background-repeat:  no-repeat;
+    margin-left:  -1%;
+}
+span.detail-accent::before {
+    content: '';
+    background-image: image-url('rebrand-detail.png');
+    position: absolute;
+    margin-left: -3.8%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 1%;
+    width: 5vw;
+    height: 5vw;
+}
+span.detail-accent::after {
+    content: '';
+    background-image: image-url('rebrand-detail.png');
+    position:absolute;
+    width: 5vw;
+    height: 5vw;
+    transform:  rotate(180deg);
+    margin-top:  1%;
+    background-size:  contain;
+    background-repeat:  no-repeat;
+    margin-left:  -1%;
+}
+h3.detail-accent::before {
+    content: '';
+    background-image: image-url('rebrand-detail.png');
+    position: absolute;
+    margin-left: -2%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 0.5%;
+    width: 2vw;
+    height: 2vw;
+}
+h3.detail-accent::after {
+    content: '';
+    background-image: image-url('rebrand-detail.png');
+    position:absolute;
+    width: 2vw;
+    height: 2vw;
+    transform:  rotate(180deg);
+    margin-top:  0.5%;
+    background-size:  contain;
+    background-repeat:  no-repeat;
+}
+.double-accent-padding { padding: 50px; }
+
+.review-wrapper { width: 80%; min-width: 300px; margin:20px auto; }
+.fdr { flex-direction: column; align-items: flex-start !important;}
+.ttu { text-transform: uppercase; }
+h1, h2 ,h3, h4{ 
+  font-family: "Avenir-Next-Condensed"; 
+  color: #2d2b26;
+  font-weight:  800;
+  line-height: 1;
+}
+ button, span, h5 {
+  font-family: "Lexend";
+  font-weight:  600;
+  color:  #2d2b26;
+}
+p, li, tr, td, div, pre, textarea{ 
+  font-family: "Lexend";
+  font-weight:  400;
+  color: #2d2b26;
+}
+
+.accent-padding-tbo { padding-top: 20px; padding-bottom: 20px; }
+
+.three-fourths { width: 75%; align-self: flex-start; }
+
 $purple: #fcf9fd;
 $white: #Fff;
 $lightgray: lightgray;
@@ -26,11 +160,9 @@ body {
   margin: 0;
   color: $darkgray;
 }
-
+.icon { width: 150px; }
 form, input, .decision { color: $darkgray; }
-h1,h2,h3,h4,h5,a, span, input, th, select,p, .new_review textarea, ul li{ font-family: 'GlacialIndifference', sans-serif; }
-.accent { font-family: 'GlacialIndifference', sans-serif; font-weight: 700;}
-a {color: $darkgray;}
+a {color: #2d2b26;}
 .ttu { text-transfoxrm: uppercase; }
 .tac { text-align: center; }
 .vam { vertical-align: middle; }
@@ -51,10 +183,9 @@ a {color: $darkgray;}
   margin: 0 auto;
 }
 .half-no { width: 50%; }
-.background-purple { background-color: $purple; }
 .subscript { font-size: 11pt; }
 a {text-decoration: none;}
-.quarter { width: 25%; }
+.quarter { width: 25%; max-width: 150px; }
 .half { width: 50%; }
 .tar { text-align: right; }
 .accent-section {
@@ -107,6 +238,7 @@ a {text-decoration: none;}
     vertical-align: middle;
     margin: 0px 20px 0px 20px; 
     float: left;
+    margin-top: 10px;
   }
   .accent-padding.page-header { padding: 50px; }
 }
@@ -135,7 +267,7 @@ a {text-decoration: none;}
   #staff-favorite-details form, #live-stream-details form, #all-reviews form { text-align: left; }
 }
 @media only screen and (max-width: 450px) {
-  .page-header .half-no:first-of-type { width: 40%; }
+  .page-header .half-no:first-of-type { width: 50%; }
   .page-header .half-no:nth-of-type(2n) { width: 60%; }
 }
 @media only screen and (max-width: 340px) {
@@ -165,7 +297,7 @@ a {text-decoration: none;}
     border: 1px solid lightgray;
     background: white;
     width: 100%;
-    border-radius: 80px;
+    border-radius: 10px;
     box-sizing: border-box;
     -webkit-appearance: none;
     margin: 10px 0;
@@ -173,9 +305,9 @@ a {text-decoration: none;}
   .button {
     text-align: center;
     width: 100%;
-    border-radius: 80px;
+    border-radius: 10px;
     box-sizing: border-box;
-    background: $darkgray;
+    background: #f04e4c;
     padding: 11px;
     input {
     font-size: 12pt;
@@ -191,7 +323,7 @@ a {text-decoration: none;}
 $unchecked-star: '\2606';
 $unchecked-color: $darkgray;
 $checked-star: '\2605';
-$checked-color: $darkgray;
+$checked-color: #f04e4c;
 .star-cb-group {
   /* remove inline-block whitespace */
   font-size: 0;
@@ -225,7 +357,7 @@ $checked-color: $darkgray;
       & + label:hover ~ label:before,
       & + label:hover:before {
       content: $checked-star;
-      color: $darkgray;
+      color: #f04e4c;
       text-shadow: 0 0 1px #333;
     }
   }
@@ -261,6 +393,13 @@ $checked-color: $darkgray;
   background-size: contain;
   background-position: bottom right;
 }
+.atf-paca {
+    width: 20vw;
+    margin-bottom: -51px;
+}
+.animated-button { background-repeat: no-repeat; background-position: center; }
+.animated-button-red {     background-image: image-url('rebrand-cta.svg');
+}
 /*all reviews*/
 .useful {
     font-size: 10pt;
@@ -278,7 +417,7 @@ $checked-color: $darkgray;
   background-repeat: no-repeat;
   background-size: contain;
     background-image: image-url('llama.png');
-    background-position: bottom left;
+    background-position: bottom right;
 
 }
 @media only screen and (max-width: 588px) {
@@ -296,7 +435,7 @@ $checked-color: $darkgray;
   min-width: fit-content;
 }
 #pending-reviews {
-  border-bottom: 2px solid $lightgray;
+  border-bottom: 2px solid #a0dbe3;
 }
 .display-fav {
     font-weight: lighter;
@@ -327,7 +466,7 @@ $checked-color: $darkgray;
     border: 1px solid #d1cdcd;
     box-sizing: border-box;
     background: white;
-    border-radius: 80px;
+    border-radius: 10px;
     margin: 6px;
     display: block;
     margin: 10px auto;
@@ -351,9 +490,9 @@ $checked-color: $darkgray;
     margin: 20px auto;
     box-shadow: none;
     border: none;
-    border-radius: 80px;
+    border-radius: 10px;
     -webkit-appearance: none;
-    background: $darkgray;
+    background: #f04e4c;
 }
 .pacas-employee .field .subscript {
     display: inline-block;
