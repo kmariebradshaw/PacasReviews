@@ -19,13 +19,13 @@
     <% if user_signed_in? %>
     <% unless current_page?('/reviews') %>
 
-      <nav>
+      <nav class="background-natural">
         <ul>
           <a href="/"><%= image_tag("jlogo.png", class: "jlogo") %></a>
-          <li><a href="/reviews">Published <span class="do">Reviews</span></a></li>
-          <li class="do"><a href="/reviews/new">New Review</a></li>
-          <li class="do"><%= link_to("Download CSV", reviews_path(format: :csv), class: "",) %></li>
-          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+          <li><h4 class="ttu nm"><a href="/reviews">Published</span></a></h4>
+          <li class="do"><h4 class="ttu nm"><a href="/reviews/new">New Review</a></h4></li>
+          <li class="do"><h4 class="ttu nm"><%= link_to("Download CSV", reviews_path(format: :csv), class: "",) %></h4></li>
+          <li><h4 class="ttu nm"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></h4></li>
         </ul>
       </nav>
       <% end %>
