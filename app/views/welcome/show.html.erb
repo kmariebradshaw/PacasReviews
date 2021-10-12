@@ -1,9 +1,8 @@
-  <section class="main">
-  <h2 class="tac ttu">Live Reviews</h2>
+  <section class="main slick-wrapper">
    <% @reviews.each do | review | %> 
   <% if review.status == "approved" %>
-  
- <div class="review-wrapper accent-padding flex-container-no border-light-teal do">
+  <div class="">
+ <div class="review-wrapper accent-padding flex-container-no border-light-teal do background-white">
       <div class="flex-container-no fdr quarter accent-padding">
         <h3 class="ttu text-light-teal nm asfs"><%= review.product.title %></h3>
         <div class="asfe">
@@ -71,7 +70,7 @@
       </div>
       </div> 
 
- 
+ </div>
   <% end %>
   <% end %>
   </section>
@@ -117,4 +116,12 @@
     votes = parseInt($(this).next('.upvote').text()) + 1  
     $(this).next('.upvote').text(votes)
   })
+
+  $('.slick-wrapper').slick({
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: true
+});
+    
 </script>

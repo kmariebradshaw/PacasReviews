@@ -10,6 +10,6 @@ class WelcomeController < ApplicationController
     @latest_reviews = Review.all.order("created_at DESC").where.not(:status => "pending").where(:staff_favorite => false)
   end
   def show 
-    @reviews = Review.all.where(:status => "approved").order("created_at DESC").limit(3)
+    @reviews = Review.all.where(:status => "approved").order("created_at DESC").limit(10)
   end 
 end
