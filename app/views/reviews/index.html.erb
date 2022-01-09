@@ -18,6 +18,7 @@ Write A Review</h4></a>
   <h1 class="detail-accent ttu tac nm">Unbelievably Soft.</h1>
         <p class="tac">(but don't just take our word for it...)</p>  
 </section>
+  <% if @favorited_reviews.length > 0 %>
 <section class="main-to">
   <h2 class="tac ttu">Staff Favorites</h2>
   <% @favorited_reviews.each do | review | %> 
@@ -89,8 +90,8 @@ Write A Review</h4></a>
 
 
   <% end %>
-    
   </section>
+    <% end %>
 
   <section class=" main-to">
   <h2 class="tac ttu">Live Stream</h2>
