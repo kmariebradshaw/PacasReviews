@@ -577,7 +577,7 @@ ul {
 .slick-next:before
 {
     font-family: 'slick';
-    font-size: 20px;
+    font-size: 30px;
     line-height: 1;
 
     opacity: .75;
@@ -589,7 +589,7 @@ ul {
 
 .slick-prev
 {
-    left: 10px;
+    left: 0px;
 }
 [dir='rtl'] .slick-prev
 {
