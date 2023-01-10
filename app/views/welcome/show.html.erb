@@ -2,9 +2,9 @@
    <% @reviews.each do | review | %> 
   <% if review.status == "approved" %>
   <div class="">
- <div class="review-wrapper accent-padding flex-container-no border-light-teal do background-white">
+ <div class="review-wrapper accent-padding flex-container-no border-dark-teal do background-white">
       <div class="flex-container-no fdr quarter accent-padding">
-        <h3 class="ttu text-light-teal nm asfs"><%= review.product.title %></h3>
+        <h3 class="ttu text-dark-teal nm asfs"><%= review.product.title %></h3>
         <div class="asfe">
           <p class="nmb"><%= review.author_first %> 
             <% if review.author_last %>
@@ -39,9 +39,9 @@
 
 
 
-      <div class="review-wrapper accent-padding border-light-teal background-white mo ">
+      <div class="review-wrapper accent-padding border-dark-teal background-white mo ">
       <div class="accent-padding">
-        <h3 class="ttu text-light-teal nm asfs"><%= review.product.title %></h3>
+        <h3 class="ttu text-dark-teal nm asfs"><%= review.product.title %></h3>
         <p class="">
           <span class="star-wrapper text-red">
             <% review.rating.times do%>
@@ -78,7 +78,7 @@
   .review-wrapper { min-width: auto !important; }
   .review-wrapper { align-items: flex-start; }
   .read-more-reviews, .read-all-reviews { 
-    border: 1px solid #7b8284; 
+    border: 1px solid #007D84; 
     padding: 10px; 
     display: block; 
     margin: 10px auto; 
