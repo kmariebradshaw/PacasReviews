@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :reviews, only: [:new, :show, :index, :create, :update]
-  resources :welcome, only: [:show]
+  resources :welcome, only: [:show, :new]
 
   root to: redirect('/users/sign_in')
 end
