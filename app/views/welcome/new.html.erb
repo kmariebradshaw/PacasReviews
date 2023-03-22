@@ -1,0 +1,256 @@
+<section class="accent-padding background-dark-purple page-header flex-container-no ">
+  <div class="half-no">
+    <div class="accent-padding-tbo">
+    <h1 class="nm ttu text-white">Try Pacas,<br> You Won't <br>Go Back-as</h1>
+  </div>
+    <%= image_tag("rebrand-stars.png", class: "icon vam") %> <span class="text-purple vam">4.9 / 5 Stars</span>
+    <h3 class="ttu text-white"><%= @positive_review_count%> reviews (and counting)!</h3>
+  </div>
+  <div class="half-no atf-half-paca tac">   
+  </div>
+</section>
+<section class="main-to">
+  <h3 class="tac ttu">All Reviews</h3>
+    <% @stickies.each_with_index do | review, index | %> 
+    <!--  new new new new -->
+    <div class="review-wrapper accent-padding flex-container-no border-light-teal do">
+      <div class="flex-container-no fdr quarter accent-padding">
+        <h3 class="ttu text-light-teal nm asfs"><%= review.product.title %></h3>
+        <div class="asfe">
+          <p class="nmb"><%= review.author_first %> 
+            <% if review.author_last %>
+              <span class="ttu" style="font-weight: normal;">
+                <%= review.author_last.first(1) %>.
+              </span> 
+            <% end %>
+          </p>
+        </div>
+        <div>
+        <%= image_tag("verified.png", class: "vam verified") %><span class=" vam" style="font-size: 10pt;"><b>Verified Buyer</b></span>
+      </div>
+      </div>
+      <div class="three-fourths accent-padding">
+        <p class="nm">
+          <span class="star-wrapper text-red">
+            <% review.rating.times do%>
+              ★
+            <% end %>
+          </span>
+         <span style="font-weight: bold; font-size: 10pt;"> <%= review.created_at.strftime('%m/%d/%Y') %></span>
+        </p>
+        <p class=""><%= review.text %></p>
+      </div>
+        <div class="flex-container-no quarter fdr">
+          <p style="font-size: 10pt;"><b>status: <%= review.status %></b></p>
+
+ <% if review.status == "hidden" %>
+        <%= form_for(review, remote: true, :html => {:class => "ib change prev-den do"}) do |fa| %>
+          <%= fa.hidden_field :status, :value => "approved" %>
+          <%= fa.submit "show review", class: "text-green decision-change ib" %>
+        <% end %>
+      <% else %>
+        <%= form_for(review, remote: true, :html => {:class => "ib change do"}) do |fa| %>
+          <%= fa.hidden_field :status, :value => "hidden" %>
+          <%= fa.submit "hide review", class: "decision-change ib" %>
+        <% end %>
+      <% end %>
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+        <%= fa.hidden_field :created_at, :value => DateTime.current %>
+        <%= fa.submit "update time", class: " ib" %>
+      <% end %>
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+        <%= fa.hidden_field :sticky, :value => false %>
+        <%= fa.submit "remove from top", class: " ib" %>
+      <% end %>
+      <% if review.favorite == false %>
+        <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+          <%= fa.hidden_field :favorite, :value => true %>
+          <%= fa.submit "favorite?", class: " ib" %>
+        <% end %>
+      <% else %>
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+          <%= fa.hidden_field :favorite, :value => false %>
+          <%= fa.submit "un-favorite?", class: " ib" %>
+        <% end %>
+      <% end %>
+    </div>
+      </div> 
+
+
+
+   <div class="review-wrapper accent-padding border-light-teal mo ">
+      <div class="accent-padding">
+        <h3 class="ttu text-light-teal nm asfs"><%= review.product.title %></h3>
+        <p class="">
+          <span class="star-wrapper text-red">
+            <% review.rating.times do%>
+              ★
+            <% end %>
+          </span>
+         <span style="font-weight: bold; font-size: 10pt;"> <%= review.created_at.strftime('%m/%d/%Y') %></span>
+        </p>
+          <div class="accent-padding-tbo">
+     
+        <p class=""><%= review.text %></p>
+      </div>
+
+        <div class="">
+          <p class="nmb"><%= review.author_first %> 
+            <% if review.author_last %>
+              <span class="ttu" style="font-weight: normal;">
+                <%= review.author_last.first(1) %>.
+              </span> 
+            <% end %>
+          </p>
+        </div>
+        <div>
+        <%= image_tag("verified.png", class: "vam verified") %><span class=" vam" style="font-size: 10pt;"><b>Verified Buyer</b></span>
+      </div>
+      </div>
+      </div> 
+
+
+
+
+  <% end %>
+
+  <% @latest_reviews.each_with_index do | review, index | %> 
+  <% if !review.sticky %>
+    <div class="review-wrapper accent-padding flex-container-no border-light-teal do">
+      <div class="flex-container-no fdr quarter accent-padding">
+        <h3 class="ttu text-light-teal nm asfs"><%= review.product.title %></h3>
+        <div class="asfe">
+          <p class="nmb"><%= review.author_first %> 
+            <% if review.author_last %>
+              <span class="ttu" style="font-weight: normal;">
+                <%= review.author_last.first(1) %>.
+              </span> 
+            <% end %>
+          </p>
+        </div>
+        <div>
+                <%= image_tag("verified.png", class: "vam verified") %><span class=" vam" style="font-size: 10pt;"><b>Verified Buyer</b></span>
+              </div>
+      </div>
+      <div class="three-fourths accent-padding">
+        <p class="nm">
+          <span class="star-wrapper text-red">
+            <% review.rating.times do%>
+              ★
+            <% end %>
+          </span>
+         <span style="font-weight: bold; font-size: 10pt;"> <%= review.created_at.strftime('%m/%d/%Y') %></span>
+        </p>
+        <p class=""><%= review.text %></p>
+      </div>
+        <div class="flex-container-no quarter fdr">
+          <p style="font-size: 10pt;"><b>status: <%= review.status %></b></p>
+        <div>
+ <% if review.status == "hidden" %>
+        <%= form_for(review, remote: true, :html => {:class => "ib change prev-den do"}) do |fa| %>
+          <%= fa.hidden_field :status, :value => "approved" %>
+          <%= fa.submit "show review", class: "text-green decision-change ib" %>
+        <% end %>
+      <% else %>
+        <%= form_for(review, remote: true, :html => {:class => "ib change do"}) do |fa| %>
+          <%= fa.hidden_field :status, :value => "hidden" %>
+          <%= fa.submit "hide review", class: "decision-change ib" %>
+        <% end %>
+      <% end %>
+    </div>
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+        <%= fa.hidden_field :created_at, :value => DateTime.current %>
+        <%= fa.submit "update time", class: " ib" %>
+      <% end %>
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+        <%= fa.hidden_field :sticky, :value => true %>
+        <%= fa.submit "stick to top", class: " ib" %>
+      <% end %>
+      <% if review.favorite == false %>
+        <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+          <%= fa.hidden_field :favorite, :value => true %>
+          <%= fa.submit "favorite?", class: " ib" %>
+        <% end %>
+      <% else %>
+      <%= form_for(review, remote: true, :html => {:class => "ib do"}) do |fa| %>
+          <%= fa.hidden_field :favorite, :value => false %>
+          <%= fa.submit "un-favorite?", class: " ib" %>
+        <% end %>
+      <% end %>
+    </div>
+    </div>
+      
+  <% end %>
+
+   <div class="review-wrapper accent-padding border-light-teal mo ">
+      <div class="accent-padding">
+        <h3 class="ttu text-light-teal nm asfs"><%= review.product.title %></h3>
+        <p class="">
+          <span class="star-wrapper text-red">
+            <% review.rating.times do%>
+              ★
+            <% end %>
+          </span>
+         <span style="font-weight: bold; font-size: 10pt;"> <%= review.created_at.strftime('%m/%d/%Y') %></span>
+        </p>
+          <div class="accent-padding-tbo">
+     
+        <p class=""><%= review.text %></p>
+      </div>
+
+        <div class="">
+          <p class="nmb"><%= review.author_first %> 
+            <% if review.author_last %>
+              <span class="ttu" style="font-weight: normal;">
+                <%= review.author_last.first(1) %>.
+              </span> 
+            <% end %>
+          </p>
+        </div>
+        <div>
+        <%= image_tag("verified.png", class: "vam verified") %><span class="vam" style="font-size: 10pt;"><b>Verified Buyer</b></span>
+      </div>
+      </div>
+      </div> 
+
+
+  <% end %>
+
+       <%= will_paginate @reviews %>
+  </section>
+
+
+<script>
+    $('.change').submit(function() {
+    if ($(this).hasClass("prev-den")) {
+    var c =  confirm("This will make the review public, are you sure you want to continue?"); 
+    }
+    else {
+      var c = confirm("This will hide the review, are you sure you want to continue?"); 
+    }
+    var status = $(this).prev('.status').children()
+    $(status).text($(status).text() == "hidden" ? "approved" : "hidden"); 
+    $(this).hide(); 
+    return c; 
+  }); 
+  $('.decision').click(function () {
+    $(this).parent().parent().parent().hide();
+    $('.decision-feedback').hide(); 
+    if ($(this).hasClass('approval')) {
+      $('.decision-feedback').text('approved').show();
+    }
+    else if ($(this).hasClass('denial')) {
+      $('.decision-feedback').text('hidden').show();
+    }
+    else if ($(this).hasClass('favorited')) {
+      $('.decision-feedback').text('approved & favorited').show();
+    }
+  })
+
+  $('.useful').click(function() {
+    $(this).attr("value", "thanks!"); 
+    $(this).addClass('filled-paca')
+    votes = parseInt($(this).next('.upvote').text()) + 1  
+    $(this).next('.upvote').text(votes)
+  })
+</script>
