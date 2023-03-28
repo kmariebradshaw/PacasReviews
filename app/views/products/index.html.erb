@@ -1,23 +1,29 @@
-<section class="accent-padding background-green page-header">
-	<h1 class="tac">Edit Products</h1>
-</section>
 <section class="main">
-	<%= link_to 'Add Product', new_product_path %>
+		<h2 class="tac ttu nm">Products</h2>
+		<p class="tac"><%= link_to 'Add Product', new_product_path, :class => 'btn' %></p>
+		
+
 <% @products.each do | product | %>
-	<p><%= product.title %>:</p> <%= link_to 'Edit', edit_product_path(product) %> | <%= link_to 'Delete', product_path(product),
+<div class="all-products-view accent-padding tac">
+	<h3 class="ttu nmb"><%= product.title %></h3> 
+	<p class="ib"><%= link_to 'Edit', edit_product_path(product), :class => "btn edit-btn" %> </p>
+	 <%= link_to 'Delete', product_path(product),
               method: :delete,
-              data: { confirm: 'This will delete all associated reviews, are you sure?' } %></td> 
-              <% if product.status == "approved" %> |
-				  <%= form_for(product, remote: true) do |fa| %>
+              data: { confirm: 'This will delete all associated reviews, are you sure?' }, :class => "btn delete-btn" %>
+              <% if product.status == "approved" %> 
+	  			<%= form_for(product, remote: true, :html => {:class => 'archive-form'}) do |fa| %>
 			          <%= fa.hidden_field :status, :value => "archived" %>
-			      	  <%= fa.submit "Archive", class: "product-status" %>
+			      	  <%= fa.submit "Archive", class: "product-status btn archive-btn" %>
 			      	<% end %>
 
     		 <% else %>
-	  			<%= form_for(product, remote: true) do |fa| %>
+	  			<%= form_for(product, remote: true, :html => {:class => 'archive-form'}) do |fa| %>
 			          <%= fa.hidden_field :status, :value => "approved" %>
-			      	  <%= fa.submit "Approve", class: "product-status" %>
+			      	  <%= fa.submit "Approve", class: "product-status btn archive-btn" %>
 			      	<% end %>    		 
 			      	<% end %>
+		<p class="ib"><%= link_to 'Reviews (' + product.reviews.count.to_s + ')', product_path(product), :class => "btn" %> 
+</div>
 <% end %> 
+
 </section>

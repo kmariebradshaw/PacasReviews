@@ -70,6 +70,13 @@ h1.detail-accent::before {
     width: 5vw;
     height: 5vw;
 }
+.index-page-header {
+        background-image: image-url('purple-paca.png');
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        background-size: contain;
+
+}
 h1.detail-accent::after {
     content: '';
     background-image: image-url('rebrand-detail.png');
@@ -127,6 +134,7 @@ h3.detail-accent::after {
     background-size:  contain;
     background-repeat:  no-repeat;
 }
+
 .double-accent-padding { padding: 50px; }
 .verified { width: 15px; margin-right: 2px; display: inline-block !important; }
 .review-wrapper { width: 80%; min-width: 300px; margin:20px auto; }
@@ -435,9 +443,25 @@ $checked-color: #f04e4c;
   margin-right: 20px;
   min-width: fit-content;
 }
-#pending-reviews {
+#pending-reviews, .all-products-view  {
   border-bottom: 2px solid #a0dbe3;
 }
+.btn { 
+padding: 0px 10px;
+border-radius: 4px;
+border: 1px solid;
+cursor: pointer;
+}
+.edit-btn { border-color: #66cad8}
+.delete-btn { border-color: #be1f24}
+.archive-btn {
+    border-color: #f8b6bd;
+    background-color: transparent;
+    font-size: 12pt;
+    font-family: 'Lexend';
+    color: #2d2b26;
+}
+.archive-form { display: inline-block; margin-left: 5px;}
 .display-fav {
     font-weight: lighter;
     font-size: 10pt;
