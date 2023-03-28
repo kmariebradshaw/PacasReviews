@@ -1,166 +1,32 @@
-<section class="accent-padding background-dark-purple page-header flex-container-no paca-background">
-  <div class="half-no">
-    <div class="accent-padding-tbo">
-    <h1 class="nm ttu text-white">Try Pacas,<br> You Won't <br>Go Back-as</h1>
+<section class="double-accent-padding background-fleece tac">
+  <h1 class="nm ttu">Unbelievably Soft</h1>
+  <p class="tac">(but don't just take our word for it...)</p>  
+  <h3 class="tac star-wrapper text-yellow nm">★★★★★</h3>
+  <div class="flex-container-no jcc fw">
+      <h3 class="ttu nm"><%= @positive_review_count%> reviews</h3> 
+      <p class="" style="margin-left: 5px;">(and counting)!</p>
   </div>
-    <%= image_tag("rebrand-stars.png", class: "icon vam") %> <span class="text-purple vam">4.9 / 5 Stars</span>
-    <h3 class="ttu text-white"><%= @positive_review_count%> reviews (and counting)!</h3>
-<div class="animated-button-red animated-button ib do" id="hero-cta-desktop">
-               <a href="/reviews/new" target="_blank">
-              <h4 class="text-natural ttu tac accent-padding">
-Write A Review</h4></a>
-            </div>
-  </div>
-  <div class="half-no  tac">   
-  </div>
+   <a href="/reviews/new" target="_blank"><div class="new-btn background-charcoal ib accent-padding-so"><h4 class="ttu ib nm text-white">Write a Review</h4></div>
 </section>
-<section class="double-accent-padding background-natural">
-  <h1 class="detail-accent ttu tac nm">Unbelievably Soft.</h1>
-        <p class="tac">(but don't just take our word for it...)</p>  
-</section>
-  <% if @favorited_reviews.length > 0 %>
-<section class="main-to">
-  <h2 class="tac ttu">Staff Favorites</h2>
-  <% @favorited_reviews.each do | review | %> 
 
-    <div class="review-wrapper accent-padding flex-container-no border-dark-teal do">
-      <div class="flex-container-no fdr quarter accent-padding">
-        <h3 class="ttu text-light-teal nm asfs"><%= review.product.title %></h3>
-        <div class="asfe">
-          <p class="nmb"><%= review.author_first %> 
-            <% if review.author_last %>
-              <span class="ttu" style="font-weight: normal;">
-                <%= review.author_last.first(1) %>.
-              </span> 
-            <% end %>
-          </p>
-        </div>
-        <div>
-        <%= image_tag("verified.png", class: "vam verified") %><span class=" vam" style="font-size: 10pt;"><b>Verified Buyer</b></span>
-      </div>
-      </div>
-      <div class="three-fourths accent-padding">
-        <p class="nm">
-          <span class="star-wrapper text-red">
+<section class=" main">
+  <% @reviews.each_with_index do | review, index | %> 
+    <div class="accent-padding flex-container border-light-teal ">
+      <div class="one-third">
+        <p class="nmt text-yellow">
             <% review.rating.times do%>
               ★
             <% end %>
-          </span>
-         <span style="font-weight: bold; font-size: 10pt;"> <%= review.created_at.strftime('%m/%d/%Y') %></span>
         </p>
-        <p class=""><%= review.text %></p>
+        <h3 class="ttu text-charchoal nm"><%= review.product.title %></h3>
+        <p class="subscript"><%= review.author_first %> <span style="margin-left: 10px; font-weight: lighter;"> <%= review.created_at.strftime('%m/%d/%Y') %></span></p>
+        <p class="nm subscript">Verified Buyer</p>
       </div>
-        <div class="flex-container-no quarter fdr">
- <%= form_for(review, remote: true) do |fa| %>
-          <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-      <%= fa.submit "helpful?", class: "useful" %><p class="ib subscript upvote"><%= review.vote%></p>
-      <% end %>
+      <div class="accent-padding two-thirds">
+        <p><%= review.text %></p>
+      </div>
     </div>
-      </div> 
-      <div class="review-wrapper accent-padding border-dark-teal mo ">
-      <div class="accent-padding">
-        <h3 class="ttu text-light-teal nm asfs"><%= review.product.title %></h3>
-        <p class="">
-          <span class="star-wrapper text-red">
-            <% review.rating.times do%>
-              ★
-            <% end %>
-          </span>
-         <span style="font-weight: bold; font-size: 10pt;"> <%= review.created_at.strftime('%m/%d/%Y') %></span>
-        </p>
-          <div class="accent-padding-tbo">
-     
-        <p class=""><%= review.text %></p>
-      </div>
-
-        <div class="">
-          <p class="nmb"><%= review.author_first %> 
-            <% if review.author_last %>
-              <span class="ttu" style="font-weight: normal;">
-                <%= review.author_last.first(1) %>.
-              </span> 
-            <% end %>
-          </p>
-        </div>
-        <div>
-        <%= image_tag("verified.png", class: "vam verified") %><span class=" vam" style="font-size: 10pt;"><b>Verified Buyer</b></span>
-      </div>
-      </div>
-      </div> 
-
-
-  <% end %>
-  </section>
-    <% end %>
-
-  <section class=" main-to">
-  <h2 class="tac ttu">Live Stream</h2>
-    <% @reviews.each_with_index do | review, index | %> 
-     
-    <div class="review-wrapper accent-padding flex-container-no border-light-teal do">
-      <div class="flex-container-no fdr quarter accent-padding">
-        <h3 class="ttu text-light-teal nm asfs"><%= review.product.title %></h3>
-        <div class="asfe">
-          <p class="nmb"><%= review.author_first %> 
-            <% if review.author_last %>
-              <span class="ttu" style="font-weight: normal;">
-                <%= review.author_last.first(1) %>.
-              </span> 
-            <% end %>
-          </p>
-        </div>
-        <div>
-        <%= image_tag("verified.png", class: "vam verified") %><span class=" vam" style="font-size: 10pt;"><b>Verified Buyer</b></span>
-      </div>
-      </div>
-      <div class="three-fourths accent-padding">
-        <p class="nm">
-          <span class="star-wrapper text-red">
-            <% review.rating.times do%>
-              ★
-            <% end %>
-          </span>
-         <span style="font-weight: bold; font-size: 10pt;"> <%= review.created_at.strftime('%m/%d/%Y') %></span>
-        </p>
-        <p class=""><%= review.text %></p>
-      </div>
-        <div class="flex-container-no quarter fdr">
- <%= form_for(review, remote: true) do |fa| %>
-          <%= fa.hidden_field :vote, :value => review.vote + 1 %>
-      <%= fa.submit "helpful?", class: "useful" %><p class="ib subscript upvote"><%= review.vote%></p>
-      <% end %>
-    </div>
-      </div> 
-      <div class="review-wrapper accent-padding border-light-teal mo ">
-      <div class="accent-padding">
-        <h3 class="ttu text-light-teal nm asfs"><%= review.product.title %></h3>
-        <p class="">
-          <span class="star-wrapper text-red">
-            <% review.rating.times do%>
-              ★
-            <% end %>
-          </span>
-         <span style="font-weight: bold; font-size: 10pt;"> <%= review.created_at.strftime('%m/%d/%Y') %></span>
-        </p>
-          <div class="accent-padding-tbo">
-     
-        <p class=""><%= review.text %></p>
-      </div>
-
-        <div class="">
-          <p class="nmb"><%= review.author_first %> 
-            <% if review.author_last %>
-              <span class="ttu" style="font-weight: normal;">
-                <%= review.author_last.first(1) %>.
-              </span> 
-            <% end %>
-          </p>
-        </div>
-        <div>
-        <%= image_tag("verified.png", class: "vam verified") %><span class=" vam" style="font-size: 10pt;"><b>Verified Buyer</b></span>
-      </div>
-      </div>
-      </div> 
+    
 
 
   <% end %>

@@ -48,8 +48,13 @@
 .text-light-purple { color: #afbde1; }
 .text-purple { color: #9093c8; }
 .text-dark-purple { color: #21409A; }
+.text-yellow { color: #E6BB11; }
 .border-natural { border: 1px solid #f7f5f2; border-radius: 40px; }
-.border-light-teal { border: 2px solid #a0dbe3; border-radius: 40px; }
+.border-light-teal  {
+    border: 3px solid #a0dbe3;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
 .border-dark-teal { border: 2px solid #007d84; border-radius: 40px; }
 
 .index-controls  {
@@ -99,6 +104,16 @@ span.detail-accent::before {
     margin-top: 1%;
     width: 5vw;
     height: 5vw;
+}
+.background-fleece {
+    background-image: image-url('Fleece-review-header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.new-btn {
+    padding: 5px 20px;
+    border-radius: 4px;
+    margin-top: 15px;
 }
 span.detail-accent::after {
     content: '';
@@ -192,7 +207,7 @@ a {color: #2d2b26;}
   margin: 0 auto;
 }
 .half-no { width: 50%; }
-.subscript { font-size: 11pt; }
+.subscript { font-size: 9pt; }
 a {text-decoration: none;}
 .quarter { width: 25%; max-width: 150px; }
 .half { width: 50%; }
@@ -228,7 +243,8 @@ a {text-decoration: none;}
 @media only screen and (min-width: 800px) {
   .paca-background { background-position: 100px;}
   .review-padding { padding: 50px 100px; align-items: flex-start; }
-
+  .one-third { width: 33%}
+  .two-thirds { width: 66%;}
 }
 @media only screen and (min-width: 589px) and (max-width: 799px) {
   h1 { font-size: 43pt; } 
