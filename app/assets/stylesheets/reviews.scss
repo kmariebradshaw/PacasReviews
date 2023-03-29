@@ -51,7 +51,7 @@
 .text-yellow { color: #E6BB11; }
 .border-natural { border: 1px solid #f7f5f2; border-radius: 40px; }
 .border-light-teal  {
-    border: 3px solid #a0dbe3;
+    border: 2px solid #a0dbe3;
     border-radius: 20px;
     margin-bottom: 25px;
 }
@@ -113,7 +113,21 @@ span.detail-accent::before {
 .new-btn {
     padding: 5px 20px;
     border-radius: 4px;
-    margin-top: 15px;
+    margin-top: 10px;
+    font-size: 10pt;
+}
+.star-wrapper-new {
+    text-shadow: 1px 1px lightgray;
+    font-size: 47px;
+    font-family: monospace;
+    line-height: 28px;
+    margin-bottom: 5px;
+    letter-spacing: 5px;
+}
+.star-wrapper-pdp {
+    text-shadow: 1px 1px lightgray;
+    font-size: 20px;
+    letter-spacing: 5px;
 }
 span.detail-accent::after {
     content: '';
@@ -150,7 +164,6 @@ h3.detail-accent::after {
     background-repeat:  no-repeat;
 }
 
-.double-accent-padding { padding: 50px; }
 .verified { width: 15px; margin-right: 2px; display: inline-block !important; }
 .review-wrapper { width: 80%; min-width: 300px; margin:20px auto; }
 .fdr { flex-direction: column; align-items: flex-start !important;}
@@ -198,6 +211,7 @@ a {color: #2d2b26;}
   display: flex;
   align-items: center;
 }
+.asfs { align-self: flex-start }
 .pagination { text-align: center; }
 .nm { margin: 0; }
 .nmt { margin-top: 0; }
@@ -220,7 +234,7 @@ a {text-decoration: none;}
   min-height: 300px;
 }
 @media only screen and (min-width: 1100px) {
-  h1 { font-size: 67pt; } 
+  h1 { font-size: 5vw; } 
   h2 { font-size: 34pt; } 
   h3{ font-size: 16pt; } 
   p, table { font-size: 12pt; } 
@@ -230,7 +244,7 @@ a {text-decoration: none;}
 
 }
 @media only screen and (min-width: 800px) and (max-width: 1099px) {
-  h1 { font-size: 57pt; } 
+  h1 { font-size: 6vw; } 
   h2 { font-size: 32pt; } 
   h3{ font-size: 14pt; } 
   p, table { font-size: 12pt; } 
@@ -244,7 +258,12 @@ a {text-decoration: none;}
   .paca-background { background-position: 100px;}
   .review-padding { padding: 50px 100px; align-items: flex-start; }
   .one-third { width: 33%}
+  .double-accent-padding { padding: 50px; }
   .two-thirds { width: 66%;}
+}
+@media only screen and (max-width: 799px) {
+    .double-accent-padding { padding: 25px; }
+  
 }
 @media only screen and (min-width: 589px) and (max-width: 799px) {
   h1 { font-size: 43pt; } 

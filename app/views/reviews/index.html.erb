@@ -1,7 +1,7 @@
 <section class="double-accent-padding background-fleece tac">
   <h1 class="nm ttu">Unbelievably Soft</h1>
   <p class="tac">(but don't just take our word for it...)</p>  
-  <h3 class="tac star-wrapper text-yellow nm">★★★★★</h3>
+  <h3 class="tac star-wrapper-new text-yellow nm">★★★★★</h3>
   <div class="flex-container-no jcc fw">
       <h3 class="ttu nm"><%= @positive_review_count%> reviews</h3> 
       <p class="" style="margin-left: 5px;">(and counting)!</p>
@@ -11,7 +11,7 @@
 
 <section class=" main">
   <% @reviews.each_with_index do | review, index | %> 
-    <div class="accent-padding flex-container border-light-teal ">
+    <div class="flex-container border-light-teal " style="">
       <div class="one-third">
         <p class="nmt text-yellow">
             <% review.rating.times do%>

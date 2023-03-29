@@ -1,0 +1,40 @@
+<div class="double-accent-padding">
+	<div class="tac" style="margin-bottom: 20px;">
+  	<h3 class="nm ttu"><%= @product.title %> Reviews</h3>
+    <div class="flex-container-no fw jcc">
+      <h3 class="tac star-wrapper-pdp text-yellow nm">★★★★★</h3>
+      <p class="subscript" style="margin-left: 5px;"><%= @positive_review_count%> Reviews</p> 
+    </div>
+  </div>
+  <section class=" main-so">
+  <% @reviews.each do | review | %> 
+    <div class="accent-padding border-light-teal " style="padding: 20px;">
+      <div class="flex-container-no fw">
+        <div class="half">
+          <p class="subscript nm"><span><%= review.author_first %></span></p>
+          <p class="subscript nm">Verified Buyer</p>
+        </div>
+        <div class="half tar asfs">
+          <p class="subscript nm"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        </div>
+      </div>
+      <p class=" text-yellow">
+            <% review.rating.times do%>
+              ★
+            <% end %>
+      </p>
+      <p class="nmb"><%= review.text %></p>
+    </div>
+     
+    
+
+
+  <% end %>
+    
+  </section>
+</div>
+
+
+<style>
+ nav { display: none; }
+</style>
