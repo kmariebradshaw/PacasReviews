@@ -53,7 +53,6 @@
 .border-light-teal  {
     border: 2px solid #a0dbe3;
     border-radius: 20px;
-    margin-bottom: 25px;
 }
 .border-dark-teal { border: 2px solid #007d84; border-radius: 40px; }
 
@@ -260,9 +259,15 @@ a {text-decoration: none;}
   .one-third { width: 33%}
   .double-accent-padding { padding: 50px; }
   .two-thirds { width: 66%;}
+  .border-light-teal  {
+    margin-bottom: 25px;
+}
 }
 @media only screen and (max-width: 799px) {
     .double-accent-padding { padding: 25px; }
+      .border-light-teal  {
+    margin-bottom: 15px;
+}
   
 }
 @media only screen and (min-width: 589px) and (max-width: 799px) {
