@@ -330,29 +330,28 @@ a {text-decoration: none;}
 }
 /*new review*/
 .new_review {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-    min-width: 290px;
-    max-width: 500px;
+    max-width: 600px;
     textarea{
     width: 100%;
     height: 150px;
-    border: 1px solid lightgray;
+    border: 2px solid #ECECEC;
     font-size: 10pt;
     padding: 20px;
     box-sizing: border-box;
     background: white;
-    border-radius: 20px;
+    border-radius: 7px;
 }
   select, input[type='text'] {
     height: 45px;
     color: $darkgray;
     font-size: 10pt;
     padding: 10px !important;
-    border: 1px solid lightgray;
+    border: 2px solid #ECECEC;
     background: white;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 7px;
     box-sizing: border-box;
     -webkit-appearance: none;
     margin: 10px 0;
@@ -360,12 +359,14 @@ a {text-decoration: none;}
   .button {
     text-align: center;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 7px;
     box-sizing: border-box;
-    background: #f04e4c;
+    background: #2d2b26;
     padding: 11px;
     input {
     font-size: 12pt;
+        font-family:  'Avenir-Next-Condensed';
+text-transform: uppercase;
     color: white;
     background: transparent;
     border: none;
@@ -374,9 +375,10 @@ a {text-decoration: none;}
   }
   }
 }
+#review_author_email{ margin-bottom: 0; }
 #rating-wrapper { padding: 10px; }
 $unchecked-star: '\2606';
-$unchecked-color: $darkgray;
+$unchecked-color: #ECECEC;
 $checked-star: '\2605';
 $checked-color: #f04e4c;
 .star-cb-group {
@@ -399,21 +401,21 @@ $checked-color: #f04e4c;
       width: 1em;
       white-space: nowrap;
       cursor: pointer;
-      font-size: 19pt;
-      margin: 0 5px;
+      font-size: 16pt;
+      margin: 0 2.5px;
       &:before {
         display: inline-block;
         text-indent: -9999px;
         content: $unchecked-star;
         color: $unchecked-color;
+        font-family: ui-monospace;
       }
     }
     &:checked ~ label:before,
       & + label:hover ~ label:before,
       & + label:hover:before {
       content: $checked-star;
-      color: #f04e4c;
-      text-shadow: 0 0 1px #333;
+      color: #E6BB11;
     }
   }
   
@@ -435,23 +437,18 @@ $checked-color: #f04e4c;
   &:hover input + label:hover ~ label:before,
   &:hover input + label:hover:before {
     content: $checked-star;
-    color: $checked-color;
-    text-shadow: 0 0 1px #333;
+    color: #E6BB11;
   }
 }
 /*show review*/
 #show-review {
-  background-image: image-url('Popups_friends.png');
-  height: 96vh;
   min-height: fit-content;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom right;
 }
 .atf-paca {
     width: 20vw;
     margin-bottom: -51px;
 }
+.coupon-code { font-family: 'Avenir-Next-Condensed'; text-transform: uppercase;}
 .animated-button { background-repeat: no-repeat; background-position: center; }
 .animated-button-red {     background-image: image-url('rebrand-cta.svg');
 }
