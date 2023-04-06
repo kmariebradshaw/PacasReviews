@@ -3,8 +3,7 @@ nav { display: none; }
 </style>
 
 <div id="new-review" class="main">
-  <h3 class="tac ttu nmb">Leave a Review</h3>
-  <h4 class="tac nmt ttu">We'd love to hear from you!</h4>
+  <h2 class="tac ttu">We'd love to hear from you</h2>
     <% if @review.errors.any? %>
       <p class="tac subscript">We're sorry, but an error occurred. If this continues, please contact us a support@pacas.us</p>
        <p class="error subscript tac" style="display: none;">
@@ -13,26 +12,12 @@ nav { display: none; }
           <% end %>
        </p>
     <% end %>
+
+
   <%= form_for @review do |f| %>
-    <% if params[:email] %> 
-      <%= f.hidden_field :author_email, :value => params[:email] %>
-    <% else %>
-      <%= f.text_field :author_email, placeholder: "Email" %>
-    <% end %>
-    <% if params[:first] %> 
-      <%= f.hidden_field :author_first, :value=> params[:first] %>
-    <% else %>
-      <%= f.text_field :author_first, placeholder: "First Name" %>
-    <% end %>
-    <% if params[:sur] %> 
-      <%= f.hidden_field :author_last, :value => params[:sur] %>
-    <% else %>
-      <%= f.text_field :author_last,placeholder: "Last Name" %>
-    <% end %>
-      <%= f.collection_select :product_id, Product.all, :id, :title, {prompt: "Select Product"} %><br>
     <div id="rating-wrapper">
-      <p class="subscript nmt">Rating:</p>
-      <span class="star-cb-group">
+      <span class="vam subscript ib" style="margin-top: 2px;">Rating:</span>
+      <span class="star-cb-group vam" >
         <%= f.radio_button :rating, 5, id: "rating-5"%><label for="rating-5">5</label>
         <%= f.radio_button :rating, 4, id: "rating-4" %><label for="rating-4">4</label>
         <%= f.radio_button :rating, 3, id: "rating-3" %><label for="rating-3">3</label> 
@@ -40,12 +25,36 @@ nav { display: none; }
         <%= f.radio_button :rating, 1, id: "rating-1" %><label for="rating-1">1</label>
       </span>
     </div>
-    <p>
-      <%= f.text_area :text, placeholder: "Please type your review here" %>
+    <%= f.collection_select :product_id, Product.all, :id, :title, {prompt: "Select Product"} %>
+    <p class="nmt">
+      <%= f.text_area :text, placeholder: "Write your review here" %>
     </p>
+    <% if params[:email] %> 
+      <%= f.hidden_field :author_email, :value => params[:email] %>
+    <% else %>
+      <%= f.text_field :author_email, placeholder: "Email" %>
+    <% end %>
+    <div class="flex-container-no">
+      <div class="half-no" style="margin-right: 10px;">
+    <% if params[:first] %> 
+      <%= f.hidden_field :author_first, :value=> params[:first] %>
+    <% else %>
+      <%= f.text_field :author_first, placeholder: "First Name" %>
+    <% end %>
+  </div>
+  <div class="half-no">
+    <% if params[:sur] %> 
+      <%= f.hidden_field :author_last, :value => params[:sur] %>
+    <% else %>
+      <%= f.text_field :author_last,placeholder: "Last Name" %>
+    <% end %>
+  </div>
+</div>
+  <br>
+
+
     <div class="button">
-      <span><%= f.submit %></span>
+      <span><%= f.submit "Submit Your Review" %></span>
     </div> 
   <% end %>
 </div>
-<%= image_tag("account-paca.png", class: "background-paca") %>
