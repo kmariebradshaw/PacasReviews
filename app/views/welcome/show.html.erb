@@ -1,39 +1,96 @@
-<section class="main slick-wrapper">
-  <% @reviews.each do | review | %> 
-      <div class="">
- <div class="accent-padding flex-container border-charcoal" style="">
-      <div class="one-third accent-padding">
-        <h3 class="ttu text-charchoal nm"><%= review.product.title %></h3>
-        <p class=" text-yellow">
+  <section class="main slick-wrapper">
+   <% @reviews.each do | review | %> 
+  <% if review.status == "approved" %>
+  <div class="">
+ <div class="review-wrapper accent-padding flex-container-no border-dark-teal do background-white">
+      <div class="flex-container-no fdr quarter accent-padding">
+        <h3 class="ttu text-dark-teal nm asfs"><%= review.product.title %></h3>
+        <div class="asfe">
+          <p class="nmb"><%= review.author_first %> 
+            <% if review.author_last %>
+              <span class="ttu" style="font-weight: normal;">
+                <%= review.author_last.first(1) %>.
+              </span> 
+            <% end %>
+          </p>
+        </div>
+        <div>
+        <%= image_tag("verified.png", class: "vam verified") %><span class="vam" style="font-size: 10pt;"><b>Verified Buyer</b></span>
+      </div>
+      </div>
+      <div class="three-fourths accent-padding">
+        <p class="nm">
+          <span class="star-wrapper text-red">
             <% review.rating.times do%>
               ★
             <% end %>
+          </span>
+         <span style="font-weight: bold; font-size: 10pt;"> <%= review.created_at.strftime('%m/%d/%Y') %></span>
         </p>
-        <p class="subscript nmb"><%= review.author_first %> <%= review.author_last.first(1) %>.<span class="do desktop-time"><%= review.created_at.strftime('%m/%d/%Y') %></span><br>        <%= image_tag("verified.png", class: "vam verified") %><span class="vam" style="font-size: 10pt;font-weight: lighter;">Verified Buyer</span>
-
-      </p>
-        <p class="nm subscript mo"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        <p class=""><%= review.text %></p>
       </div>
-      <div class="accent-padding two-thirds">
-        <p><%= review.text %></p>
-      </div>
+        <div class="flex-container-no quarter fdr">
+ <%= form_for(review, remote: true) do |fa| %>
+          <%= fa.hidden_field :vote, :value => review.vote + 1 %>
+      <%= fa.submit "helpful?", class: "useful" %><p class="ib subscript upvote"><%= review.vote%></p>
+      <% end %>
     </div>
-    
+      </div>
 
 
 
+      <div class="review-wrapper accent-padding border-dark-teal background-white mo ">
+      <div class="accent-padding">
+        <h3 class="ttu text-dark-teal nm asfs"><%= review.product.title %></h3>
+        <p class="">
+          <span class="star-wrapper text-red">
+            <% review.rating.times do%>
+              ★
+            <% end %>
+          </span>
+         <span style="font-weight: bold; font-size: 10pt;"> <%= review.created_at.strftime('%m/%d/%Y') %></span>
+        </p>
+          <div class="accent-padding-tbo">
+     
+        <p class=""><%= review.text %></p>
+      </div>
+
+        <div class="">
+          <p class="nmb"><%= review.author_first %> 
+            <% if review.author_last %>
+              <span class="ttu" style="font-weight: normal;">
+                <%= review.author_last.first(1) %>.
+              </span> 
+            <% end %>
+          </p>
+        </div>
+        <div>
+        <%= image_tag("verified.png", class: "vam verified") %><span class="vam" style="font-size: 10pt;"><b>Verified Buyer</b></span>
+      </div>
+      </div>
+      </div> 
 
  </div>
   <% end %>
+  <% end %>
   </section>
 <style>
-  .border-charcoal { border: 1px solid gray; border-radius: 20px;}
-  @media only screen and (max-width: 799px) {
-    .border-charcoal { width: calc(100% - 40px); margin: 0 auto }
-  }
   .review-wrapper { min-width: auto !important; }
   .review-wrapper { align-items: flex-start; }
-
+  .read-more-reviews, .read-all-reviews { 
+    border: 1px solid #007D84; 
+    padding: 10px; 
+    display: block; 
+    margin: 10px auto; 
+    width: 190px; 
+    border-radius: 5px;
+    background-color: white;
+    opacity: 0.8;
+  }
+  .read-more-reviews h4, .read-all-reviews h4 { 
+    font-size: 12pt; 
+    color: #666562;
+  }
   @media only screen and (min-width: 589px) {
   .flex-override { display: flex !important; }
   }
@@ -43,6 +100,23 @@
   .clickable { cursor: pointer; }
 </style>
 <script>
+  $('.read-more-reviews').click(function() {
+    $('.read-more-reviews h4').text() === 'See More Reviews'? $('.read-more-reviews h4').text('See Less Reviews') : $('.read-more-reviews h4').text('See More Reviews'); 
+
+    $('.read-more-reviews-link').show();
+    $('.review-wrapper').toggleClass("flex-override")
+  })
+  // $('.read-more-reviews-link').click(function() {
+  //   event.preventDefault(); 
+  //   window.location.href = 'https://www.pacas.us/pages/reviews'
+
+  // })
+  $('.useful').click(function() {
+    $(this).attr("value", "thanks!");
+    $(this).addClass('filled-paca')
+    votes = parseInt($(this).next('.upvote').text()) + 1  
+    $(this).next('.upvote').text(votes)
+  })
 
   $('.slick-wrapper').slick({
   infinite: true,
