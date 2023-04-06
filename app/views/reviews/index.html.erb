@@ -14,14 +14,14 @@
     <div class="accent-padding flex-container border-light-teal " style="">
       <div class="one-third accent-padding">
         <h3 class="ttu text-charchoal nm"><%= review.product.title %></h3>
-        <p class="nmt text-yellow">
+        <p class=" text-yellow">
             <% review.rating.times do%>
               ★
             <% end %>
         </p>
-        <p class="subscript"><%= review.author_first %><br>
+        <p class="subscript nmb"><%= review.author_first %> <%= review.author_last.first(1) %>.<span class="do desktop-time"><%= review.created_at.strftime('%m/%d/%Y') %></span><br>
         Verified buyer</p>
-        <p class="nm subscript"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+        <p class="nm subscript mo"><%= review.created_at.strftime('%m/%d/%Y') %></p>
       </div>
       <div class="accent-padding two-thirds">
         <p><%= review.text %></p>

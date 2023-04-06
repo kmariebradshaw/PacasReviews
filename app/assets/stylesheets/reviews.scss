@@ -117,8 +117,7 @@ span.detail-accent::before {
 }
 .star-wrapper-new {
     text-shadow: 1px 1px lightgray;
-    font-size: 47px;
-    font-family: monospace;
+    font-size: 24x;
     line-height: 28px;
     margin-bottom: 5px;
     letter-spacing: 5px;
@@ -262,11 +261,17 @@ a {text-decoration: none;}
   .border-light-teal  {
     margin-bottom: 25px;
 }
+.star-wrapper-new {
+    font-size: 32px;
+}
 }
 @media only screen and (max-width: 799px) {
     .double-accent-padding { padding: 25px; }
       .border-light-teal  {
     margin-bottom: 15px;
+}
+.star-wrapper-new {
+    font-size: 24px;
 }
   
 }
@@ -291,6 +296,7 @@ a {text-decoration: none;}
   }
   .accent-padding.page-header { padding: 50px; }
 }
+.two-thirds p { line-height: 1.5 }
 @media only screen and (max-width: 588px) {
   h1 { font-size: 22pt; } 
   h2 { font-size: 16pt; } 
@@ -777,4 +783,6 @@ ul {
     opacity: .75;
     color: black;
 }
+ .main { max-width: 1000px; margin: 0 auto; }
+  .desktop-time { font-weight: lighter; margin-left: 15px; }
 
