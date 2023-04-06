@@ -19,8 +19,9 @@
               ★
             <% end %>
         </p>
-        <p class="subscript nmb"><%= review.author_first %> <%= review.author_last.first(1) %>.<span class="do desktop-time"><%= review.created_at.strftime('%m/%d/%Y') %></span><br>
-        Verified buyer</p>
+         <p class="subscript nmb"><%= review.author_first %> <%= review.author_last.first(1) %>.<span class="do desktop-time"><%= review.created_at.strftime('%m/%d/%Y') %></span><br>        <%= image_tag("verified.png", class: "vam verified") %><span class="vam" style="font-size: 10pt;font-weight: lighter;">Verified Buyer</span>
+
+      </p>
         <p class="nm subscript mo"><%= review.created_at.strftime('%m/%d/%Y') %></p>
       </div>
       <div class="accent-padding two-thirds">
