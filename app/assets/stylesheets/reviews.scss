@@ -3,6 +3,12 @@
 @font-face {
   font-family: 'Avenir-Next-Condensed';
   src: font-url('AvenirNextCondensed-Heavy.ttf'); 
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Avenir-Next-Condensed';
+  src: font-url('AvenirNextCondensed-Bold-01.ttf'); 
   font-weight: 700;
   font-style: normal;
 }
@@ -169,7 +175,7 @@ h3.detail-accent::after {
 h1, h2 ,h3, h4{ 
   font-family: "Avenir-Next-Condensed"; 
   color: #2d2b26;
-  font-weight:  800;
+  font-weight:  900;
   line-height: 1;
 }
  button, span, h5 {
@@ -186,7 +192,7 @@ p, li, tr, td, div, pre, textarea{
 .accent-padding-tbo { padding-top: 20px; padding-bottom: 20px; }
 
 .three-fourths { width: 75%; align-self: flex-start; }
-
+.new-btn h4 { font-weight: 700}
 $purple: #fcf9fd;
 $white: #Fff;
 $lightgray: lightgray;
@@ -781,5 +787,5 @@ ul {
     color: black;
 }
  .main { max-width: 1000px; margin: 0 auto; }
-  .desktop-time { font-weight: lighter; margin-left: 15px; }
+  .desktop-time { font-weight: lighter; margin-left: 10px; }
 

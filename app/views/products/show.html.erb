@@ -11,7 +11,7 @@
     <div class="accent-padding border-light-teal " style="padding: 20px;">
       <div class="flex-container-no fw">
         <div class="half">
-          <p class="subscript nm"><span><%= review.author_first %></span></p>
+          <p class="subscript nm"><span><%= review.author_first %> <%= review.author_last.first(1) %>.</span></p>
           <p class="subscript nm">Verified buyer</p>
         </div>
         <div class="half tar asfs">
