@@ -12,7 +12,9 @@
       <div class="flex-container-no fw">
         <div class="half">
           <p class="subscript nm"><span><%= review.author_first %> <%= review.author_last.first(1) %>.</span></p>
-          <p class="subscript nm">Verified buyer</p>
+             <p class="subscript nm"><%= image_tag("verified.png", class: "vam verified") %><span class="vam" style="font-size: 10pt;font-weight: lighter;">Verified Buyer</span>
+
+      </p>
         </div>
         <div class="half tar asfs">
           <p class="subscript nm"><%= review.created_at.strftime('%m/%d/%Y') %></p>
