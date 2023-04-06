@@ -168,7 +168,7 @@ h3.detail-accent::after {
     background-repeat:  no-repeat;
 }
 
-.verified { width: 12px; margin-right: 3px; display: inline-block !important; }
+.verified { width: 15px; margin-right: 2px; display: inline-block !important; }
 .review-wrapper { width: 80%; min-width: 300px; margin:20px auto; }
 .fdr { flex-direction: column; align-items: flex-start !important;}
 .ttu { text-transform: uppercase; }
@@ -288,7 +288,6 @@ a {text-decoration: none;}
   .main { padding: 25px; }
   .main-to { padding: 25px 0; }
   .main-so { padding: 0 25px; }
-  .one-third { min-width: 150px; }
 }
 @media only screen and (min-width: 589px) {
   .mo { display: none; }
@@ -590,7 +589,16 @@ ul {
 @charset 'UTF-8';
 
 
+/* Icons */
+@font-face
+{
+    font-family: 'slick';
+    font-weight: normal;
+    font-style: normal;
 
+  src: font-url('slick.eot'); 
+    src: font-url('slick.eot?#iefix') format('embedded-opentype'), font-url('slick.woff') format('woff'), font-url('slick.ttf') format('truetype'), font-url('slick.svg#slick') format('svg');
+}
 /* Arrows */
 .slick-prev,
 .slick-next
@@ -617,7 +625,15 @@ ul {
     outline: none;
     background: transparent;
 }
-
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus
+{
+    color: transparent;
+    outline: none;
+    background: transparent;
+}
 .slick-prev:hover:before,
 .slick-prev:focus:before,
 .slick-next:hover:before,
@@ -648,11 +664,6 @@ ul {
 .slick-prev
 {
     left: 0px;
-        background-image:image-url('arrow-back.png');
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-
 }
 [dir='rtl'] .slick-prev
 {
@@ -661,20 +672,16 @@ ul {
 }
 .slick-prev:before
 {
-/*    content: image-url('arrow-back.png');*/
+    content: '←';
 }
 [dir='rtl'] .slick-prev:before
 {
-/*    content: image-url('arrow-forward.png');*/
+    content: '→';
 }
 
 .slick-next
 {
-    right: 0px;
-    background-image:image-url('arrow-forward.png');
-            background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
+    right: 10px;
 }
 [dir='rtl'] .slick-next
 {
@@ -683,13 +690,11 @@ ul {
 }
 .slick-next:before
 {
-/*       content: image-url('arrow-forward.png');*/
-
+    content: '→';
 }
 [dir='rtl'] .slick-next:before
 {
-/*content: image-url('arrow-back.png');*/
-
+    content: '←';
 }
 
 /* Dots */
