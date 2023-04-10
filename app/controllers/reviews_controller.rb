@@ -17,9 +17,14 @@ class ReviewsController < ApplicationController
   end 
   def index
     @users = User.all 
+         @reviewsdownload = Review.all.order("created_at DESC")
+
     @reviews = Review.where(:status => 'approved').order("created_at DESC").paginate(:page => params[:page], :per_page => 250)
     @positive_review_count = Review.where("rating > ?", 3).count()
-
+   respond_to do |format|
+    format.html
+    format.csv { send_data @reviewsdownload.to_csv, filename: "Reviews-#{Date.today}.csv" }
+    end
   end 
   def update
     @review = Review.find(params[:id]) 
