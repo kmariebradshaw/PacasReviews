@@ -410,12 +410,12 @@ $checked-color: #f04e4c;
       cursor: pointer;
       font-size: 16pt;
       margin: 0 2.5px;
+      vertical-align: middle;
       &:before {
         display: inline-block;
         text-indent: -9999px;
         content: $unchecked-star;
         color: $unchecked-color;
-        font-family: ui-monospace;
       }
     }
     &:checked ~ label:before,
