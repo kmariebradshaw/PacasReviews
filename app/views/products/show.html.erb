@@ -48,4 +48,13 @@
 
 <style>
  nav { display: none; }
+ .current { font-style: normal; font-weight: bold; }
+ .pagination a, .pagination em, .pagination span { font-family: 'Lexend'; margin: 0 10px; }
+ .pagination span { font-weight: normal; }
+ .pagination .disabled { visibility: hidden; }
 </style>
+<script>
+  $('.previous_page').text("<")
+    $('.next_page').text(">")
+
+</script>
