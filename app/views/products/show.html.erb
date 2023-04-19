@@ -49,9 +49,15 @@
 <style>
  nav { display: none; }
  .current { font-style: normal; font-weight: bold; }
+ @media only screen and (min-width: 800px) {
  .pagination a, .pagination em, .pagination span { font-family: 'Lexend'; margin: 0 10px; }
+}
+ @media only screen and (max-width: 799px) {
+ .pagination a, .pagination em, .pagination span { font-family: 'Lexend'; margin: 0 2.5px; }
+}
  .pagination span { font-weight: normal; }
- .pagination .disabled { visibility: hidden; }
+ .pagination .disabled { opacity: 0.2 }
+ .gap { display: none; }
 </style>
 <script>
   $('.previous_page').text("<")
