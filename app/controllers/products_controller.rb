@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id]) 
 
-    @reviews = @product.reviews.where(:status => "approved").order("created_at DESC").paginate(:page => params[:page], :per_page => 5).limit(50) 
+    @reviews = @product.reviews.where(:status => "approved").order("created_at DESC").limit(50).paginate(:page => params[:page], :per_page => 5)
     @positive_review_count = @product.reviews.where("rating > ?", 3).count()
     @no_reviews = Review.all.where(:status => "approved").order("created_at DESC").limit(5)
   end 
