@@ -4,7 +4,7 @@
     <% if @positive_review_count > 0 %>
     <div class="flex-container-no fw jcc" id="new-review-wrapper">
       <h3 class="tac star-wrapper-pdp text-yellow nm">★★★★★</h3>
-      <p class="subscript" style="margin-left: 5px;"><%= @positive_review_count%> 
+      <p class="subscript review-count" style="margin-left: 5px;display: inline;"><%= @positive_review_count%> 
         <% if @positive_review_count == 1 %>
           Review
           <% else %>
@@ -13,7 +13,7 @@
         </p> 
     </div>
     <% else %>
-    <p class="subscript">No Reviews Yet.</p>
+    <p class="subscript review-count" style="display: inline;">0 Reviews</p><br>
    <a href="/reviews/new" target="_blank"><div class="new-btn background-charcoal ib accent-padding-so"><h4 class="ttu ib nm text-white">Write a Review</h4></div></a>
 <% end %>
   </div>
