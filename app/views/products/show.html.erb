@@ -68,5 +68,7 @@
 <script>
   $('.previous_page').text("<")
     $('.next_page').text(">")
-
+$('.next_page, .previous_page').click(function(){
+  $(window).scrollTop();
+})
 </script>
