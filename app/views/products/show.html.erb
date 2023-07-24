@@ -68,5 +68,7 @@
 <script>
   $('.previous_page').text("<")
     $('.next_page').text(">")
-
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 </script>
