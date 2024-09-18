@@ -179,8 +179,8 @@ h1, h2 ,h3, h4{
   line-height: 1;
 }
  button, span, h5 {
-  font-family: "Lexend";
-  font-weight:  600;
+  font-family: obviously;
+  font-weight:  400;
   color:  #2d2b26;
 }
 p, li, tr, td, div, pre, textarea{ 
@@ -271,6 +271,7 @@ a {text-decoration: none;}
   .border-light-teal  {
     margin-bottom: 25px;
 }
+.mo { display: none !important; }
 .star-wrapper-new {
     font-size: 32px;
 }
@@ -283,8 +284,10 @@ a {text-decoration: none;}
 .star-wrapper-new {
     font-size: 24px;
 }
-  
+.do { display: none !important;}
 }
+  
+
 @media only screen and (min-width: 589px) and (max-width: 799px) {
   h1 { font-size: 43pt; } 
   h2 { font-size: 30pt; } 
