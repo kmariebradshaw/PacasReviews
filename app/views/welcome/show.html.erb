@@ -1,22 +1,22 @@
 <section class="review-slick" style="">
   <% @reviews.each do | review | %> 
       <div class="tac background-natural review-slick-slide" style="">
-          <p class="text-new-teal" style="margin-top: 5px;">
-            <% review.rating.times do%>
-              ★
-            <% end %>
-          </p>
-          <p><%= review.text %></p>
-          <p class="subscript nmb">-<%= review.author_first %> <%= review.author_last.first(1) %>.</p>
+        <%= image_tag("5Stars-Teal.svg", class: "m8-review-stars") %>
+
+          <p><%= truncate(review.text, length:200) %></p>
+          <p class="subscript nmb">- <%= review.author_first %> <%= review.author_last.first(1) %>.</p>
         </div>
   <% end %>
 </section>
+
+<%= image_tag("left-arrow-dark-teal.png", class: "m8-arrow prev-arrow") %>
+<%= image_tag("right-arrow-dark-teal.png", class: "m8-arrow next-arrow") %>
 
 <style>
   .background-white { background-color: white; }
   .text-new-teal { color: #1F404A }
   .clickable { cursor: pointer; }
-  .review-slick { padding: 3vw; }
+  .review-slick { padding: 2vw 7vw; }
   .review-slick-slide { 
     margin: 1vw; 
     border-radius: 20px;
@@ -27,6 +27,23 @@
     align-items: center;
     justify-content: space-between;
   }
+  .subscript {font-weight: 300}
+  .m8-arrow { 
+    cursor: pointer; 
+    position: absolute;
+    top: 19.5vw;
+    width: 4vw;
+  }
+  .m8-arrow.prev-arrow {
+    left: 0;
+  }
+  .m8-arrow.next-arrow {
+    right: 0;
+  }
+  .m8-review-stars {
+    width: 10vw;
+    margin-top: 1vw;
+}
 <%#   .review-slick-slide.slick-active[data-slick-index="0"], .review-slick-slide.slick-active[data-slick-index="2"] {
     margin-top: 2.3vw;
   }
@@ -39,6 +56,8 @@
   slidesToShow: 3,
   sldiesToScroll: 3,
   adaptiveHeight: true, 
+     prevArrow: $('.prev-arrow'),
+    nextArrow: $('.next-arrow'),
 });
     
 </script>

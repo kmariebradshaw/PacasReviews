@@ -184,7 +184,7 @@ h1, h2 ,h3, h4{
   color:  #2d2b26;
 }
 p, li, tr, td, div, pre, textarea{ 
-  font-family: "Lexend";
+  font-family: obviously;
   font-weight:  400;
   color: #2d2b26;
 }
@@ -243,7 +243,7 @@ a {text-decoration: none;}
   h3{ font-size: 16pt; } 
     h3.large{ font-size: 20pt; } 
 
-  p, table { font-size: 12pt; } 
+  p, table { font-size: 1.2vw; } 
   .main { padding: 50px; }
   .main-to { padding: 50px 0;}
   .main-so { padding: 0 50px ;}
@@ -255,7 +255,7 @@ a {text-decoration: none;}
   h3{ font-size: 14pt; } 
       h3.large{ font-size: 18pt; } 
 
-  p, table { font-size: 12pt; } 
+  p, table { font-size: 1.2vw; } 
   .main { padding: 50px; }
   .main-to { padding: 50px 0; }
   .main-so { padding: 0 50px; }
