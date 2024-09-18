@@ -1,4 +1,70 @@
-<section class="review-slick" style="">
+<section class="review-slick-mo mo" style="">
+  <div class="">
+      <div class="tac background-natural review-slick-slide" style="">
+        <%= image_tag("5Stars-Teal.svg", class: "m8-review-stars") %>
+
+          <p>The softest ever. It feels like there is a padding on my heel. Very warm and cozy. Will not go back to <span>Bombas</span></p>
+          <p class="subscript nm">- Rachel W.</p>
+        </div>
+              <div class="tac background-natural review-slick-slide" style="">
+        <%= image_tag("5Stars-Teal.svg", class: "m8-review-stars") %>
+
+          <p>The best socks, better than <span>Smartwool</span> a different type of softeness and they leave your feet so dry!</p>
+          <p class="subscript nm">- Rene S.</p>
+        </div>
+              <div class="tac background-natural review-slick-slide" style="">
+        <%= image_tag("5Stars-Teal.svg", class: "m8-review-stars") %>
+
+            <p>I've worn <span>Features</span> and <span>Bombas</span> but Pacas are my new favorites! I like not only the cushioning and support but the moisture wicking is excellent. Plus they are simply cute!</p>
+          <p class="subscript nm">- Stephanie S.</p>
+        </div>
+</div>
+
+
+
+  <div class="">
+  <% @reviews.limit(3).each do | review | %> 
+      <div class="tac background-natural review-slick-slide" style="">
+        <%= image_tag("5Stars-Teal.svg", class: "m8-review-stars") %>
+
+          <p><%= truncate(review.text, length:140) %></p>
+          <p class="subscript nm">- <%= review.author_first %> <%= review.author_last.first(1) %>.</p>
+        </div>
+  <% end %>
+</div>
+  <div class="">
+  <% @reviews.limit(3).offset(3).each do | review | %> 
+      <div class="tac background-natural review-slick-slide" style="">
+        <%= image_tag("5Stars-Teal.svg", class: "m8-review-stars") %>
+
+          <p><%= truncate(review.text, length:140) %></p>
+          <p class="subscript nm">- <%= review.author_first %> <%= review.author_last.first(1) %>.</p>
+        </div>
+  <% end %>
+</div>
+  <div class="">
+  <% @reviews.limit(3).offset(6).each do | review | %> 
+      <div class="tac background-natural review-slick-slide" style="">
+        <%= image_tag("5Stars-Teal.svg", class: "m8-review-stars") %>
+
+          <p><%= truncate(review.text, length:140) %></p>
+          <p class="subscript nm">- <%= review.author_first %> <%= review.author_last.first(1) %>.</p>
+        </div>
+  <% end %>
+</div>
+  <div class="">
+  <% @reviews.limit(3).offset(9).each do | review | %> 
+      <div class="tac background-natural review-slick-slide" style="">
+        <%= image_tag("5Stars-Teal.svg", class: "m8-review-stars") %>
+
+          <p><%= truncate(review.text, length:140) %></p>
+          <p class="subscript nm">- <%= review.author_first %> <%= review.author_last.first(1) %>.</p>
+        </div>
+  <% end %>
+</div>
+</section>
+
+<section class="review-slick-do do" style="">
   <% @reviews.each do | review | %> 
       <div class="tac background-natural review-slick-slide" style="">
         <%= image_tag("5Stars-Teal.svg", class: "m8-review-stars") %>
@@ -9,19 +75,18 @@
   <% end %>
 </section>
 
-<%= image_tag("left-arrow-dark-teal.png", class: "m8-arrow prev-arrow") %>
-<%= image_tag("right-arrow-dark-teal.png", class: "m8-arrow next-arrow") %>
+
+<%= image_tag("left-arrow-dark-teal.png", class: "m8-arrow prev-arrow do") %>
+<%= image_tag("right-arrow-dark-teal.png", class: "m8-arrow next-arrow do") %>
+<%= image_tag("left-arrow-dark-teal.png", class: "m8-arrow prev-arrow mo") %>
+<%= image_tag("right-arrow-dark-teal.png", class: "m8-arrow next-arrow mo") %>
 
 <style>
   .background-white { background-color: white; }
   .text-new-teal { color: #1F404A }
   .clickable { cursor: pointer; }
-  .review-slick { padding: 2vw 7vw; }
+  .review-slick-do, .review-slick-mo { padding: 2vw 7vw; }
   .review-slick-slide { 
-    margin: 1vw; 
-    border-radius: 20px;
-    padding: 1vw 2vw 2vw;
-    min-height: 20.33vw;
     display: flex !important;
     flex-direction: column;
     align-items: center;
@@ -31,8 +96,6 @@
   .m8-arrow { 
     cursor: pointer; 
     position: absolute;
-    margin-top: -18vw;
-    width: 4vw;
   }
   .m8-arrow.prev-arrow {
     left: 0;
@@ -40,10 +103,51 @@
   .m8-arrow.next-arrow {
     right: 0;
   }
+
+@media only screen and (min-width: 800px) {
+  .review-slick { padding: 2vw 7vw; }
+  .review-slick-slide { 
+    margin: 1vw; 
+    border-radius: 20px;
+    padding: 1vw 2vw 2vw;
+    min-height: 20.33vw;
+  }
+  .m8-arrow { 
+    margin-top: -18vw;
+    width: 4vw;
+  }
   .m8-review-stars {
     width: 10vw;
     margin-top: 1vw;
+  }
 }
+
+@media only screen and (max-width: 799px) {
+  .review-slick { padding: 2vw 7vw; }
+  .review-slick-slide {
+        margin: 3vw;
+        border-radius: 20px;
+        padding: 1vw 2vw 2vw;
+        height: 40.5vw;
+    }
+  .m8-arrow {
+        margin-top: -70vw;
+        width: 9vw;
+    }
+.m8-review-stars {
+        width: 21vw;
+        margin-top: 2vw;
+    }
+    .review-slick-mo p, .review-slick-mo .subscript { font-size: 3vw; }
+    .review-slick-mo span  {
+        border-radius: 1vw !important;
+        padding-bottom: 0.5vw !important;
+        display: inline-block;
+        font-weight: 500;
+        background-color: #C4C0E3;
+    }
+}
+
 <%#   .review-slick-slide.slick-active[data-slick-index="0"], .review-slick-slide.slick-active[data-slick-index="2"] {
     margin-top: 2.3vw;
   }
@@ -51,20 +155,23 @@
 </style>
 <script>
 
-  $('.review-slick').slick({
+  $('.review-slick-do').slick({
   infinite: true,
   slidesToShow: 3,
   sldiesToScroll: 3,
   adaptiveHeight: true, 
-     prevArrow: $('.prev-arrow'),
-    nextArrow: $('.next-arrow'),
-    responsive: [{
-    breakpoint: 799,
-    settings: {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    }
-  }]
+     prevArrow: $('.prev-arrow.do'),
+    nextArrow: $('.next-arrow.do'),
+  
 });
     
+      $('.review-slick-mo').slick({
+  infinite: true,
+  slidesToShow: 1,
+  sldiesToScroll: 1,
+  adaptiveHeight: true, 
+     prevArrow: $('.prev-arrow.mo'),
+    nextArrow: $('.next-arrow.mo'),
+
+});
 </script>
