@@ -3,7 +3,7 @@
       <div class="tac background-natural review-slick-slide" style="">
         <%= image_tag("5Stars-Teal.svg", class: "m8-review-stars") %>
 
-          <p><%= truncate(review.text, length:200) %></p>
+          <p><%= truncate(review.text, length:190) %></p>
           <p class="subscript nmb">- <%= review.author_first %> <%= review.author_last.first(1) %>.</p>
         </div>
   <% end %>
@@ -31,7 +31,7 @@
   .m8-arrow { 
     cursor: pointer; 
     position: absolute;
-    top: 19.5vw;
+    margin-top: -18vw;
     width: 4vw;
   }
   .m8-arrow.prev-arrow {
@@ -58,6 +58,13 @@
   adaptiveHeight: true, 
      prevArrow: $('.prev-arrow'),
     nextArrow: $('.next-arrow'),
+    responsive: [{
+    breakpoint: 799,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    }
+  }]
 });
     
 </script>
