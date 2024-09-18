@@ -1,53 +1,44 @@
-<section class="main slick-wrapper">
+<section class="review-slick" style="">
   <% @reviews.each do | review | %> 
-      <div class="">
- <div class="accent-padding flex-container border-charcoal" style="">
-      <div class="one-third accent-padding">
-        <h3 class="ttu text-charchoal nm"><%= review.product.title %></h3>
-        <p class=" text-yellow" style="margin-top: 5px;">
+      <div class="tac background-natural review-slick-slide" style="">
+          <p class="text-new-teal" style="margin-top: 5px;">
             <% review.rating.times do%>
               ★
             <% end %>
-        </p>
-        <p class="subscript nmb"><%= review.author_first %> <%= review.author_last.first(1) %>.<span class="desktop-time"><%= review.created_at.strftime('%m/%d/%Y') %></span><br>        <%= image_tag("verified.png", class: "vam verified") %><span class="vam" style="font-size: 10pt;font-weight: lighter;">Verified Buyer</span>
-
-      </p>
-      </div>
-      <div class="accent-padding two-thirds">
-        <p><%= review.text %></p>
-      </div>
-    </div>
-    
-
-
-
-
- </div>
+          </p>
+          <p><%= review.text %></p>
+          <p class="subscript nmb">-<%= review.author_first %> <%= review.author_last.first(1) %>.</p>
+        </div>
   <% end %>
-  </section>
-<style>
-  .border-charcoal { border: 1px solid gray; border-radius: 20px; box-sizing: border-box; background-color: white;}
-  @media only screen and (max-width: 799px) {
-    .border-charcoal { width: calc(100% - 40px); margin: 0 auto }
-  }
-  .review-wrapper { min-width: auto !important; }
-  .review-wrapper { align-items: flex-start; }
+</section>
 
-  @media only screen and (min-width: 589px) {
-  .flex-override { display: flex !important; }
-  }
-  @media only screen and (max-width: 588px) {
-    .flex-override { display: block !important; }
-  }
+<style>
+  .background-white { background-color: white; }
+  .text-new-teal { color: #1F404A }
   .clickable { cursor: pointer; }
+  .review-slick { padding: 3vw; }
+  .review-slick-slide { 
+    margin: 1vw; 
+    border-radius: 20px;
+    padding: 1vw 2vw 2vw;
+    min-height: 20.33vw;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+<%#   .review-slick-slide.slick-active[data-slick-index="0"], .review-slick-slide.slick-active[data-slick-index="2"] {
+    margin-top: 2.3vw;
+  }
+  .review-slick-slide.slick-active[data-slick-index="1"] { height: 23vw !important; } %>
 </style>
 <script>
 
-  $('.slick-wrapper').slick({
+  $('.review-slick').slick({
   infinite: true,
-  speed: 300,
-  slidesToShow: 1,
-  adaptiveHeight: true
+  slidesToShow: 3,
+  sldiesToScroll: 3,
+  adaptiveHeight: true, 
 });
     
 </script>
