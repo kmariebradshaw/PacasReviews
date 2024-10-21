@@ -271,7 +271,8 @@ a {text-decoration: none;}
   .border-light-teal  {
     margin-bottom: 25px;
 }
-.mo { display: none !important; }
+  .mo { display: none !important; }
+
 .star-wrapper-new {
     font-size: 32px;
 }
@@ -298,7 +299,6 @@ a {text-decoration: none;}
   .one-third { min-width: 150px; }
 }
 @media only screen and (min-width: 589px) {
-  .mo { display: none; }
   .accent-padding { padding: 20px; }
   .star-wrapper { margin-left: 5px; }
   .jlogo { 
