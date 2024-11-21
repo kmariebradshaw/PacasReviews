@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1123.272" height="2462.555" viewBox="0 0 1123.272 2462.555">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_19281" data-name="Rectangle 19281" width="1024" height="391" transform="translate(0 3588)" fill="#abddef"/>
+    </clipPath>
+  </defs>
+  <g id="Squiggles-Mobile" transform="translate(-13967.801 -7870.692)">
+    <path id="Path_6808" data-name="Path 6808" d="M0,259.815s48.177,28.115,58.5-51.333S13.092,71.579,0,0" transform="translate(14961.258 9134.629) rotate(-2)" fill="none" stroke="#1f404a" stroke-linecap="round" stroke-width="10"/>
+    <path id="Path_6810" data-name="Path 6810" d="M0,82.219S15.849,21.581,74.154,20.611,166.907,61.56,232.967,68.1,304.642.441,279.23-11.533,236.22,10.854,252.583,25.94s52.5,4.534,70.1-7.319S373.405-9.724,418.608,8.582,490.282,69.14,490.282,69.14" transform="matrix(0.07, -0.998, 0.998, 0.07, 14959.429, 10322.598)" fill="none" stroke="#1f404a" stroke-width="10"/>
+    <path id="Path_6804" data-name="Path 6804" d="M0,87.814S71.468-11.195,146.964,56.155s127.5,58.63,154.718,20.8-34.2-58.774-40.081-21.632,78.419,52.84,113.571-5.164S442.364.4,442.364.4" transform="translate(14638.132 8491.031) rotate(-22)" fill="none" stroke="#1f404a" stroke-width="10"/>
+    <path id="Path_6805" data-name="Path 6805" d="M-36.98-69.1S19.942-53.887,32.145-96.864s-49.544-70.9-80.3-106.8S-79.878-287.04-29.237-341.439" transform="translate(14343.202 8504.176) rotate(-90)" fill="none" stroke="#1f404a" stroke-linecap="round" stroke-width="10"/>
+    <path id="Path_6806" data-name="Path 6806" d="M-16.022-173.785c-11.529-9.592-23.151-19.395-32.131-29.878-30.754-35.9-31.725-83.377,18.916-137.776" transform="translate(14343.202 8504.176) rotate(-90)" fill="none" stroke="#1f404a" stroke-linecap="round" stroke-width="10"/>
+    <path id="Path_6807" data-name="Path 6807" d="M989.826,571.794s20.5-78.421,95.9-79.676,119.954,52.958,205.387,61.419,86.121-70.478,56.218-80.864-43.313,24.355-21.931,37.052,59.593-6.7,82.109-21.858c22.767-15.329,65.228-34.98,123.687-11.3s92.694,78.317,92.694,78.317" transform="matrix(-0.035, 0.999, -0.999, -0.035, 14597.331, 8358.633)" fill="none" stroke="#1f404a" stroke-width="10"/>
+    <g id="Mask_Group_47526" data-name="Mask Group 47526" transform="translate(14010 4282.692)" clip-path="url(#clip-path)">
+      <path id="Path_6802" data-name="Path 6802" d="M8893.22-13464.406s-33.8,37.385-8.017,94.11,88.621,49.215,110.249,15.372-25.651-44.38-30.412-16.1,33.847,73.174,95.282,49.081,105.895-15.849,147.211,47.188" transform="translate(7186.77 18181.404) rotate(-60)" fill="none" stroke="#1f404a" stroke-width="10"/>
+      <path id="Path_6803" data-name="Path 6803" d="M0,226.61s76.329,12.692,81.213-61.2S25.092,71.639,13.781-12.883" transform="matrix(-0.602, 0.799, -0.799, -0.602, 1027.367, 3719.436)" fill="none" stroke="#1f404a" stroke-linecap="round" stroke-width="10"/>
+    </g>
+    <path id="Path_6809" data-name="Path 6809" d="M0,82.219S15.849,21.581,74.154,20.611,166.907,61.56,232.967,68.1,304.642.441,279.23-11.533,236.22,10.854,252.583,25.94s52.5,4.534,70.1-7.319" transform="matrix(0.07, -0.998, 0.998, 0.07, 14959.429, 10322.598)" fill="none" stroke="#1f404a" stroke-width="10"/>
+  </g>
+</svg>
