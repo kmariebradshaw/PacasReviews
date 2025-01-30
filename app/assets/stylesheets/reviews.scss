@@ -115,6 +115,29 @@ span.detail-accent::before {
     background-size: cover;
     background-repeat: no-repeat;
 }
+@media only screen and(min-width: 800px) { 
+    .background-blue { 
+      background-color: #ABDDEF; 
+       background-image: image-url('Reviews-Long-D.png');
+       background-size: contain;
+       background-repeat: repeat;
+       background-position: top center;
+
+    }
+    .main { max-width: 82vw !important; width: 82vw !important; padding: 2vw !important;}
+
+    }
+
+    @media only screen and(max-width: 799px) { 
+    .background-blue { 
+      background-color: #ABDDEF; 
+       background-image: image-url('Reviews-Long-M.png');
+       background-size: contain;
+       background-repeat: repeat;
+       background-position: top center;
+
+    }
+    }
 .new-btn {
     padding: 5px 20px;
     border-radius: 4px;
@@ -173,7 +196,7 @@ h3.detail-accent::after {
 .fdr { flex-direction: column; align-items: flex-start !important;}
 .ttu { text-transform: uppercase; }
 h1, h2 ,h3, h4{ 
-  font-family: "Avenir-Next-Condensed"; 
+  font-family: obviously-narrow; 
   color: #2d2b26;
   font-weight:  900;
   line-height: 1;
@@ -271,7 +294,8 @@ a {text-decoration: none;}
   .border-light-teal  {
     margin-bottom: 25px;
 }
-.mo { display: none !important; }
+  .mo { display: none !important; }
+
 .star-wrapper-new {
     font-size: 32px;
 }
@@ -298,7 +322,6 @@ a {text-decoration: none;}
   .one-third { min-width: 150px; }
 }
 @media only screen and (min-width: 589px) {
-  .mo { display: none; }
   .accent-padding { padding: 20px; }
   .star-wrapper { margin-left: 5px; }
   .jlogo { 

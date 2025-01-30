@@ -1,38 +1,126 @@
-<section class="double-accent-padding background-fleece tac">
-  <h1 class="nm ttu">Support for Soft</h1>
-  <div id="index-review-wrapper">  
-  <h3 class="tac star-wrapper-new text-yellow nm">★★★★★</h3>
-  <div class="flex-container-no jcc fw">
-      <h3 class="ttu nm"><%= @positive_review_count%> reviews</h3> 
-      <p class="" style="margin-left: 7px; margin-top: 12px;">(and counting)!</p>
-  </div>
-</div>
-   <a href="/reviews/new"><div class="new-btn background-charcoal ib accent-padding-so"><h4 class="ttu ib nm text-white">Write a Review</h4></div></a>
+<div class="background-blue">
+<section class="m8-all-review-hero tac">
+  <h2 class="nm text-new-teal"><%= @positive_review_count%> Reviews <br class="mo">(and counting)!</h2>
+          <%= image_tag("5Stars-Teal.svg", class: "m8-review-hero-stars") %>
+
+  <p class="text-new-teal p-hero nm">See what the fuzz <br class="mo">is all about</p>
+   <a href="/reviews/new"><div class="m8-btn background-new-teal ib"><h4 class="ttu ib nm text-blue">Write a Review</h4></div></a>
+             <%= image_tag("FluffAlpaca.png", class: "m8-fluff-alpaca") %>
+
 </section>
 
 <section class=" main">
-  <% @reviews.each_with_index do | review, index | %> 
-    <div class="accent-padding flex-container border-light-teal " style="">
-      <div class="one-third accent-padding">
-        <h3 class="ttu text-charchoal nm"><%= review.product.title %></h3>
-        <p class=" text-yellow" style="margin-top: 5px;">
-            <% review.rating.times do%>
-              ★
-            <% end %>
-        </p>
-         <p class="subscript nmb"><%= review.author_first %> <%= review.author_last.first(1) %>.<span class="desktop-time"><%= review.created_at.strftime('%m/%d/%Y') %></span><br>        <%= image_tag("verified.png", class: "vam verified") %><span class="vam" style="font-size: 10pt;font-weight: lighter;">Verified Buyer</span>
 
-      </p>
-      </div>
-      <div class="accent-padding two-thirds">
-        <p><%= review.text %></p>
-      </div>
+  <div class="background-white m8-all-review-wrapper">
+  <% @reviews.each_with_index do | review, index | %> 
+    <div class="m8-all-inner">
+        <h3 class="ttu text-new-teal nm"><%= review.product.title %></h3>
+        <%= image_tag("5Stars-Teal.svg", class: "m8-stars") %>
+        <p class="text-new-teal nm"><%= review.text %></p>
+        <div class="flex-container-no m8-review-footer">
+          <p class="item"><%= review.author_first %> <%= review.author_last.first(1) %>.</p>
+          <p class="item"><%= review.created_at.strftime('%m/%d/%Y') %></p>        
+          <div class="flex-container-no item">
+            <%= image_tag("verified.png", class: "vam verified") %>
+            <p class="nm" style="">Verified Buyer</p>
+          </div>
     </div>
     
-
+</div>
 
   <% end %>
     
     <%= will_paginate @reviews %>
+  </div>
   </section>
+</div>
+<style>
 
+
+    .m8-review-footer p { font-weight: 300; }
+    .m8-review-footer .item { margin: 2vw 2vw 0 0;}
+    .verified { margin-top: 4px; }
+    .m8-all-inner { border-bottom: 0.05vw #1F404A solid;}
+    .text-new-teal { color: #1F404A }
+    .m8-all-review-hero { padding: 5vw 5vw 0; }
+    .m8-all-review-wrapper h3 { font-weight: 700; }
+    .m8-all-review-wrapper { 
+      border-radius: 2vw; 
+      padding: 3vw; 
+      position: relative;
+      z-index: 2;
+    }
+    .m8-btn h4 { font-weight: 700; }
+    .text-blue { color: #ABDDEF; }
+
+
+
+    @media only screen and (min-width: 800px) {
+      .p-hero { font-size: 1.8vw; }
+      .m8-review-hero-stars {
+        width: 19vw;
+        margin: 2.5vw 0 1vw;
+    }
+      .m8-stars { 
+        width: 11vw; 
+        margin: 1.5vw 0 .75vw;
+      }
+      .m8-btn {
+        border-radius: 5vw;
+        padding: 0.5vw 4vw 1vw;
+        background-color: #1F404A;
+        margin-top: 1.5vw;
+      }
+      .m8-fluff-alpaca  {
+        position: absolute;
+        width: 20vw;
+        right: 12vw;
+        margin-top: -14vw;
+    }
+      .m8-all-inner {   
+        margin: 2vw;
+        padding-bottom: 2vw;
+      }
+      .m8-all-review-wrapper p { font-size: 1.5vw; }
+      h2 { font-size: 4vw !important; }
+    }
+    @media only screen and (max-width: 799px) {
+      .p-hero { font-size: 3vw; }
+      .m8-all-review-hero h2 { font-size: 10vw; }
+      .m8-review-hero-stars {
+        width: 37vw;
+        margin: 3.5vw 0 1vw;
+      }
+      .main {
+        padding: 2vw 6vw !important;
+    }
+
+      .m8-btn h4 { font-size: 3.5vw; }
+      .m8-all-inner {   
+        margin: 4vw;
+        padding-bottom: 4vw;
+      }
+      .m8-all-review-wrapper h3 { font-size: 4.5vw; }
+      .m8-stars {
+        width: 24vw;
+        margin: 2.5vw 0 .75vw;
+      }
+      .m8-all-review-wrapper p { font-size: 2.8vw; }
+
+      .m8-btn {
+        border-radius: 5vw;
+        padding: 0.5vw 6vw 2vw;
+        background-color: #1F404A;
+        margin-top: 7vw;
+      }
+      .m8-fluff-alpaca {
+        position: absolute;
+        width: 30vw;
+        right: 4vw;
+        margin-top: -16vw;
+        z-index: 2;
+      }
+    }
+    
+
+</style>
