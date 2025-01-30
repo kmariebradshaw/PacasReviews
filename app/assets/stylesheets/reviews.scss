@@ -115,6 +115,29 @@ span.detail-accent::before {
     background-size: cover;
     background-repeat: no-repeat;
 }
+@media only screen and(min-width: 800px) { 
+    .background-blue { 
+      background-color: #ABDDEF; 
+       background-image: image-url('Reviews-Long-D.png');
+       background-size: contain;
+       background-repeat: repeat;
+       background-position: top center;
+
+    }
+    .main { max-width: 82vw !important; width: 82vw !important; padding: 2vw !important;}
+
+    }
+
+    @media only screen and(max-width: 799px) { 
+    .background-blue { 
+      background-color: #ABDDEF; 
+       background-image: image-url('Reviews-Long-M.png');
+       background-size: contain;
+       background-repeat: repeat;
+       background-position: top center;
+
+    }
+    }
 .new-btn {
     padding: 5px 20px;
     border-radius: 4px;
