@@ -10,6 +10,7 @@
 </section>
 
 <section class=" main">
+
   <div class="background-white m8-all-review-wrapper">
   <% @reviews.each_with_index do | review, index | %> 
     <div class="m8-all-inner">
@@ -34,6 +35,51 @@
   </section>
 </div>
 <style>
+  .mobile-squiggle { 
+    position: absolute;     
+  }
+  .mobile-squiggle-1 {
+    top: -12vw;
+    width: 35vw;
+    left: -3vw;
+  }
+  .mobile-squiggle-2  {
+    top: -2vw;
+    width: 25vw;
+    right: -2vw;
+}
+  .mobile-squiggle-3 {
+    top: 57.5vw;
+    width: 28vw;
+    left: -1vw;
+    z-index: 3;
+}
+  .mobile-squiggle-4 { top: 50vw; display: none;}
+  .mobile-squiggle-5 {
+    top: 112vw;
+    right: -1vw;
+    width: 9vw;
+}
+  .mobile-squiggle-6  {
+    top: 148vw;
+        z-index: 3;
+    width: 14vw;
+    left: -3vw;
+}
+  .mobile-squiggle-7 { top: 50vw; display: none;}
+  .mobile-squiggle-8 {
+    top: 250vw;
+    z-index: 3;
+    right: -5vw;
+    width: 15vw;
+}
+  .mobile-squiggle-9 {
+    top: 44vw;
+    width: 47vw;
+    right: -6vw;
+    z-index: 1;
+}
+
     .m8-review-footer p { font-weight: 300; }
     .m8-review-footer .item { margin: 2vw 2vw 0 0;}
     .verified { margin-top: 4px; }
@@ -44,6 +90,8 @@
     .m8-all-review-wrapper { 
       border-radius: 2vw; 
       padding: 3vw; 
+      position: relative;
+      z-index: 2;
     }
     .m8-btn h4 { font-weight: 700; }
     .text-blue { color: #ABDDEF; }
@@ -85,6 +133,7 @@
         width: 37vw;
         margin: 3.5vw 0 1vw;
       }
+      .m8-btn h4 { font-size: 3.5vw; }
       .m8-all-inner {   
         margin: 4vw;
         padding-bottom: 4vw;
@@ -107,6 +156,7 @@
         width: 30vw;
         right: 4vw;
         margin-top: -16vw;
+        z-index: 2;
       }
     }
     
